@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ultimate Class 12th Board Exam Revision Portal. Developed & Created by Baddal Meher">
+    <title>Board Prep Pro | By Baddal Meher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-graduation-cap"></i> BoardPrep Pro</div>
+        <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <header class="hero animate-up">
+        <h1>CBSE Class 12th Ultimate Prep 🚀</h1>
+        <p>Your one-stop destination for last-minute revision. Access Top Books, 10-Year Repeated Questions, and 'Weak Student' simplified logic.</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <a href="math.html" class="card animate-up" style="animation-delay: 0.1s;">
+                <i class="fas fa-square-root-variable"></i>
+                <h3>Mathematics</h3>
+                <p>Formulas, Calculus Shortcuts & Solved Papers</p>
+            </a>
+
+            <a href="bio.html" class="card animate-up" style="animation-delay: 0.2s;">
+                <i class="fas fa-dna"></i>
+                <h3>Biology</h3>
+                <p>Important Diagrams, Genetics & Labelled Q/A</p>
+            </a>
+
+            <a href="eng.html" class="card animate-up" style="animation-delay: 0.3s;">
+                <i class="fas fa-pen-nib"></i>
+                <h3>English Core</h3>
+                <p>Writing Formats, Grammar Tricks & Literature</p>
+            </a>
+
+            <a href="odia.html" class="card animate-up" style="animation-delay: 0.4s;">
+                <i class="fas fa-om"></i>
+                <h3>Odia</h3>
+                <p>Prose, Poetry Summaries & Expected Long Answers</p>
+            </a>
+            
+            <a href="books.html" class="card animate-up" style="animation-delay: 0.5s;">
+                <i class="fas fa-book-atlas"></i>
+                <h3>Important Books</h3>
+                <p>Reference Materials & Sample Paper Links</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Designed for excellence in Board Exams</p>
+        <p class="branding">Developed & Created by Baddal Meher</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('themeToggle');
+        
+        // Check local storage for theme
+        if(localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if(document.body.classList.contains('dark-mode')) {
+                themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBSE Class 12 Odia Premium Board Prep 2026</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        /* THEME: Blue, White, Soft Green */
+        :root {
+            --primary-blue: #1e3a8a; 
+            --secondary-blue: #3b82f6; 
+            --primary-light: #eff6ff;
+            --soft-green: #d1fae5; 
+            --dark-green: #059669;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            --radius: 16px;
+        }
+
+        .dark-mode {
+            --primary-blue: #60a5fa;
+            --secondary-blue: #3b82f6;
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --soft-green: rgba(5, 150, 105, 0.15);
+            --dark-green: #34d399;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --border: #334155;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        /* 🔥 PERFECT ODIA FONT SETTINGS 🔥 */
+        .odia-text { 
+            font-family: 'Noto Sans Oriya', sans-serif; 
+            font-size: 1.15rem; 
+            line-height: 2.1; 
+            letter-spacing: 0.4px; 
+            font-weight: 400; 
+        }
+        .odia-title { font-weight: 700; color: var(--primary-blue); font-size: 1.45rem; }
+
+        /* HEADER */
+        header { 
+            background: var(--card-bg); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); display: flex; align-items: center; gap: 10px;}
+        .theme-btn { font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--text-main); transition: 0.3s;}
+
+                /* 🚀 DASHBOARD NAVIGATION CARDS 🚀 */
+        .dashboard-container {
+            max-width: 1100px;
+            margin: 15px auto;
+            padding: 0 15px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 cards ek line me */
+            gap: 12px;
+        }
+        @media (min-width: 768px) {
+            .dashboard-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        .nav-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px 10px; /* Mobile par padding kam ki hai */
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .nav-card i { font-size: 2rem; color: var(--text-muted); transition: 0.3s; } /* Icon chota kiya */
+        .nav-card span { font-weight: 600; color: var(--text-main); font-size: 0.9rem; line-height: 1.2; }
+        
+        .nav-card:active { transform: scale(0.96); } /* Click karne par chota feel hoga */
+        .nav-card.active { 
+            border: 2px solid var(--primary-blue); 
+            background: var(--primary-light); 
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        }
+        .nav-card.active i { color: var(--primary-blue); }
+        .nav-card.active span { color: var(--primary-blue); }
+
+        /* SECTION ISOLATION */
+        .content-section { display: none; animation: fadeIn 0.4s; }
+        .content-section.active { display: block; }
+
+        /* CARDS */
+        .section-card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow); 
+            margin-bottom: 40px; 
+            border: 1px solid var(--border); 
+        }
+        .section-title { 
+            color: var(--primary-blue); 
+            margin-bottom: 25px; 
+            font-size: 1.6rem; 
+            border-bottom: 3px solid var(--soft-green); 
+            padding-bottom: 10px; 
+            display: flex; align-items: center; gap: 12px;
+        }
+
+                /* 🚀 TABLES - FIXED FOR MOBILE 🚀 */
+        .table-responsive { 
+            overflow-x: auto; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            -webkit-overflow-scrolling: touch; /* iPhone me smooth scroll ke liye */
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 700px; /* Ye table ko chepta hone se bachayega, scroll aayega */
+        }
+        th, td { 
+            padding: 16px 15px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--border); 
+            font-size: 1rem;
+        }
+        th { 
+            background: var(--primary-blue); 
+            color: white; 
+            font-weight: 600; 
+            white-space: nowrap; /* Header text tootega nahi */
+        }
+        td.odia-text {
+            line-height: 1.6; /* Table me text zyada lamba na khiche */
+        }
+        tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .dark-mode tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+        
+        .badge { padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; color: white; font-weight: 600; }
+        .bg-high { background: #ef4444; } .bg-med { background: #f59e0b; } .bg-low { background: #3b82f6; }
+
+        /* LANGUAGE TABS */
+        .lang-tabs { display: flex; background: var(--bg-color); padding: 5px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border); }
+        .lang-btn { flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-main); border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .lang-btn.active { background: var(--primary-blue); color: white; }
+        .lang-content { display: none; padding: 10px 5px; animation: fadeIn 0.3s; }
+        .lang-content.active { display: block; }
+                        /* 🚀 SMART FILTERS & TABS - SLEEK UI 🚀 */
+        .mark-filters, .lang-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto; /* Left-Right scroll */
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+        .mark-filters::-webkit-scrollbar, .lang-tabs::-webkit-scrollbar { 
+            display: none; /* Chrome/Safari me ugly scrollbar hide karna */
+        }
+        
+        .filter-btn, .lang-btn {
+            flex-shrink: 0; /* Button chote/chepte nahi honge */
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 18px;
+            border-radius: 30px; /* Ekdum round pill shape */
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .lang-btn:hover { background: var(--primary-light); color: var(--primary-blue); }
+        
+        .filter-btn.active, .lang-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+        }
+        
+        /* Language content container spacing */
+        .lang-content { display: none; padding: 15px 5px 5px 5px; animation: fadeIn 0.3s; }
+        .lang-content.active { display: block; }
+
+
+        /* CONTENT FORMATTING */
+        p { margin-bottom: 15px; text-align: justify; }
+        ul { padding-left: 25px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .exam-highlight { background: var(--soft-green); border-left: 5px solid var(--dark-green); padding: 15px; border-radius: 0 8px 8px 0; margin-top: 20px; color: var(--text-main);}
+
+        footer { text-align: center; padding: 30px; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 50px; background: var(--card-bg); }
+        .branding { font-weight: 700; color: var(--primary-blue); font-size: 1.2rem; margin-top: 8px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-graduation-cap"></i> BoardPrep 2026</div>
+        <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-grid">
+            <div class="nav-card active" onclick="showSection('phase1', this)">
+                <i class="fas fa-chart-pie"></i>
+                <span>Syllabus & Trends</span>
+            </div>
+            <div class="nav-card" onclick="showSection('phase2', this)">
+                <i class="fas fa-book-open"></i>
+                <span>Deep Explanations</span>
+            </div>
+            <div class="nav-card" onclick="showSection('phase3', this)">
+                <i class="fas fa-spell-check"></i>
+                <span>Grammar Master</span>
+            </div>
+            <div class="nav-card" onclick="showSection('phase4', this)">
+                <i class="fas fa-fire"></i>
+                <span>Top 100 QnA</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="phase1" class="content-section active">
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-chart-pie"></i> Complete Syllabus & Trend Analysis</h2>
+                <p>Based on CBSE Class 12 Odia Question Papers (2016-2025). Plan your 80 marks perfectly.</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Chapter Name (Odia / Eng)</th>
+                                <th>Section</th>
+                                <th>Avg. Marks</th>
+                                <th>2026 Probability</th>
+                                <th>Why Important?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="odia-text">ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Swadhina Deshara Siksha)</td>
+                                <td>Prose</td>
+                                <td>8-10</td>
+                                <td><span class="badge bg-high">High Chance</span></td>
+                                <td>Tests essay writing and critical thinking about education.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Pushpapura re Barshabarana)</td>
+                                <td>Prose</td>
+                                <td>8</td>
+                                <td><span class="badge bg-high">High Chance</span></td>
+                                <td>Tests descriptive Odia vocabulary regarding nature.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ଇତିହାସ (Itihasa)</td>
+                                <td>Prose</td>
+                                <td>5</td>
+                                <td><span class="badge bg-med">Medium Chance</span></td>
+                                <td>Often asked as short contextual questions.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ତପସ୍ୱିନୀର ପତ୍ର (Tapaswinira Patra)</td>
+                                <td>Poetry</td>
+                                <td>10</td>
+                                <td><span class="badge bg-high">High Chance</span></td>
+                                <td>Core emotional poem; favorite of CBSE examiners.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ବଡ଼ପଣ (Bada Pana)</td>
+                                <td>Poetry</td>
+                                <td>6-8</td>
+                                <td><span class="badge bg-high">High Chance</span></td>
+                                <td>Tests the understanding of true human values.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ସଭ୍ୟ ଜମିଦାର (Sabhya Jamindar)</td>
+                                <td>Story</td>
+                                <td>10</td>
+                                <td><span class="badge bg-high">High Chance</span></td>
+                                <td>Story sections guarantee one 5-mark character sketch.</td>
+                            </tr>
+                            <tr>
+                                <td class="odia-text">ବ୍ୟାକରଣ (ସନ୍ଧି, ସମାସ, ପତ୍ର, ରଚନା)</td>
+                                <td>Grammar & Writing</td>
+                                <td>25</td>
+                                <td><span class="badge bg-high">Guaranteed</span></td>
+                                <td>The most scoring section to secure 80+.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="phase2" class="content-section">
+            
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">ପ୍ରବନ୍ଧ: ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Swadhina Deshara Siksha Chinta)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Author: Golak Bihari Dhal</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch1-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch1-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch1-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch1-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>
+                        ଏହି ପ୍ରବନ୍ଧରେ ଲେଖକ ଆମ ସ୍ୱାଧୀନ ଭାରତର ଦୁର୍ବଳ ଶିକ୍ଷା ବ୍ୟବସ୍ଥା ଉପରେ ଦୁଃଖ ପ୍ରକାଶ କରିଛନ୍ତି। ଆମେ ଇଂରେଜ ମାନଙ୍କୁ ଦେଶରୁ ତଡି ଦେଲୁ ସତ, କିନ୍ତୁ ସେମାନଙ୍କର ତ୍ରୁଟିପୂର୍ଣ୍ଣ ଶିକ୍ଷା ନୀତିକୁ ଆଜି ବି ଧରି ବସିଛୁ। ଆଜିକାଲି ପିଲାମାନେ କେବଳ ପରୀକ୍ଷାରେ ପାସ୍ କରିବା ପାଇଁ ବହି ଘୋଷୁଛନ୍ତି କିମ୍ବା କପି କରୁଛନ୍ତି। ଶିକ୍ଷା କେବଳ ଚାକିରି ପାଇବା ପାଇଁ ଏକ ମାଧ୍ୟମ ହୋଇଯାଇଛି। ପ୍ରକୃତ ଜ୍ଞାନ ଏବଂ ଚରିତ୍ର ଗଠନର ଘୋର ଅଭାବ ଦେଖାଦେଇଛି।
+                    </p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ଶିକ୍ଷା କମିଶନ୍ ଙ୍କ ବିଫଳତା:</strong> ସରକାର ଶିକ୍ଷାର ଉନ୍ନତି ପାଇଁ ଅନେକ କମିଶନ୍ ବସାଉଛନ୍ତି, କିନ୍ତୁ ସେମାନଙ୍କର ରିପୋର୍ଟ କେବଳ ଫାଇଲ୍ ଭିତରେ ବନ୍ଦ ହୋଇ ରହିଯାଉଛି। ବାସ୍ତବ କ୍ଷେତ୍ରରେ କୌଣସି ପରିବର୍ତ୍ତନ ଆସୁନାହିଁ।</li>
+                        <li><strong>ପରୀକ୍ଷା ପଦ୍ଧତିର ତ୍ରୁଟି:</strong> ଆଜିର ପରୀକ୍ଷା ପଦ୍ଧତି ଛାତ୍ରର ପ୍ରକୃତ ଜ୍ଞାନ ମାପି ପାରୁନାହିଁ। ପ୍ରଶ୍ନପତ୍ର ଲିକ୍ ହେବା ଏବଂ ପରୀକ୍ଷାରେ କପି (Malpractice) କରିବା ସାଧାରଣ କଥା ହୋଇଗଲାଣି।</li>
+                        <li><strong>ନୋଟ୍ ବହିର ଅତ୍ୟଧିକ ବ୍ୟବହାର:</strong> ପିଲାମାନେ ମୂଳ ପାଠ୍ୟପୁସ୍ତକ ପଢିବା ଛାଡି ବଜାରରେ ମିଳୁଥିବା 'ନୋଟ୍ ବହି' ଉପରେ ନିର୍ଭର କରୁଛନ୍ତି। ଏହାଦ୍ୱାରା ସେମାନଙ୍କର ମୌଳିକ ଚିନ୍ତାଶକ୍ତି ଲୋପ ପାଉଛି।</li>
+                        <li><strong>ବିଦେଶୀ ମୋହ (Brain Drain):</strong> ଆମ ଦେଶରେ ଉଚ୍ଚଶିକ୍ଷା ଲାଭ କରୁଥିବା ବ୍ୟକ୍ତିମାନେ ଆମେରିକା ପଳାୟନ କରୁଛନ୍ତି। କାରଣ ଆମ ଦେଶରେ ପ୍ରକୃତ ଗୁଣୀ ଲୋକଙ୍କର ଆଦର ନାହିଁ।</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-star"></i> ୫ ମାର୍କ ପ୍ରଶ୍ନ ପାଇଁ ଉପସଂହାର:</strong> ଯେପର୍ଯ୍ୟନ୍ତ ଶିକ୍ଷା ସ୍ତରରେ ମାତୃଭାଷାର (ଓଡ଼ିଆ) ବ୍ୟବହାରକୁ ଗୁରୁତ୍ୱ ନଦିଆଯାଇଛି ଏବଂ ଶିକ୍ଷା କେବଳ 'ଚାକିରି' ପରିବର୍ତ୍ତେ 'ଚରିତ୍ର ଗଠନ' ଉପରେ ଆଧାରିତ ନହୋଇଛି, ସେପର୍ଯ୍ୟନ୍ତ ଦେଶର ବାସ୍ତବ ପ୍ରଗତି ଅସମ୍ଭବ।
+                    </div>
+                </div>
+                
+                <div id="ch1-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Failure of Education Commissions:</strong> Government forms commissions to reform education, but their reports gather dust in files.</li>
+                        <li><strong>Corrupt Examination System:</strong> Exams fail to evaluate intellect. Paper leaks and mass cheating mean undeserving students pass while genuine talent suffers.</li>
+                        <li><strong>The Menace of Guide Books:</strong> Students abandon original textbooks for cheap 'Note Books', destroying critical thinking.</li>
+                        <li><strong>Brain Drain:</strong> Educated individuals migrate abroad because talent is not respected in their motherland.</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-bullseye"></i> 5-Mark Strategy:</strong> Always conclude that true national development needs education in the mother tongue focusing on character building.
+                    </div>
+                </div>
+
+                <div id="ch1-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Commissions ka Dhokha:</strong> Sarkar commission banati hai, par report files mein band reh jati hain. School me zero change hai.</li>
+                        <li><strong>Cheating aur Leaks:</strong> Exam system sirf ratta check karta hai. Paper leak aur cheating common hai.</li>
+                        <li><strong>Guide Books:</strong> Bacche main books nahi padhte. Sasti guide books ne dimaag band kar diya hai.</li>
+                        <li><strong>Brain Drain:</strong> Smart log America bhag jate hain kyunki India mein unke talent ki izzat nahi hai.</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-lightbulb"></i> 5-Mark Trick:</strong> End me likhna: "Jab tak padhai Mother Tongue me nahi hogi aur Character building par focus nahi hoga, desh aage nahi badhega."
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">ପ୍ରବନ୍ଧ: ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Pushpapura re Barshabarana)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Author: Krushna Chandra Panigrahi</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch2-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch2-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch2-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch2-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>
+                        ଲେଖକ ପାଟଣା (ପୁରୁଣା ନାମ ପୁଷ୍ପପୁର) ସହରରେ ବର୍ଷାଋତୁର ପ୍ରଥମ ମେଘକୁ ଦେଖିଛନ୍ତି। ମେଘକୁ ଦେଖି ତାଙ୍କ ମନରେ ନିଜ ଜନ୍ମଭୂମି ଓଡ଼ିଶା (ଉତ୍କଳ) ର କଥା ମନେ ପଡିଯାଇଛି। କାଳିଦାସଙ୍କ 'ମେଘଦୂତମ୍' ଭଳି ସେ ମେଘକୁ ଏକ ଦୂତ (Messenger) ସାଜି ଓଡ଼ିଶାକୁ ଯିବାକୁ ଅନୁରୋଧ କରିଛନ୍ତି। ସେଠାରେ ବର୍ଷା ହେଲେ ପ୍ରକୃତି, ନଦୀ ଏବଂ ଚାଷୀକୂଳ କିପରି ଉଲ୍ଲସିତ ହୁଅନ୍ତି, ତାହା ବର୍ଣ୍ଣିତ।
+                    </p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ମେଘର ଆଗମନ:</strong> ପ୍ରଚଣ୍ଡ ଗ୍ରୀଷ୍ମ ପରେ ଆକାଶରେ କଳାହାଣ୍ଡିଆ ମେଘ (ବାରିଦ) ଦେଖାଦେଇଛି। ଏହା ଶୁଖିଲା ଧରିତ୍ରୀକୁ ଶାନ୍ତି ଏବଂ ଶୀତଳତା ପ୍ରଦାନ କରିବ।</li>
+                        <li><strong>ଉତ୍କଳର ପ୍ରାକୃତିକ ସୌନ୍ଦର୍ଯ୍ୟ:</strong> ଲେଖକ ମେଘକୁ କହିଛନ୍ତି ଯେ ସେ ଓଡ଼ିଶାର ଶାଳବନାନୀ, ମହାନଦୀ, ଏବଂ ଚିଲିକା ଉପରେ ଯାଇ ପ୍ରବଳ ବର୍ଷା କରୁ। ବର୍ଷା ପାଇଲେ ଓଡ଼ିଶାର ପ୍ରକୃତି ନୂଆ ରୂପ ପାଏ।</li>
+                        <li><strong>କୃଷକର ଉଲ୍ଲାସ:</strong> ଓଡ଼ିଶା ଏକ କୃଷିପ୍ରଧାନ ରାଜ୍ୟ। ମେଘକୁ ଦେଖିଲେ ହଳିଆ (ଚାଷୀ) ଆନନ୍ଦରେ ନିଜ କ୍ଷେତକୁ ଧାଇଁଯାଏ।</li>
+                        <li><strong>ଐତିହାସିକ ସ୍ମୃତି:</strong> ଲେଖକଙ୍କୁ ମହାନ୍ କଳିଙ୍ଗ ଯୁଦ୍ଧ ଏବଂ ସମ୍ରାଟ ଅଶୋକଙ୍କ ସମୟର ଇତିହାସ ସ୍ମରଣ ହୋଇଛି। କୋଣାର୍କ, ଖଣ୍ଡଗିରିର ଗୌରବ ମଧ୍ୟ ବର୍ଣ୍ଣିତ।</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-star"></i> ୫ ମାର୍କ ପ୍ରଶ୍ନ ପାଇଁ ଟିପ୍ସ:</strong> 'ବାରିଦକୁ ଦୂତ କାହିଁକି କୁହାଯାଇଛି?' ପ୍ରଶ୍ନ ଆସିଲେ, ଉତ୍ତରରେ "ମହାକବି କାଳିଦାସଙ୍କ 'ମେଘଦୂତମ୍'" ବିଷୟରେ ନିଶ୍ଚୟ ଲେଖିବେ।
+                    </div>
+                </div>
+
+                <div id="ch2-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Nature's Rejuvenation:</strong> The rain relieves the earth from the harsh summer. The author visualizes how beautiful Odisha's Sal forests, Mahanadi river, and Chilika lake look during rain.</li>
+                        <li><strong>The Farmer's Joy:</strong> Odisha thrives on agriculture. Rain clouds bring immense joy to the farmers who rush to their fields.</li>
+                        <li><strong>Historical Glory:</strong> Standing in Pushpapura (Patna), the author recalls the Kalinga War by Emperor Ashoka, and historic monuments like Konark and Khandagiri.</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-bullseye"></i> Exam Tip:</strong> Relate the cloud serving as a 'messenger' directly to the classical Sanskrit poem 'Meghadutam' by Kalidasa to score maximum marks.
+                    </div>
+                </div>
+
+                <div id="ch2-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Prakriti (Nature):</strong> Baarish hone se Odisha ki nadiyaan aur Chilika lake khushi se jhoom uthti hain.</li>
+                        <li><strong>Kisaan ki Khushi:</strong> Baadal dekhte hi kisaan (haliya) khush hokar khet mein bhagta hai.</li>
+                        <li><strong>Itihaas (History):</strong> Writer ko Kalinga War aur Ashoka ki yaad aati hai. Konark aur Khandagiri ki khoobsurti baarish mein badh jati hai.</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-lightbulb"></i> 5-Mark Trick:</strong> Answer me "Kalidasa ke Meghadutam" ka reference zarur dena. Writer baadal ko apna messenger banata hai.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">କବିତା: ତପସ୍ୱିନୀର ପତ୍ର (Tapaswinira Patra)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Poet: Swabhaba Kabi Gangadhar Meher</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch3-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch3-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch3-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch3-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>
+                        ମାତା ସୀତା ବିନା ଦୋଷରେ ଅଯୋଧ୍ୟାରୁ ନିର୍ବାସିତ ହୋଇ ବାଲ୍ମୀକିଙ୍କ ଆଶ୍ରମରେ ଅଛନ୍ତି। ସେ ଶୁଣିଲେ ଯେ ପ୍ରଭୁ ରାମଚନ୍ଦ୍ର ଏକ ମହାନ୍ 'ଅଶ୍ୱମେଧ ଯଜ୍ଞ' କରୁଛନ୍ତି। ହିନ୍ଦୁ ନିୟମ ଅନୁସାରେ ପତ୍ନୀ ବିନା ଯଜ୍ଞ ହୋଇପାରିବ ନାହିଁ। ତେଣୁ ସୀତା ରାମଙ୍କୁ ପତ୍ର ଲେଖି ପଚାରିଛନ୍ତି ଯେ, ସେ କ'ଣ ନୂଆ ବିବାହ କଲେଣି? କିମ୍ବା ତାଙ୍କର ସୁନାର ମୂର୍ତ୍ତି ଗଢି ଯଜ୍ଞ କରୁଛନ୍ତି? ସୀତାଙ୍କ ମନରେ କୌଣସି ରାଗ ନାହିଁ, ସେ କେବଳ ରାମଙ୍କର ମଙ୍ଗଳ ଚାହାଁନ୍ତି।
+                    </p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ଶ୍ରୀରାମଙ୍କ ଗୁଣଗାନ:</strong> ସୀତା ପତ୍ରର ଆରମ୍ଭରେ ରାମଙ୍କୁ 'ଆର୍ଯ୍ୟପୁତ୍ର' ଓ 'ମହାବାହୁ' ବୋଲି ସମ୍ବୋଧନ କରିଛନ୍ତି। ସେ ତାଙ୍କର ରାଜଧର୍ମର ପ୍ରଶଂସା କରିଛନ୍ତି।</li>
+                        <li><strong>ଯଜ୍ଞର ଆୟୋଜନ ଓ ସନ୍ଦେହ:</strong> ସୀତା ଅତି ନିଷ୍ପାପ ଭାବରେ ପଚାରିଛନ୍ତି ଯେ, କେଉଁ ମନ୍ତ୍ର ବଳରେ ନୂଆ ପତ୍ନୀ (ଯଦି ସେ ବିବାହ କରିଥାନ୍ତି) ରାମଙ୍କ ମନକୁ କିଣି ନେଇଛନ୍ତି? ତାଙ୍କୁ ମଧ୍ୟ ସେହି ମନ୍ତ୍ର ଶିଖାଇଦେବାକୁ ଅନୁରୋଧ କରିଛନ୍ତି।</li>
+                        <li><strong>ଲବ-କୁଶଙ୍କ ବୀରତ୍ୱ:</strong> ଆଶ୍ରମରେ ଯମଜ ପୁତ୍ର ଲବ ଏବଂ କୁଶ ବୀଣା ଧରି ରାମାୟଣ ଗାନ କରୁଛନ୍ତି, ଯାହା ସୀତାଙ୍କ ହୃଦୟକୁ ଭାବପ୍ରବଣ କରୁଛି।</li>
+                        <li><strong>ଆଦର୍ଶ ନାରୀତ୍ୱ:</strong> ଏତେ କଷ୍ଟ ସହି ମଧ୍ୟ ସୀତା ନିଜର ଦୁଃଖ ଜଣାଇନାହାନ୍ତି, କାରଣ ସେ ଚାହୁଁନଥିଲେ ରାମଙ୍କ ଯଜ୍ଞରେ କୌଣସି ବାଧା ଆସୁ।</li>
+                    </ul>
+                </div>
+
+                <div id="ch3-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Respect for Rama:</strong> Sita starts the letter by respectfully calling him 'Aryaputra' and praising his qualities as a king.</li>
+                        <li><strong>The Yajna Question:</strong> Since a Hindu ritual requires a wife, Sita asks how Rama is performing the Ashwamedha Yajna. Did he marry a new queen, or make a golden statue of Sita?</li>
+                        <li><strong>Lava and Kusha:</strong> She mentions how their twin sons sing the Ramayana beautifully.</li>
+                        <li><strong>Ideal Womanhood:</strong> Hiding her own tears so Rama's holy Yajna isn't disturbed showcases her pure devotion (Pativrata).</li>
+                    </ul>
+                </div>
+
+                <div id="ch3-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>No Anger, Only Love:</strong> Bina galti nikaale jane par bhi Sita ji Ram ji ko gaali nahi deti. Unhe 'Aryaputra' bulati hain.</li>
+                        <li><strong>Ashwamedha Yagya:</strong> Wo puchti hain ki bina patni ke aap Yagya kaise kar rahe hain? Kya doosri shadi ki hai ya meri sone (gold) ki murti banwayi hai?</li>
+                        <li><strong>Mahan Character:</strong> Sita ji apna dukh nahi batati kyunki wo nahi chahti thi ki Ram ji dukhi hon. Ye unka mahan character dikhata hai.</li>
+                    </ul>
+                </div>
+            </div>
+                        <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">ପ୍ରବନ୍ଧ: ଇତିହାସ (Itihasa)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Author: Biswanath Kar</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch4-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch4-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch4-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch4-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>ଏହି ପ୍ରବନ୍ଧରେ ଲେଖକ ବୁଝାଇଛନ୍ତି ଯେ ଇତିହାସ କେବଳ ଅତୀତର କିଛି ମୃତ ଘଟଣା ବା ରାଜାମହାରାଜାଙ୍କ ଯୁଦ୍ଧର କାହାଣୀ ନୁହେଁ। ଇତିହାସ ହେଉଛି ମାନବ ସଭ୍ୟତାର ଏକ ଜୀବନ୍ତ ଦର୍ପଣ। ଅତୀତର ଘଟଣା ଉପରେ ହିଁ ବର୍ତ୍ତମାନ ଛିଡା ହୋଇଛି ଏବଂ ଭବିଷ୍ୟତ ଗଢା ହେବ।</p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ଅତୀତ, ବର୍ତ୍ତମାନ ଓ ଭବିଷ୍ୟତ:</strong> ଅତୀତକୁ ଛାଡି ବର୍ତ୍ତମାନର କୌଣସି ମୂଲ୍ୟ ନାହିଁ। ଯେଉଁ ଜାତି ନିଜର ଇତିହାସ ଭୁଲିଯାଏ, ସେ କେବେବି ଉନ୍ନତି କରିପାରେ ନାହିଁ।</li>
+                        <li><strong>ଧାରାବାହିକ ସ୍ରୋତ:</strong> ଇତିହାସ ଏକ ନଦୀ ପରି। ଏହା କେବେ ଅଟକି ଯାଏନାହିଁ, ଗୋଟିଏ ଯୁଗରୁ ଆଉ ଗୋଟିଏ ଯୁଗକୁ କ୍ରମାଗତ ଭାବେ ବହିଚାଲେ।</li>
+                        <li><strong>ସତ୍ୟର ସନ୍ଧାନ:</strong> ସତ୍ୟ ହେଉଛି ଅନନ୍ତ। କୌଣସି ଗୋଟିଏ ଯୁଗରେ ସମ୍ପୂର୍ଣ୍ଣ ସତ୍ୟ ଜାଣିବା ଅସମ୍ଭବ। ଇତିହାସ ଅଧ୍ୟୟନ ଦ୍ୱାରା ହିଁ ମଣିଷ ଧୀରେ ଧୀରେ ସତ୍ୟ ଆଡକୁ ଆଗେଇଥାଏ।</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-star"></i> ବୋର୍ଡ ଟିପ୍ସ:</strong> ଇତିହାସକୁ ଲେଖକ 'ଜୀବନ୍ତ ଦର୍ପଣ' କହିଛନ୍ତି କାରଣ ଏହା ଦେଖି ମଣିଷ ନିଜର ଭୁଲ୍ ସୁଧାରିଥାଏ।
+                    </div>
+                </div>
+                
+                <div id="ch4-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Not just Kings & Wars:</strong> History is not merely a record of kings and their battles; it is the continuous story of human civilization and common people.</li>
+                        <li><strong>The Foundation of Future:</strong> The present is entirely built upon the sacrifices of the past. A nation that ignores its history is doomed to fail.</li>
+                        <li><strong>Continuous Stream:</strong> Like a flowing river, history never stops. It continuously shapes the present and carves the path for the future.</li>
+                    </ul>
+                </div>
+
+                <div id="ch4-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>History boring nahi hai:</strong> Writer kehta hai history sirf rajaon ki ladai nahi hai. Ye insaan ka 'Aaina' (Mirror) hai.</li>
+                        <li><strong>Past aur Future:</strong> Jo desh apni history bhool jata hai, wo aage nahi badh sakta. Past ke base par hi hamara future banta hai.</li>
+                        <li><strong>Lagatar nadiya:</strong> History ek continuously behne wali nadi jaisi hai jo kabhi nahi rukti.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">କବିତା: ବଡ଼ପଣ (Bada Pana)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Poet: Radhanath Ray</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch5-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch5-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch5-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch5-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>ଦରବାରରେ ଏକତ୍ରିତ ହୋଇଥିବା ରାଜା ଓ ଜମିଦାରମାନଙ୍କର ଅହଂକାର ଦେଖି କବି ରାଧାନାଥ ରାୟ ଏହି କବିତା ଲେଖିଛନ୍ତି। ସେ କହିଛନ୍ତି ଯେ ଧନ ଓ କ୍ଷମତା ପ୍ରକୃତ ବଡ଼ପଣ ନୁହେଁ, ପରୋପକାର ଏବଂ ଧର୍ମ ହିଁ ପ୍ରକୃତ ବଡ଼ପଣ।</p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ଅହଂକାରୀ ରାଜା:</strong> ଆଧୁନିକ ରାଜାମାନେ ନିଜର ବିଳାସବ୍ୟସନ ପାଇଁ ଗରିବ ପ୍ରଜାମାନଙ୍କୁ ଶୋଷଣ କରୁଛନ୍ତି ଏବଂ ଇଂରେଜମାନଙ୍କୁ ଖୁସି କରୁଛନ୍ତି।</li>
+                        <li><strong>ମିଥ୍ୟା ସମ୍ପତ୍ତି:</strong> କବି ଚେତାବନୀ ଦେଇଛନ୍ତି ଯେ ସଂସାର ଏକ ମାୟା। ମୃତ୍ୟୁ ବେଳେ ରାଜା ନିଜ ସାଥିରେ ଟଙ୍କାଟିଏ ମଧ୍ୟ ନେଇପାରିବେ ନାହିଁ। ସବୁ ସମ୍ପତ୍ତି ଏଠାରେ ରହିଯିବ।</li>
+                        <li><strong>ପ୍ରକୃତ ବଡ଼ପଣ:</strong> ନିଜର ସ୍ୱାର୍ଥ ତ୍ୟାଗ କରି ଲୋକଙ୍କର ସେବା କରିବା ଏବଂ ସୁକର୍ମ କରିବା ହେଉଛି ଅସଲ ବଡ଼ପଣ। ମୃତ୍ୟୁ ପରେ କେବଳ 'ଧର୍ମ' ଓ 'ଭଲ କାମ' ହିଁ ମଣିଷକୁ ଅମର କରି ରଖେ।</li>
+                    </ul>
+                </div>
+
+                <div id="ch5-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Critique of Arrogance:</strong> The poet criticizes the greedy kings who exploit their subjects just to fund their luxurious lifestyles.</li>
+                        <li><strong>Temporary Wealth:</strong> He warns them that wealth and power are illusions (Maya). Death is the ultimate equalizer, and empty-handed they will leave the earth.</li>
+                        <li><strong>True Greatness:</strong> True greatness lies in Dharma and selfless service. Only good deeds remain immortal after a person dies.</li>
+                    </ul>
+                </div>
+
+                <div id="ch5-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Ghamandi Raja:</strong> Poet unn rajaon ko taana marte hain jo apni janta ko loot kar ameer ban rahe hain.</li>
+                        <li><strong>Sab mitti hai:</strong> Maut ke baad koi apna paisa ya bank balance sath nahi le jata. Ye duniya ek dhokha hai.</li>
+                        <li><strong>Asli Badapan:</strong> Bada aadmi wo nahi jiske paas paisa hai, balki wo hai jo garibon ki madad kare (Ache karam/Dharma kare).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">କବିତା: ପିଙ୍ଗଳାର ଅଭିସାର (Pingalara Abhisara)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Poet: Radhamohan Gadanayak</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch6-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch6-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch6-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch6-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>ପିଙ୍ଗଳା ନାମକ ଜଣେ ବେଶ୍ୟା ରାତିସାରା ଧନୀ ବ୍ୟକ୍ତିଙ୍କୁ ଅପେକ୍ଷା କରି କେହି ନଆସିବାରୁ ନିରାଶ ହୋଇଯାଏ। ଏହି ନିରାଶା ଭିତରୁ ତା' ମନରେ ଆଧ୍ୟାତ୍ମିକ ଜ୍ଞାନ ଜାଗ୍ରତ ହୁଏ ଏବଂ ସେ ପାପ ରାସ୍ତା ଛାଡି ସନ୍ନ୍ୟାସିନୀ ସାଜେ।</p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ପିଙ୍ଗଳାର ମୋହ:</strong> ସେ ନିଜର ଦେହର ସୌନ୍ଦର୍ଯ୍ୟ ଏବଂ ସୁନା ଅଳଙ୍କାରକୁ ନେଇ ବହୁତ ଗର୍ବ କରୁଥିଲା। ସେ ଭାବୁଥିଲା ପୁରୁଷର ପ୍ରେମ ହିଁ ସବୁକିଛି।</li>
+                        <li><strong>ବୈରାଗ୍ୟ (Detachment):</strong> ରାତିସାରା ଅପେକ୍ଷା କରିବା ପରେ ତାର ମୋହ ଭଙ୍ଗ ହେଲା। ସେ ବୁଝିପାରିଲା ଯେ ଶାରୀରିକ ସୁଖ ଏବଂ ଯୌବନ କ୍ଷଣସ୍ଥାୟୀ। ଦିନେ ନା ଦିନେ ଦେହ ମାଟିରେ ମିଶିବ।</li>
+                        <li><strong>ଆଧ୍ୟାତ୍ମିକ ଜାଗରଣ:</strong> ସେ ଅନୁଭବ କଲା ଯେ ତାର ପ୍ରକୃତ ପ୍ରେମିକ ହେଉଛନ୍ତି ହୃଦୟରେ ବାସ କରୁଥିବା 'ପରମାତ୍ମା' ବା ଭଗବାନ। ସେ ନିଜର ସମସ୍ତ ଅଳଙ୍କାର ଫିଙ୍ଗିଦେଇ ଶାଶ୍ୱତ ପ୍ରେମର ସନ୍ଧାନରେ ବାହାରିଗଲା।</li>
+                    </ul>
+                </div>
+
+                <div id="ch6-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>The Illusion:</strong> Pingala, a courtesan, was proud of her youth and wealth. She waited for a rich client all night.</li>
+                        <li><strong>The Awakening:</strong> When no one arrived, her disappointment led to a deep spiritual realization. She realized that physical beauty and lust are fake and temporary.</li>
+                        <li><strong>The Transformation:</strong> She discovered that God is the only true lover. She threw away her expensive ornaments and transformed from a sinner into a pure ascetic seeking eternal peace.</li>
+                    </ul>
+                </div>
+
+                <div id="ch6-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Pingala ki Story:</strong> Pingala paise aur physical love ke peeche pagli thi. Ek raat jab koi customer nahi aaya toh wo dukhi ho gayi.</li>
+                        <li><strong>Reality Check:</strong> Usko achanak samajh aaya ki ye body aur beauty ek din mitti ban jayegi. Ye sab nakli hai.</li>
+                        <li><strong>Bhagwan se Pyaar:</strong> Usne decide kiya ki asli pyaar sirf Bhagwan se hota hai. Usne apne saare gehne phenk diye aur sadhvi ban gayi.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">ଗଳ୍ପ: ସଭ୍ୟ ଜମିଦାର (Sabhya Jamindar)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Writer: Fakir Mohan Senapati</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch7-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch7-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch7-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch7-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>ଏହା ଏକ ବ୍ୟଙ୍ଗାତ୍ମକ (Satirical) ଗଳ୍ପ। ଏଥିରେ ଜଣେ ଆଧୁନିକ ଶିକ୍ଷିତ ଯୁବକ ରାଜୀବଲୋଚନଙ୍କ କାହାଣୀ ବର୍ଣ୍ଣିତ। ସେ କିପରି ନକଲି ଆଧୁନିକତାର ଶିକାର ହୋଇ ନିଜର ସର୍ବସ୍ୱ ହରାଇଲେ, ତାହା ଏଠାରେ ଦର୍ଶାଯାଇଛି।</p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>ନକଲି ସଭ୍ୟତା:</strong> ରାଜୀବଲୋଚନ ସହରରୁ ପଢି ଆସିବା ପରେ ନିଜ ଗାଁର ପରମ୍ପରା, ଭାଷା ଏବଂ ସରଳ ଲୋକଙ୍କୁ ଘୃଣା କଲେ। ଇଂରାଜୀ କହିବା, ମଦ ପିଇବା ଏବଂ କୋଟ୍-ପେଣ୍ଟ ପିନ୍ଧିବାକୁ ସେ 'ସଭ୍ୟତା' ବୋଲି ଭାବିଲେ।</li>
+                        <li><strong>ସମ୍ପତ୍ତି ନଷ୍ଟ:</strong> ଖରାପ ସାଙ୍ଗଙ୍କ ଚକ୍କରରେ ପଡି ସେ ବେଶ୍ୟାଳୟ ଗଲେ ଏବଂ ଅଯଥାରେ ପଇସା ଉଡାଇଲେ। ସେ ନିଜର ବିଶ୍ୱସ୍ତ ପୁରୁଣା ଗୁମାସ୍ତାମାନଙ୍କୁ ତଡି ଦେଲେ।</li>
+                        <li><strong>ଦୁଃଖଦ ପରିଣତି:</strong> ସେହି ଠକ ସାଙ୍ଗମାନେ ତାଙ୍କର ସବୁ ସମ୍ପତ୍ତି ଲୁଟି ନେଲେ ଏବଂ ଶେଷରେ ତାଙ୍କ ଜମିଦାରୀ ନିଲାମ ହୋଇଗଲା। ନିଜ ଚେରକୁ ଭୁଲିବାର ଏହା ଥିଲା କଠୋର ଦଣ୍ଡ।</li>
+                    </ul>
+                </div>
+
+                <div id="ch7-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>Fake Modernity:</strong> Rajiv Lochan represents the blind imitation of Western culture. He started hating Odia culture, considering it uncivilized, and flaunted English habits like drinking and wearing suits.</li>
+                        <li><strong>Bad Company:</strong> He fired his loyal, traditional accountants and trusted city fraudsters. He wasted his ancestral wealth on alcohol and bad habits to show off.</li>
+                        <li><strong>The Downfall:</strong> Eventually, his friends cheated him, his money ran out, and his Jamindari was auctioned. It is a lesson against abandoning one's roots.</li>
+                    </ul>
+                </div>
+
+                <div id="ch7-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Show off ki Bimari:</strong> Rajib Lochan ko lagta tha English bolna aur daaru peena hi 'Civilized' hona hai. Wo apne gaon walo ko gawar manta tha.</li>
+                        <li><strong>Bure Dost:</strong> Usne apne wafadar naukron ko nikal diya aur city ke dhokhebaaz doston pe trust kiya jinhone usko loot liya.</li>
+                        <li><strong>Barbaadi:</strong> Fake attitude aur aish-o-aaram ke chakkar me uski poori zameen aur property bik gayi (auction ho gayi).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div style="margin-bottom: 20px;">
+                    <div class="odia-title">ଗଳ୍ପ: ପତାକା ଉତ୍ତୋଳନ (Pataka Uttolana)</div>
+                    <div style="color: var(--text-muted); font-weight: 500; margin-top: 5px;">Writer: Surendra Mohanty</div>
+                </div>
+
+                <div class="lang-tabs">
+                    <button class="lang-btn active" onclick="switchLang(event, 'ch8-odia')">ଓଡ଼ିଆ (Detailed)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch8-eng')">English (Academic)</button>
+                    <button class="lang-btn" onclick="switchLang(event, 'ch8-hin')">Hinglish (Classroom)</button>
+                </div>
+
+                <div id="ch8-odia" class="lang-content active odia-text">
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem;">ସହଜ ସାରାଂଶ:</h3>
+                    <p>ଏହା ୧୯୪୭ ମସିହା ଅଗଷ୍ଟ ୧୪ ତାରିଖ ମଧ୍ୟରାତ୍ରିର କାହାଣୀ ଯେତେବେଳେ ଭାରତ ସ୍ୱାଧୀନ ହେଉଥିଲା। ଦେଶର ତ୍ରିରଙ୍ଗା ଉଡିବା ବେଳେ ଜଣେ ଇଂରେଜ-ଅନୁଗତ ପୋଲିସ ଅଫିସର ରାୟବାହାଦୂର ସୋମନାଥ ମହାପାତ୍ରଙ୍କର ମାନସିକ ଯନ୍ତ୍ରଣାକୁ ଏଥିରେ ଦର୍ଶାଯାଇଛି।</p>
+
+                    <h3 style="color: var(--primary-blue); font-size: 1.25rem; margin-top: 20px;">ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Exam Depth):</h3>
+                    <ul>
+                        <li><strong>କର୍ତ୍ତବ୍ୟର ନିଶା:</strong> ରାୟବାହାଦୂର ବ୍ରିଟିଶ ସରକାରଙ୍କର ଜଣେ ବିଶ୍ୱସ୍ତ ଚାକର ଥିଲେ। ନିଜର ଦାୟିତ୍ୱ ପାଳନ କରିବାକୁ ଯାଇ ସେ ସ୍ୱାଧୀନତା ସଂଗ୍ରାମୀମାନଙ୍କୁ ନିର୍ମମ ଭାବେ ପିଟୁଥିଲେ।</li>
+                        <li><strong>ପୁତ୍ର ହତ୍ୟା:</strong> ତାଙ୍କର ନିଜ ପୁଅ ଅରୁଣ ଥିଲା ଜଣେ ଦେଶପ୍ରେମୀ। ଦିନେ ତ୍ରିରଙ୍ଗା ପତାକା ଧରି ଶୋଭାଯାତ୍ରା କରୁଥିବା ବେଳେ, ରାୟବାହାଦୂର ନିଜେ ନିର୍ଦ୍ଦେଶ ଦେଇ ଅରୁଣ ଉପରକୁ ଗୁଳି ଚଳାଇଥିଲେ ଓ ତାକୁ ହତ୍ୟା କରିଥିଲେ।</li>
+                        <li><strong>ଅହଂକାରର ପତନ:</strong> ଆଜି ଦେଶ ସ୍ୱାଧୀନ ହେବାରୁ ତାଙ୍କର ଇଂରେଜ ସରକାର ଦେଇଥିବା 'ମେଡାଲ୍' ମୂଲ୍ୟହୀନ ହୋଇଯାଇଛି। ସ୍ୱାଧୀନତାର ପତାକା ତାଙ୍କୁ ତାଙ୍କ ମୃତ ପୁଅର କଥା ମନେ ପକାଇ ଦେଇଛି, ଯାହା ତାଙ୍କୁ ମାନସିକ ସ୍ତରରେ ପାଗଳ କରିଦେଇଛି।</li>
+                    </ul>
+                    <div class="exam-highlight">
+                        <strong><i class="fas fa-star"></i> ବୋର୍ଡ ଟିପ୍ସ:</strong> ପତାକା ଉତ୍ତୋଳନ ଏଠାରେ କେବଳ ଦେଶର ସ୍ୱାଧୀନତା ନୁହେଁ, ବରଂ ଇଂରେଜ ଅନୁଗତଙ୍କର ଅହଂକାର ଭାଙ୍ଗିବାର ପ୍ରତୀକ ଅଟେ।
+                    </div>
+                </div>
+
+                <div id="ch8-eng" class="lang-content">
+                    <h3 style="color: var(--secondary-blue); font-size: 1.15rem;">Detailed Explanation:</h3>
+                    <ul>
+                        <li><strong>The British Loyalist:</strong> Raybahadur Somnath was a strict police officer utterly loyal to the British, brutally suppressing freedom fighters.</li>
+                        <li><strong>The Ultimate Sacrifice:</strong> His own son, Arun, was a nationalist. Blinded by false duty to the British, Raybahadur ordered the police to fire upon Arun's peaceful rally, killing his own son.</li>
+                        <li><strong>The Psychological Breakdown:</strong> On the night of Independence (14 Aug 1947), as the Indian Tricolor flag is hoisted, Raybahadur realizes his British medals are now worthless. The flag reminds him of the son he killed, destroying his mind with guilt.</li>
+                    </ul>
+                </div>
+
+                <div id="ch8-hin" class="lang-content">
+                    <h3 style="color: var(--dark-green); font-size: 1.15rem;">Exam Points (Ratt lo):</h3>
+                    <ul>
+                        <li><strong>Kattar Police Wala:</strong> Somnath Babu angrezo ka sachha gulam (loyalist) tha. Wo deshbhakton ko bohot maarta tha.</li>
+                        <li><strong>Bete ki Maut:</strong> Uska saga beta Arun freedom fighter tha. Somnath ne duty ke naam pe apne hi bete par goli chalwa di thi.</li>
+                        <li><strong>Tirange ka Dukh:</strong> Jab desh azaad hua aur Tiranga lehra raha tha, toh Somnath ka ghamand toot gaya. Usko ehsaas hua ki Angrezo ke medals ki koi value nahi aur usne faltu mein apne bete ko maar diya.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+                <section id="phase3" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-spell-check"></i> Phase 3: Grammar & Writing Master</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">Clear rules, easy tricks, and the 20 most important Board practice questions. This section guarantees 20+ solid marks!</p>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୧. ସନ୍ଧି (Sandhi)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g1-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g1-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g1-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g1-odia" class="lang-content active odia-text">
+                        <p><strong>ନିୟମ:</strong> ପରସ୍ପର ପାଖାପାଖି ଥିବା ଦୁଇଟି ଶବ୍ଦର ମିଳନକୁ (ଅର୍ଥାତ୍ ପ୍ରଥମ ଶବ୍ଦର ଶେଷ ବର୍ଣ୍ଣ ଓ ଦ୍ୱିତୀୟ ଶବ୍ଦର ପ୍ରଥମ ବର୍ଣ୍ଣ ମିଶିବା) ସନ୍ଧି କୁହାଯାଏ। ଉଦାହରଣ: ବିଦ୍ୟା + ଆଳୟ = ବିଦ୍ୟାଳୟ। ଏହା ମୁଖ୍ୟତଃ ୩ ପ୍ରକାର: ସ୍ୱର ସନ୍ଧି, ବ୍ୟଞ୍ଜନ ସନ୍ଧି ଏବଂ ବିସର୍ଗ ସନ୍ଧି।</p>
+                    </div>
+                    <div id="g1-eng" class="lang-content">
+                        <p><strong>Rule:</strong> Sandhi is the joining of two adjacent sounds. The last letter of the first word and the first letter of the second word combine to create a smooth, continuous sound. Example: Surya + Udaya = Suryodaya. It is of 3 types: Swara, Vyanjana, and Visarga Sandhi.</p>
+                    </div>
+                    <div id="g1-hin" class="lang-content">
+                        <p><strong>Board Trick:</strong> Sandhi ka matlab hai 2 words ko fevicol ki tarah jod kar ek naya word banana. <br><strong>Visarga Trick:</strong> Jin words mein (:) laga hota hai (jaise Nih:), wo judne ke baad aadhi 's' (ସ୍/ଶ୍/ଷ୍) ya 'r' (ର୍) ban jate hain. (Nih: + Chaya = Nischaya).</p>
+                    </div>
+
+                    <h4 class="odia-title" style="margin-top: 30px; font-size: 1.3rem;">Top 20 Repeated Sandhi (ବୋର୍ଡ ପରୀକ୍ଷା ପାଇଁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ):</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>ପ୍ରଶ୍ନ (Question)</th><th>ସନ୍ଧି ପଦ (Answer)</th><th>Type</th></tr>
+                            </thead>
+                            <tbody class="odia-text">
+                                <tr><td>ମହା + ଉଦଧି</td><td>ମହୋଦଧି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ନେ + ଅନ</td><td>ନୟନ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ସୁ + ଆଗତ</td><td>ସ୍ୱାଗତ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ବିଦ୍ୟା + ଆଳୟ</td><td>ବିଦ୍ୟାଳୟ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ତଥା + ଏବ</td><td>ତଥୈବ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଅତି + ଇବ</td><td>ଅତୀବ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଦେବ + ଋଷି</td><td>ଦେବର୍ଷି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଯଦି + ଅପି</td><td>ଯଦ୍ୟପି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଦିକ୍ + ଅନ୍ତ</td><td>ଦିଗନ୍ତ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଜଗତ୍ + ନାଥ</td><td>ଜଗନ୍ନାଥ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଉତ୍ + ଚାରଣ</td><td>ଉଚ୍ଚାରଣ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ସତ୍ + ଜନ</td><td>ସଜ୍ଜନ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଉତ୍ + ଲ୍ଲାସ</td><td>ଉଲ୍ଲାସ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ତତ୍ + ମଧ୍ୟ</td><td>ତନ୍ମଧ୍ୟ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଚୟ</td><td>ନିଶ୍ଚୟ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ପୁନଃ + ଅପି</td><td>ପୁନରପି</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଆକାର</td><td>ନିରାକାର</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ଶିରଃ + ଛେଦ</td><td>ଶିରଚ୍ଛେଦ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ମନଃ + ରମ</td><td>ମନୋରମ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଦୟ</td><td>ନିର୍ଦ୍ଦୟ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="exam-highlight">
+                        <i class="fas fa-exclamation-triangle" style="color: #ea580c;"></i> <strong style="color: var(--primary-blue);">Common Student Mistake:</strong><br>
+                        Students often write 'ଉତ୍ + ଚାରଣ = ଉତଚାରଣ'. This is WRONG! When 'ତ୍' meets 'ଚ', it becomes double 'ଚ୍ଚ'. The correct answer is <strong>ଉଚ୍ଚାରଣ</strong>.
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୨. ସମାସ (Samasa - Compounds)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g2-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g2-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g2-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g2-odia" class="lang-content active odia-text">
+                        <p><strong>ନିୟମ:</strong> ପରସ୍ପର ସମ୍ବନ୍ଧ ଥିବା ଦୁଇ ବା ତତୋଧିକ ପଦକୁ ମିଶାଇ ଗୋଟିଏ ଛୋଟ ଏବଂ ସୁନ୍ଦର ପଦରେ ପରିଣତ କରିବାକୁ ସମାସ କୁହାଯାଏ। ଏହା ବାକ୍ୟକୁ ଆକର୍ଷଣୀୟ କରେ। ଉଦାହରଣ: 'ବିଦ୍ୟା ନିମନ୍ତେ ଆଳୟ' କୁ ଛୋଟ କରି 'ବିଦ୍ୟାଳୟ' କୁହାଯାଏ।</p>
+                    </div>
+                    <div id="g2-eng" class="lang-content">
+                        <p><strong>Rule:</strong> Samasa (Compound Word) is the linguistic process of compressing a descriptive phrase of two or more words into a single, elegant word. E.g., 'A man with ten heads' simply becomes 'Dashanana'.</p>
+                    </div>
+                    <div id="g2-hin" class="lang-content">
+                        <p><strong>Board Exam Hack (How to Identify Samasa):</strong></p>
+                        <ul>
+                            <li>Agar words ke beech mein <strong>'ଓ' (Aur / And)</strong> ho, toh wo hamesha <strong>Dwandwa Samasa</strong> hota hai. (Jaise: Pita O Mata)</li>
+                            <li>Agar word kisi <strong>Number (Sankhya: 3, 4, 10, 7)</strong> se shuru ho, toh wo <strong>Dwigu Samasa</strong> hota hai. (Jaise: Tri, Sapta)</li>
+                            <li>Agar do words mil kar kisi <strong>3rd Person (bhagwan ya rakshas)</strong> ki baat karein, toh wo <strong>Bahuvrihi Samasa</strong> hota hai. (Jaise: 10 Sar wala = Dashanana = Ravana).</li>
+                            <li>Agar word ke start me <strong>'ଉପ' (Upa)</strong> ya <strong>'ପ୍ରତି' (Prati)</strong> ho, toh 90% chance hai wo <strong>Avyayibhava</strong> hoga.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="odia-title" style="margin-top: 30px; font-size: 1.3rem;">Top 20 Repeated Samasa Questions:</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>ବିଗ୍ରହ ବାକ୍ୟ (Expansion)</th><th>ସମସ୍ତ ପଦ (Compound Word)</th><th>ସମାସର ନାମ (Type)</th></tr>
+                            </thead>
+                            <tbody class="odia-text">
+                                <tr><td>ପିତା ଓ ମାତା</td><td>ପିତାମାତା</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ଦିନ ଓ ରାତି</td><td>ଦିନରାତି</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ହରି ଓ ହର</td><td>ହରିହର</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ହାଟ ଓ ବାଟ</td><td>ହାଟବାଟ</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ତିନି ଫଳର ସମାହାର</td><td>ତ୍ରିଫଳା</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ସପ୍ତ ଅହଃ ର ସମାହାର</td><td>ସପ୍ତାହ</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ପଞ୍ଚ ବଟର ସମାହାର</td><td>ପଞ୍ଚବଟୀ</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ଦଶ ଆନନ ଯାହାର ସେ</td><td>ଦଶାନନ</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ବୀଣା ପାଣିରେ ଯାହାର ସେ</td><td>ବୀଣାପାଣି</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ଚକ୍ର ପାଣିରେ ଯାହାର ସେ</td><td>ଚକ୍ରପାଣି</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ନୀଳ ଅଟେ କଇଁ</td><td>ନୀଳକଇଁ</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ଅର୍ଦ୍ଧ ଅଟେ ଚନ୍ଦ୍ର</td><td>ଅର୍ଦ୍ଧଚନ୍ଦ୍ର</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ମହାନ ଅଟେ ଋଷି</td><td>ମହର୍ଷି</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ବିଦ୍ୟା ନିମନ୍ତେ ଆଳୟ</td><td>ବିଦ୍ୟାଳୟ</td><td>ଚତୁର୍ଥୀ ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>ବୃକ୍ଷରୁ ପତିତ</td><td>ବୃକ୍ଷପତିତ</td><td>ପଞ୍ଚମୀ ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>ସ୍ୱର୍ଗକୁ ପ୍ରାପ୍ତ</td><td>ସ୍ୱର୍ଗପ୍ରାପ୍ତ</td><td>ଦ୍ୱିତୀୟା ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>କୂଳର ସମୀପ</td><td>ଉପକୂଳ</td><td>ଅବ୍ୟୟୀଭାବ ସମାସ</td></tr>
+                                <tr><td>ପ୍ରତି ଦିନ</td><td>ପ୍ରତିଦିନ</td><td>ଅବ୍ୟୟୀଭାବ ସମାସ</td></tr>
+                                <tr><td>ଗ୍ରାମକୁ ଅନ୍ତର</td><td>ଗ୍ରାମାନ୍ତର</td><td>ନିତ୍ୟ ସମାସ</td></tr>
+                                <tr><td>ଜଳ ଦିଏ ଯିଏ</td><td>ଜଳଦ</td><td>ଉପପଦ ତତ୍ ପୁରୁଷ</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୩. ଅଳଙ୍କାର (Alankara)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g3-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g3-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g3-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g3-odia" class="lang-content active odia-text">
+                        <p>ସାହିତ୍ୟକୁ ସୁନ୍ଦର ଓ ଆକର୍ଷଣୀୟ କରିବା ପାଇଁ କବିମାନେ ଅଳଙ୍କାର ବ୍ୟବହାର କରନ୍ତି। ବୋର୍ଡ ପରୀକ୍ଷା ପାଇଁ ଏହି ୩ଟି ଅଳଙ୍କାର ମନେ ରଖନ୍ତୁ:</p>
+                        <ul>
+                            <li><strong>ଅନୁପ୍ରାସ:</strong> ଗୋଟିଏ ବା ଏକାଧିକ ବ୍ୟଞ୍ଜନ ବର୍ଣ୍ଣର ବାରମ୍ବାର ପ୍ରୟୋଗ। (ଉଦାହରଣ: <u>ଉ</u>ତ୍କଳ <u>କ</u>ମଳା <u>ବି</u>ଳାସ ଦୀର୍ଘିକା)</li>
+                            <li><strong>ଯମକ:</strong> ଏକା ପ୍ରକାର ଶବ୍ଦ ବାରମ୍ବାର ଆସିବ କିନ୍ତୁ ପ୍ରତିଥର ଅର୍ଥ ଅଲଗା ହେବ।</li>
+                            <li><strong>ଉପମା:</strong> ଦୁଇଟି ଅଲଗା ବସ୍ତୁ ମଧ୍ୟରେ ତୁଳନା କରାଗଲେ। ବାକ୍ୟରେ ସାଧାରଣତଃ 'ପରି', 'ସଦୃଶ' କିମ୍ବା 'ପ୍ରାୟ' ଶବ୍ଦ ଥାଏ।</li>
+                        </ul>
+                    </div>
+                    <div id="g3-eng" class="lang-content">
+                        <p>Alankara acts as ornaments for poetry. Focus on these 3 main types:</p>
+                        <ul>
+                            <li><strong>Anuprasa (Alliteration):</strong> Repetition of the same consonant letter or sound.</li>
+                            <li><strong>Yamaka (Pun):</strong> The exact same word is repeated, but it carries a different meaning each time.</li>
+                            <li><strong>Upama (Simile):</strong> Comparing two completely different things using words like 'Pari' or 'Sadrusha' (like/as).</li>
+                        </ul>
+                    </div>
+                    <div id="g3-hin" class="lang-content">
+                        <p><strong>Bina padhe pehchanne ki Ninja Trick:</strong></p>
+                        <ul>
+                            <li><strong>Anuprasa:</strong> Agar sentence mein ek hi akshar (letter) line se baar-baar repeat ho raha ho, toh seedha 'Anuprasa' likh do.</li>
+                            <li><strong>Yamaka:</strong> Agar ek hi word 2 baar likha ho par dono ka meaning alag ho.</li>
+                            <li><strong>Upama:</strong> Agar sentence ke andar tumhein "ପରି" (Pari) ya "ସଦୃଶ" (Sadrusha) likha dikh jaye, toh matlab tulna (comparison) ho raha hai, ye 100% "Upama" hai.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୪. ଦରଖାସ୍ତ ଲିଖନ (Formal Letter Exact Format)</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">If your grammar is weak, just copy-paste this layout into the exam paper for a guaranteed 3 to 4 marks out of 5!</p>
+                    </div>
+                    
+                    <div class="exam-highlight odia-text" style="font-family: 'Anek Oriya', monospace; white-space: pre-wrap; border: 2px dashed var(--primary-blue); background: var(--bg-color);">
+ମାନନୀୟ,
+(ଅଧିକାରୀଙ୍କ ପଦବୀ ଲେଖନ୍ତୁ - ଉଦାହରଣ: ଜିଲ୍ଲାପାଳ / ବିଡିଓ / ସ୍ୱାସ୍ଥ୍ୟ ଅଧିକାରୀ)
+(ଅଫିସ୍ ର ଠିକଣା ଲେଖନ୍ତୁ - ଉଦାହରଣ: ଖୋର୍ଦ୍ଧା)
+
+ବିଷୟ: (ପ୍ରଶ୍ନପତ୍ରରୁ ସମସ୍ୟାଟି ଦେଖି ଲେଖନ୍ତୁ) ନିମନ୍ତେ ଅନୁରୋଧ।
+
+ମହାଶୟ,
+    ବିନୀତ ନିବେଦନ ଏହିକି ଯେ, ଆମ୍ଭେମାନେ ନିମ୍ନ ସ୍ୱାକ୍ଷରକାରୀ (ଗାଁ ନାମ) ଗ୍ରାମର ଅଧିବାସୀ ଅଟୁ। ଆମ ଗ୍ରାମରେ ବହୁତ ଦିନରୁ (ଏଠାରେ ପ୍ରଶ୍ନରେ ଥିବା ସମସ୍ୟା ବିଷୟରେ ୨ ଧାଡ଼ି ଲେଖନ୍ତୁ। ଯେପରିକି: ପାନୀୟ ଜଳର ଅଭାବ ଦେଖାଦେଇଛି)। ଏହାଦ୍ୱାରା ଲୋକେ ବହୁତ ହଇରାଣ ହେଉଛନ୍ତି।
+    
+    ଅତଏବ ଆପଣଙ୍କୁ ବିନୀତ ଅନୁରୋଧ କରୁଛୁ କି ଯଥାଶୀଘ୍ର ଏହି ସମସ୍ୟାର ସମାଧାନ କଲେ ଆମ୍ଭେମାନେ ଆପଣଙ୍କ ନିକଟରେ ଚିର କୃତଜ୍ଞ ରହିବୁ।
+
+ସ୍ଥାନ: (ନିଜ ଗାଁ ର ନାମ)                                ଆପଣଙ୍କର ବିଶ୍ୱସ୍ତ / ବିନୀତ,
+ତାରିଖ: (ପରୀକ୍ଷା ଦିନର ତାରିଖ)                          ଗ୍ରାମବାସୀ ବୃନ୍ଦ
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+                    <section id="phase3" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-spell-check"></i> Phase 3: Grammar & Writing Master</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">Clear rules, easy tricks, and the 20 most important Board practice questions. This section guarantees 20+ solid marks!</p>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୧. ସନ୍ଧି (Sandhi)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g1-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g1-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g1-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g1-odia" class="lang-content active odia-text">
+                        <p><strong>ନିୟମ:</strong> ପରସ୍ପର ପାଖାପାଖି ଥିବା ଦୁଇଟି ଶବ୍ଦର ମିଳନକୁ (ଅର୍ଥାତ୍ ପ୍ରଥମ ଶବ୍ଦର ଶେଷ ବର୍ଣ୍ଣ ଓ ଦ୍ୱିତୀୟ ଶବ୍ଦର ପ୍ରଥମ ବର୍ଣ୍ଣ ମିଶିବା) ସନ୍ଧି କୁହାଯାଏ। ଉଦାହରଣ: ବିଦ୍ୟା + ଆଳୟ = ବିଦ୍ୟାଳୟ। ଏହା ମୁଖ୍ୟତଃ ୩ ପ୍ରକାର: ସ୍ୱର ସନ୍ଧି, ବ୍ୟଞ୍ଜନ ସନ୍ଧି ଏବଂ ବିସର୍ଗ ସନ୍ଧି।</p>
+                    </div>
+                    <div id="g1-eng" class="lang-content">
+                        <p><strong>Rule:</strong> Sandhi is the joining of two adjacent sounds. The last letter of the first word and the first letter of the second word combine to create a smooth, continuous sound. Example: Surya + Udaya = Suryodaya. It is of 3 types: Swara, Vyanjana, and Visarga Sandhi.</p>
+                    </div>
+                    <div id="g1-hin" class="lang-content">
+                        <p><strong>Board Trick:</strong> Sandhi ka matlab hai 2 words ko fevicol ki tarah jod kar ek naya word banana. <br><strong>Visarga Trick:</strong> Jin words mein (:) laga hota hai (jaise Nih:), wo judne ke baad aadhi 's' (ସ୍/ଶ୍/ଷ୍) ya 'r' (ର୍) ban jate hain. (Nih: + Chaya = Nischaya).</p>
+                    </div>
+
+                    <h4 class="odia-title" style="margin-top: 30px; font-size: 1.3rem;">Top 20 Repeated Sandhi (ବୋର୍ଡ ପରୀକ୍ଷା ପାଇଁ):</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>ପ୍ରଶ୍ନ (Question)</th><th>ସନ୍ଧି ପଦ (Answer)</th><th>Type</th></tr>
+                            </thead>
+                            <tbody class="odia-text">
+                                <tr><td>ମହା + ଉଦଧି</td><td>ମହୋଦଧି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ନେ + ଅନ</td><td>ନୟନ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ସୁ + ଆଗତ</td><td>ସ୍ୱାଗତ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ବିଦ୍ୟା + ଆଳୟ</td><td>ବିଦ୍ୟାଳୟ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ତଥା + ଏବ</td><td>ତଥୈବ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଅତି + ଇବ</td><td>ଅତୀବ</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଦେବ + ଋଷି</td><td>ଦେବର୍ଷି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଯଦି + ଅପି</td><td>ଯଦ୍ୟପି</td><td>ସ୍ୱର ସନ୍ଧି</td></tr>
+                                <tr><td>ଦିକ୍ + ଅନ୍ତ</td><td>ଦିଗନ୍ତ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଜଗତ୍ + ନାଥ</td><td>ଜଗନ୍ନାଥ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଉତ୍ + ଚାରଣ</td><td>ଉଚ୍ଚାରଣ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ସତ୍ + ଜନ</td><td>ସଜ୍ଜନ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ଉତ୍ + ଲ୍ଲାସ</td><td>ଉଲ୍ଲାସ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ତତ୍ + ମଧ୍ୟ</td><td>ତନ୍ମଧ୍ୟ</td><td>ବ୍ୟଞ୍ଜନ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଚୟ</td><td>ନିଶ୍ଚୟ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ପୁନଃ + ଅପି</td><td>ପୁନରପି</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଆକାର</td><td>ନିରାକାର</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ଶିରଃ + ଛେଦ</td><td>ଶିରଚ୍ଛେଦ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ମନଃ + ରମ</td><td>ମନୋରମ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                                <tr><td>ନିଃ + ଦୟ</td><td>ନିର୍ଦ୍ଦୟ</td><td>ବିସର୍ଗ ସନ୍ଧି</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="exam-highlight">
+                        <i class="fas fa-exclamation-triangle" style="color: #ea580c;"></i> <strong style="color: var(--primary-blue);">Common Student Mistake:</strong><br>
+                        Students often write 'ଉତ୍ + ଚାରଣ = ଉତଚାରଣ'. This is WRONG! When 'ତ୍' meets 'ଚ', it becomes double 'ଚ୍ଚ'. The correct answer is <strong>ଉଚ୍ଚାରଣ</strong>.
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୨. ସମାସ (Samasa - Compounds)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g2-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g2-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g2-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g2-odia" class="lang-content active odia-text">
+                        <p><strong>ନିୟମ:</strong> ପରସ୍ପର ସମ୍ବନ୍ଧ ଥିବା ଦୁଇ ବା ତତୋଧିକ ପଦକୁ ମିଶାଇ ଗୋଟିଏ ଛୋଟ ଏବଂ ସୁନ୍ଦର ପଦରେ ପରିଣତ କରିବାକୁ ସମାସ କୁହାଯାଏ। ଉଦାହରଣ: 'ବିଦ୍ୟା ନିମନ୍ତେ ଆଳୟ' କୁ ଛୋଟ କରି 'ବିଦ୍ୟାଳୟ' କୁହାଯାଏ।</p>
+                    </div>
+                    <div id="g2-eng" class="lang-content">
+                        <p><strong>Rule:</strong> Samasa (Compound Word) is the linguistic process of compressing a descriptive phrase of two or more words into a single, elegant word. E.g., 'A man with ten heads' simply becomes 'Dashanana'.</p>
+                    </div>
+                    <div id="g2-hin" class="lang-content">
+                        <p><strong>Board Exam Hack (How to Identify Samasa):</strong></p>
+                        <ul>
+                            <li>Agar words ke beech mein <strong>'ଓ' (Aur / And)</strong> ho, toh wo hamesha <strong>Dwandwa Samasa</strong> hota hai. (Jaise: Pita O Mata)</li>
+                            <li>Agar word kisi <strong>Number (Sankhya: 3, 4, 10, 7)</strong> se shuru ho, toh wo <strong>Dwigu Samasa</strong> hota hai. (Jaise: Tri, Sapta)</li>
+                            <li>Agar do words mil kar kisi <strong>3rd Person (bhagwan ya rakshas)</strong> ki baat karein, toh wo <strong>Bahuvrihi Samasa</strong> hota hai. (Jaise: 10 Sar wala = Dashanana = Ravana).</li>
+                            <li>Agar word ke start me <strong>'ଉପ' (Upa)</strong> ya <strong>'ପ୍ରତି' (Prati)</strong> ho, toh 90% chance hai wo <strong>Avyayibhava</strong> hoga.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="odia-title" style="margin-top: 30px; font-size: 1.3rem;">Top 20 Repeated Samasa Questions:</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr><th>ବିଗ୍ରହ ବାକ୍ୟ (Expansion)</th><th>ସମସ୍ତ ପଦ (Compound Word)</th><th>ସମାସର ନାମ (Type)</th></tr>
+                            </thead>
+                            <tbody class="odia-text">
+                                <tr><td>ପିତା ଓ ମାତା</td><td>ପିତାମାତା</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ଦିନ ଓ ରାତି</td><td>ଦିନରାତି</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ହରି ଓ ହର</td><td>ହରିହର</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ହାଟ ଓ ବାଟ</td><td>ହାଟବାଟ</td><td>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</td></tr>
+                                <tr><td>ତିନି ଫଳର ସମାହାର</td><td>ତ୍ରିଫଳା</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ସପ୍ତ ଅହଃ ର ସମାହାର</td><td>ସପ୍ତାହ</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ପଞ୍ଚ ବଟର ସମାହାର</td><td>ପଞ୍ଚବଟୀ</td><td>ଦ୍ୱିଗୁ ସମାସ</td></tr>
+                                <tr><td>ଦଶ ଆନନ ଯାହାର ସେ</td><td>ଦଶାନନ</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ବୀଣା ପାଣିରେ ଯାହାର ସେ</td><td>ବୀଣାପାଣି</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ଚକ୍ର ପାଣିରେ ଯାହାର ସେ</td><td>ଚକ୍ରପାଣି</td><td>ବହୁବ୍ରୀହି ସମାସ</td></tr>
+                                <tr><td>ନୀଳ ଅଟେ କଇଁ</td><td>ନୀଳକଇଁ</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ଅର୍ଦ୍ଧ ଅଟେ ଚନ୍ଦ୍ର</td><td>ଅର୍ଦ୍ଧଚନ୍ଦ୍ର</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ମହାନ ଅଟେ ଋଷି</td><td>ମହର୍ଷି</td><td>କର୍ମଧାରୟ ସମାସ</td></tr>
+                                <tr><td>ବିଦ୍ୟା ନିମନ୍ତେ ଆଳୟ</td><td>ବିଦ୍ୟାଳୟ</td><td>ଚତୁର୍ଥୀ ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>ବୃକ୍ଷରୁ ପତିତ</td><td>ବୃକ୍ଷପତିତ</td><td>ପଞ୍ଚମୀ ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>ସ୍ୱର୍ଗକୁ ପ୍ରାପ୍ତ</td><td>ସ୍ୱର୍ଗପ୍ରାପ୍ତ</td><td>ଦ୍ୱିତୀୟା ତତ୍ ପୁରୁଷ</td></tr>
+                                <tr><td>କୂଳର ସମୀପ</td><td>ଉପକୂଳ</td><td>ଅବ୍ୟୟୀଭାବ ସମାସ</td></tr>
+                                <tr><td>ପ୍ରତି ଦିନ</td><td>ପ୍ରତିଦିନ</td><td>ଅବ୍ୟୟୀଭାବ ସମାସ</td></tr>
+                                <tr><td>ଗ୍ରାମକୁ ଅନ୍ତର</td><td>ଗ୍ରାମାନ୍ତର</td><td>ନିତ୍ୟ ସମାସ</td></tr>
+                                <tr><td>ଜଳ ଦିଏ ଯିଏ</td><td>ଜଳଦ</td><td>ଉପପଦ ତତ୍ ପୁରୁଷ</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୩. ଅଳଙ୍କାର (Alankara)</h3>
+                    </div>
+
+                    <div class="lang-tabs">
+                        <button class="lang-btn active" onclick="switchLang(event, 'g3-odia')">ଓଡ଼ିଆ Rules</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g3-eng')">English</button>
+                        <button class="lang-btn" onclick="switchLang(event, 'g3-hin')">Hinglish Trick</button>
+                    </div>
+
+                    <div id="g3-odia" class="lang-content active odia-text">
+                        <p>ସାହିତ୍ୟକୁ ସୁନ୍ଦର ଓ ଆକର୍ଷଣୀୟ କରିବା ପାଇଁ କବିମାନେ ଅଳଙ୍କାର ବ୍ୟବହାର କରନ୍ତି। ବୋର୍ଡ ପରୀକ୍ଷା ପାଇଁ ଏହି ୩ଟି ଅଳଙ୍କାର ମନେ ରଖନ୍ତୁ:</p>
+                        <ul>
+                            <li><strong>ଅନୁପ୍ରାସ:</strong> ଗୋଟିଏ ବା ଏକାଧିକ ବ୍ୟଞ୍ଜନ ବର୍ଣ୍ଣର ବାରମ୍ବାର ପ୍ରୟୋଗ। (ଉଦାହରଣ: <u>ଉ</u>ତ୍କଳ <u>କ</u>ମଳା <u>ବି</u>ଳାସ ଦୀର୍ଘିକା)</li>
+                            <li><strong>ଯମକ:</strong> ଏକା ପ୍ରକାର ଶବ୍ଦ ବାରମ୍ବାର ଆସିବ କିନ୍ତୁ ପ୍ରତିଥର ଅର୍ଥ ଅଲଗା ହେବ।</li>
+                            <li><strong>ଉପମା:</strong> ଦୁଇଟି ଅଲଗା ବସ୍ତୁ ମଧ୍ୟରେ ତୁଳନା କରାଗଲେ। ବାକ୍ୟରେ ସାଧାରଣତଃ 'ପରି', 'ସଦୃଶ' କିମ୍ବା 'ପ୍ରାୟ' ଶବ୍ଦ ଥାଏ।</li>
+                        </ul>
+                    </div>
+                    <div id="g3-eng" class="lang-content">
+                        <p>Alankara acts as ornaments for poetry. Focus on these 3 main types:</p>
+                        <ul>
+                            <li><strong>Anuprasa (Alliteration):</strong> Repetition of the same consonant letter or sound.</li>
+                            <li><strong>Yamaka (Pun):</strong> The exact same word is repeated, but it carries a different meaning each time.</li>
+                            <li><strong>Upama (Simile):</strong> Comparing two completely different things using words like 'Pari' or 'Sadrusha' (like/as).</li>
+                        </ul>
+                    </div>
+                    <div id="g3-hin" class="lang-content">
+                        <p><strong>Bina padhe pehchanne ki Ninja Trick:</strong></p>
+                        <ul>
+                            <li><strong>Anuprasa:</strong> Agar sentence mein ek hi akshar (letter) line se baar-baar repeat ho raha ho, toh seedha 'Anuprasa' likh do.</li>
+                            <li><strong>Yamaka:</strong> Agar ek hi word 2 baar likha ho par dono ka meaning alag ho.</li>
+                            <li><strong>Upama:</strong> Agar sentence ke andar tumhein "ପରି" (Pari) ya "ସଦୃଶ" (Sadrusha) likha dikh jaye, toh matlab tulna (comparison) ho raha hai, ye 100% "Upama" hai.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chapter-box">
+                    <div class="chapter-header">
+                        <h3 class="chap-name odia-title">୪. ଦରଖାସ୍ତ ଲିଖନ (Formal Letter Exact Format)</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">If your grammar is weak, just copy-paste this layout into the exam paper for a guaranteed 3 to 4 marks out of 5!</p>
+                    </div>
+                    
+                    <div class="exam-highlight odia-text" style="font-family: 'Anek Oriya', monospace; white-space: pre-wrap; border: 2px dashed var(--primary-blue); background: var(--bg-color);">
+ମାନନୀୟ,
+(ଅଧିକାରୀଙ୍କ ପଦବୀ ଲେଖନ୍ତୁ - ଉଦାହରଣ: ଜିଲ୍ଲାପାଳ / ବିଡିଓ / ସ୍ୱାସ୍ଥ୍ୟ ଅଧିକାରୀ)
+(ଅଫିସ୍ ର ଠିକଣା ଲେଖନ୍ତୁ - ଉଦାହରଣ: ଖୋର୍ଦ୍ଧା)
+
+ବିଷୟ: (ପ୍ରଶ୍ନପତ୍ରରୁ ସମସ୍ୟାଟି ଦେଖି ଲେଖନ୍ତୁ) ନିମନ୍ତେ ଅନୁରୋଧ।
+
+ମହାଶୟ,
+    ବିନୀତ ନିବେଦନ ଏହିକି ଯେ, ଆମ୍ଭେମାନେ ନିମ୍ନ ସ୍ୱାକ୍ଷରକାରୀ (ଗାଁ ନାମ) ଗ୍ରାମର ଅଧିବାସୀ ଅଟୁ। ଆମ ଗ୍ରାମରେ ବହୁତ ଦିନରୁ (ଏଠାରେ ପ୍ରଶ୍ନରେ ଥିବା ସମସ୍ୟା ବିଷୟରେ ୨ ଧାଡ଼ି ଲେଖନ୍ତୁ। ଯେପରିକି: ପାନୀୟ ଜଳର ଅଭାବ ଦେଖାଦେଇଛି)। ଏହାଦ୍ୱାରା ଲୋକେ ବହୁତ ହଇରାଣ ହେଉଛନ୍ତି।
+    
+    ଅତଏବ ଆପଣଙ୍କୁ ବିନୀତ ଅନୁରୋଧ କରୁଛୁ କି ଯଥାଶୀଘ୍ର ଏହି ସମସ୍ୟାର ସମାଧାନ କଲେ ଆମ୍ଭେମାନେ ଆପଣଙ୍କ ନିକଟରେ ଚିର କୃତଜ୍ଞ ରହିବୁ।
+
+ସ୍ଥାନ: (ନିଜ ଗାଁ ର ନାମ)                                ଆପଣଙ୍କର ବିଶ୍ୱସ୍ତ / ବିନୀତ,
+ତାରିଖ: (ପରୀକ୍ଷା ଦିନର ତାରିଖ)                          ଗ୍ରାମବାସୀ ବୃନ୍ଦ
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+                        <section id="phase4" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-fire"></i> Phase 4: Ultimate Board QnA Engine</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 15px;">AI-Sorted High Probability Questions for 2026.</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: var(--primary-blue); font-size: 1rem;"><i class="fas fa-filter"></i> Filter by Marks:</strong>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto; padding-bottom: 5px;" class="mark-filters">
+                        <button class="filter-btn active" onclick="filterMarks('all', this)">All Qs</button>
+                        <button class="filter-btn" onclick="filterMarks(5, this)">5 Marks (Long)</button>
+                        <button class="filter-btn" onclick="filterMarks(3, this)">3 Marks</button>
+                        <button class="filter-btn" onclick="filterMarks(2, this)">2 Marks</button>
+                        <button class="filter-btn" onclick="filterMarks(1, this)">1 Mark (Grammar)</button>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <strong style="color: var(--primary-blue); font-size: 1rem;"><i class="fas fa-language"></i> Read Answers In:</strong>
+                </div>
+                <div class="lang-tabs" style="border-color: var(--primary-blue); padding: 8px;">
+                    <button class="lang-btn active" id="globalOdia" onclick="setGlobalLang('odia')">ଓଡ଼ିଆ ଉତ୍ତର (Full Marks)</button>
+                    <button class="lang-btn" id="globalEng" onclick="setGlobalLang('eng')">English Translation</button>
+                    <button class="lang-btn" id="globalHin" onclick="setGlobalLang('hin')">Hinglish Trick</button>
+                </div>
+
+                <div id="qna-container" style="margin-top: 30px;">
+                    </div>
+
+                <div class="exam-highlight" style="margin-top: 40px; background: var(--primary-light); border-left-color: var(--primary-blue);">
+                    <h3 style="color: var(--primary-blue); font-size: 1.3rem; margin-bottom: 10px;"><i class="fas fa-bolt"></i> Quick Revision (Q1 - Q20)</h3>
+                    <ul style="color: var(--text-main); font-size: 1.05rem;">
+                        <li><strong>Prose Hack:</strong> For any 'Swadhina Deshara' question, use words like <i>'Malyapractice' (କପି), 'Note bohi' (ନୋଟ୍ ବହି)</i> and <i>'Brain Drain' (ବିଦେଶୀ ମୋହ)</i>.</li>
+                        <li><strong>Poetry Hack:</strong> In 'Tapaswinira Patra', Sita's core feeling is NOT anger, but <i>'Pativrata' (ସ୍ୱାମୀଭକ୍ତି)</i> and concern for the <i>'Ashwamedha Yajna' (ଅଶ୍ୱମେଧ ଯଜ୍ଞ)</i>.</li>
+                        <li><strong>Story Hack:</strong> Rajiv Lochan represents <i>'Fake Modernity' (ନକଲି ଆଧୁନିକତା)</i> and hatred for tradition. Always write this in his character sketch.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div>Last 10 year</div>
+        <div class="branding">Repeated & Important Questions </div>
+    </footer>
+
+    <script>
+        // 1. Dark Mode Logic
+        if(localStorage.getItem('theme') === 'dark') { 
+            document.body.classList.add('dark-mode'); 
+            document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>'; 
+        }
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            let isDark = document.body.classList.contains('dark-mode');
+            this.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // 2. Navigation Dashboard Logic
+        function showSection(sectionId, element) {
+            document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 3. Local Language Tabs Logic (For Phase 2 & 3)
+        function switchLang(evt, targetId) {
+            let container = evt.currentTarget.closest('.section-card') || evt.currentTarget.closest('.chapter-box');
+            let tabGroup = evt.currentTarget.closest('.lang-tabs');
+            
+            tabGroup.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+
+            container.querySelectorAll('.lang-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+        }
+
+        // 4. THE MASTER 100 QnA ARRAY (Batch 1: Q1 to Q20)
+        const questionsData = [
+            {
+                id: 1, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Prose)", marks: 5, prob: "High",
+                q: "ଗୋଲକ ବିହାରୀ ଧଳଙ୍କ ମତରେ ଆମ ଦେଶର ଶିକ୍ଷା ବ୍ୟବସ୍ଥା କାହିଁକି ଦୁର୍ବଳ ହୋଇପଡିଛି? (ଦୀର୍ଘ ଉତ୍ତରମୂଳକ)",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ପ୍ରାବନ୍ଧିକ ଗୋଲକ ବିହାରୀ ଧଳଙ୍କ 'ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା' ଏକ ସମାଲୋଚନାମୂଳକ ପ୍ରବନ୍ଧ। ଏଥିରେ ଭାରତର ତ୍ରୁଟିପୂର୍ଣ୍ଣ ଶିକ୍ଷା ଓ ପରୀକ୍ଷା ପଦ୍ଧତି ଉପରେ ଆଲୋକପାତ କରାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଲେଖକଙ୍କ ମତରେ ଆମେ ଏବେ ବି ଇଂରେଜମାନଙ୍କର 'କିରାଣି ତିଆରି' ଶିକ୍ଷା ନୀତିକୁ ଆଦରି ବସିଛୁ। ଆଜିକାଲି ଛାତ୍ରଛାତ୍ରୀମାନେ ପାଠ୍ୟପୁସ୍ତକ ନପଢି କେବଳ ପରୀକ୍ଷାରେ ପାସ୍ କରିବା ପାଇଁ 'ନୋଟ୍ ବହି' ଘୋଷୁଛନ୍ତି। ପ୍ରଶ୍ନପତ୍ର ଲିକ୍ ଏବଂ ପରୀକ୍ଷାରେ କପି (Malpractice) ଏକ ସାଧାରଣ ଘଟଣା ହୋଇଗଲାଣି। ଶିକ୍ଷା କେବଳ ଚାକିରି ପାଇବାର ମାଧ୍ୟମ ହୋଇଯାଇଛି। ଗୁଣୀ ଲୋକଙ୍କର ଆଦର ନଥିବାରୁ ମେଧାବୀ ଛାତ୍ରମାନେ ବିଦେଶ ପଳାୟନ କରୁଛନ୍ତି।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ, ଶିକ୍ଷା କ୍ଷେତ୍ରରେ ମାତୃଭାଷାକୁ ଗୁରୁତ୍ୱ ନଦେଲେ ଦେଶର ଭବିଷ୍ୟତ ଅନ୍ଧକାରମୟ ହେବ ବୋଲି ପ୍ରାବନ୍ଧିକ ଚେତାବନୀ ଦେଇଛନ୍ତି।",
+                eng: "<strong>Intro:</strong> Golak Bihari Dhal deeply criticizes the current flawed education system of India.<br><br><strong>Body:</strong> He states we still follow the British system meant to produce clerks. Students ignore textbooks and rote-learn guidebooks just to pass. Mass cheating and paper leaks have ruined exams. Education is now merely a tool for jobs, lacking character building. True talent isn't respected, so the brightest minds migrate abroad.<br><br><strong>Conclusion:</strong> Unless we prioritize the mother tongue and reform the system, national progress is impossible.",
+                hin: "Bhai 5 mark ka lamba answer hai. <strong>Point 1:</strong> Desh azaad hone ke baad bhi padhai angrezo wali hai. <strong>Point 2:</strong> Bacche main book nahi padhte, bas guide book rat-te hain. <strong>Point 3:</strong> Exam me cheating aur paper leak aam baat hai. Education bas naukri ke liye reh gaya hai. <strong>Conclusion:</strong> Is wajah se smart log America bhag rahe hain aur desh aage nahi badh raha."
+            },
+            {
+                id: 2, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Prose)", marks: 5, prob: "High",
+                q: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ ପ୍ରବନ୍ଧ ଅବଲମ୍ବନରେ ଉତ୍କଳର ପ୍ରାକୃତିକ ସୌନ୍ଦର୍ଯ୍ୟର ବର୍ଣ୍ଣନା କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ପ୍ରାବନ୍ଧିକ କୃଷ୍ଣଚନ୍ଦ୍ର ପାଣିଗ୍ରାହୀ ପାଟଣା ନଗରୀରେ ବର୍ଷାକୁ ଦେଖି ନିଜ ମାତୃଭୂମି ଉତ୍କଳର (ଓଡ଼ିଶାର) ଅପୂର୍ବ ପ୍ରାକୃତିକ ସୌନ୍ଦର୍ଯ୍ୟକୁ ସ୍ମରଣ କରିଛନ୍ତି ଏବଂ ମେଘକୁ ଦୂତ ରୂପେ ପ୍ରେରଣ କରିଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ପ୍ରାବନ୍ଧିକ ମେଘକୁ ଅନୁରୋଧ କରିଛନ୍ତି ଯେ ସେ ଉତ୍କଳର ଶାଳ ଓ ପିଆଶାଳ ବନାନୀ ଉପରେ ଜଳଧାରା ସିଞ୍ଚନ କରୁ। ଉତ୍କଳର ପ୍ରକୃତି ବର୍ଷା ଆଗମନରେ ନୂତନ ଯୌବନ ଲାଭ କରେ। ମୟୂରଭଞ୍ଜର ଘଞ୍ଚ ଜଙ୍ଗଲ, ମହାନଦୀ, ବ୍ରାହ୍ମଣୀ ତଥା ଚିଲିକାର ନୀଳ ଜଳରାଶି ବର୍ଷା ସ୍ପର୍ଶରେ ନାଚି ଉଠନ୍ତି। ଚାଷୀ ଆନନ୍ଦରେ ନିଜର କର୍ମକ୍ଷେତ୍ରକୁ ବାହାରିଯାଏ ଏବଂ କୃଷିକ୍ଷେତ୍ର ସବୁଜିମାରେ ଭରିଯାଏ। ଏହା ବ୍ୟତୀତ କୋଣାର୍କ ଓ ଖଣ୍ଡଗିରି ର ସୌନ୍ଦର୍ଯ୍ୟ ମଧ୍ୟ ବଢିଯାଏ।<br><br><strong>ଉପସଂହାର:</strong><br>ପରିଶେଷରେ, ଲେଖକଙ୍କର ଉତ୍କଳ ପ୍ରୀତି ଏବଂ ପ୍ରକୃତି ପ୍ରେମ ଏହି ପ୍ରବନ୍ଧରେ ଜୀବନ୍ତ ହୋଇଉଠିଛି।",
+                eng: "<strong>Body:</strong> The author asks the clouds to shower over the dense Sal forests, Mahanadi, and Chilika lake. The rain brings nature to life. It brings joy to the farmers who rush to their fields, making the land green. Rain also enhances the beauty of historical monuments like Konark and Khandagiri.",
+                hin: "Writer Patna mein baarish dekh kar Odisha ki yaad karta hai. Wo baadal ko Odisha bhejta hai taaki wo Mahanadi, Chilika aur jangal pe barse. Baarish se kisaan khush hote hain aur kheti achi hoti hai. Konark aur Khandagiri ki sundarta aur badh jati hai."
+            },
+            {
+                id: 3, chapter: "ତପସ୍ୱିନୀର ପତ୍ର (Poetry)", marks: 5, prob: "High",
+                q: "ସୀତା ରାମଚନ୍ଦ୍ରଙ୍କୁ ପତ୍ରରେ କ'ଣ ପଚାରିଥିଲେ? ଆଲୋଚନା କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ସ୍ୱଭାବ କବି ଗଙ୍ଗାଧର ମେହେରଙ୍କ କବିତା 'ତପସ୍ୱିନୀର ପତ୍ର'ରେ ବାଲ୍ମୀକି ଆଶ୍ରମରେ ନିର୍ବାସିତା ମାତା ସୀତା ପ୍ରଭୁ ରାମଙ୍କୁ ଏକ ମର୍ମସ୍ପର୍ଶୀ ପତ୍ର ଲେଖିଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ସୀତା ରାମଙ୍କୁ 'ଆର୍ଯ୍ୟପୁତ୍ର' ବୋଲି ସମ୍ବୋଧନ କରିଛନ୍ତି। ସେ ଶୁଣିବାକୁ ପାଇଛନ୍ତି ଯେ ରାମ ଏକ ମହାନ୍ 'ଅଶ୍ୱମେଧ ଯଜ୍ଞ' କରୁଛନ୍ତି। ହିନ୍ଦୁ ଧର୍ମରେ ପତ୍ନୀ ବିନା ଯଜ୍ଞ ଅସମ୍ଭବ। ତେଣୁ ସୀତା ଅତି ନିଷ୍ପାପ ଭାବରେ ପଚାରିଛନ୍ତି ଯେ, ସେ କିପରି ଏହି ଯଜ୍ଞ କରୁଛନ୍ତି? ସେ କ'ଣ ନୂଆ ବିବାହ କଲେଣି କିମ୍ବା ସୁନାର ସୀତା ଗଢିଛନ୍ତି? ଯଦି ନୂଆ ପତ୍ନୀ ଆସିଛନ୍ତି, ତେବେ ତାଙ୍କୁ କେଉଁ ମନ୍ତ୍ର ବଳରେ ବଶ କଲେ ବୋଲି ସେ ପଚାରିଛନ୍ତି।<br><br><strong>ଉପସଂହାର:</strong><br>ଏହି ପତ୍ରରୁ ସୀତାଙ୍କର ଆଦର୍ଶ ନାରୀତ୍ୱ ଏବଂ ରାମଙ୍କ ପ୍ରତି ଥିବା ନିଃସ୍ୱାର୍ଥପର ପ୍ରେମର ପରିଚୟ ମିଳେ।",
+                eng: "<strong>Body:</strong> Knowing that a Hindu Yajna requires a wife, Sita wonders how Rama is performing the grand Ashwamedha Yajna without her. She innocently asks if he has married a new queen or made a golden statue of Sita. If he has a new wife, Sita asks for the magic mantra she used to win his heart.",
+                hin: "Sita ji ashram se letter likhti hain bina gusse ke. Wo puchti hain ki bina patni (wife) ke aap 'Ashwamedha Yagya' kaise kar rahe hain? Kya aapne doosri shadi ki hai ya meri sone (gold) ki murti banwayi hai? Unhone apna dukh bhool kar Ram ji ki khushi mangi."
+            },
+            {
+                id: 4, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 5, prob: "High",
+                q: "'ସଭ୍ୟ ଜମିଦାର' ଗଳ୍ପରୁ ରାଜୀବଲୋଚନ ବାବୁଙ୍କ ଚରିତ୍ର ଚିତ୍ରଣ କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ଫକୀର ମୋହନ ସେନାପତିଙ୍କ ରଚିତ 'ସଭ୍ୟ ଜମିଦାର' ଏକ ବ୍ୟଙ୍ଗାତ୍ମକ ଗଳ୍ପ। ଏଥିରେ ମୁଖ୍ୟ ଚରିତ୍ର ରାଜୀବଲୋଚନଙ୍କ ମାଧ୍ୟମରେ ନକଲି ଆଧୁନିକତା ଉପରେ କଟାକ୍ଷ କରାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ରାଜୀବଲୋଚନ ଥିଲେ ଜଣେ ଆଧୁନିକ ଶିକ୍ଷିତ ତଥା ଅହଂକାରୀ ଯୁବକ। ସହରରେ ପାଠ ପଢିବା ପରେ ସେ ନିଜର ଗାଉଁଲି ପରମ୍ପରା ଓ ଧର୍ମକୁ ଘୃଣା କରିବାକୁ ଲାଗିଲେ। ସେ ଇଂରେଜୀ ସଭ୍ୟତାକୁ ଅନ୍ଧ ଭାବରେ ଅନୁକରଣ କରିବାକୁ ଯାଇ ମଦ, ବେଶ୍ୟାବୃତ୍ତି ଏବଂ ବୃଥା ଖର୍ଚ୍ଚରେ ଲିପ୍ତ ରହିଲେ। ନିଜର ଜମିଦାରୀ ଏବଂ ପୈତୃକ ସମ୍ପତ୍ତିକୁ ସେ ଦେଖାଣିଆ ସଭ୍ୟତା ନାମରେ ନଷ୍ଟ କରିଦେଲେ।<br><br><strong>ଉପସଂହାର:</strong><br>ଶେଷରେ ସର୍ବସ୍ୱାନ୍ତ ହୋଇ ସେ ନିଜର ଭୁଲ୍ ବୁଝିପାରିଥିଲେ। ତାଙ୍କ ଚରିତ୍ର ଆଜିର ଯୁବସମାଜ ପାଇଁ ଏକ ଶିକ୍ଷଣୀୟ ଦୃଷ୍ଟାନ୍ତ।",
+                eng: "<strong>Body:</strong> Rajiv Lochan was a modern, educated, but arrogant youth. He blindly imitated Western culture and hated his village traditions. In the name of being 'civilized', he wasted money on alcohol and bad company, eventually destroying his entire ancestral wealth and jamindari.",
+                hin: "Rajiv Lochan padha-likha tha par ghamandi tha. Usne angrezo ki nakal karne ke chakkar me apna gaon ka culture chhod diya, daaru peena aur paise udana shuru kar diya. Fake 'civilized' banne ki aag me usne apni puri property barbaad kar di aur end me pachhtaya."
+            },
+            {
+                id: 5, chapter: "ବଡ଼ପଣ (Poetry)", marks: 3, prob: "High",
+                q: "କବି ରାଧାନାଥ ରାୟ କାହାକୁ ପ୍ରକୃତ ବଡ଼ପଣ ବୋଲି କହିଛନ୍ତି?",
+                odia: "କବିଙ୍କ ମତରେ ଧନ, ସମ୍ପତ୍ତି କିମ୍ବା ଉଚ୍ଚ ପଦବୀ ପ୍ରକୃତ ବଡ଼ପଣ ନୁହେଁ। ଯେଉଁ ବ୍ୟକ୍ତି ନିଜର ଅହଂକାର ତ୍ୟାଗ କରି ସମାଜର ମଙ୍ଗଳ କରେ, ଦୟା ଓ ଧର୍ମ ପାଳନ କରେ, ତାହା ହିଁ ହେଉଛି ପ୍ରକୃତ ବଡ଼ପଣ। ମୃତ୍ୟୁ ପରେ କେବଳ ତାହାର ସୁଗୁଣ ହିଁ ପୃଥିବୀରେ ରହିଯାଏ।",
+                eng: "Wealth or high status is not true greatness. True greatness lies in sacrificing ego, working for societal welfare, and following dharma. After death, only good deeds are remembered.",
+                hin: "Paisa aur badi post asli mahanata nahi hai. Asli badapan wo hai jahan insaan apna ego chhod kar doosron ka bhala kare. Marne ke baad sirf ache kaam yaad rakhe jate hain."
+            },
+            {
+                id: 6, chapter: "ଇତିହାସ (Prose)", marks: 3, prob: "Medium",
+                q: "ମନୁଷ୍ୟର ଜୀବନ ଓ ଇତିହାସ ମଧ୍ୟରେ କି ସମ୍ପର୍କ ରହିଛି?",
+                odia: "ପ୍ରାବନ୍ଧିକ ବିଶ୍ୱନାଥ କରଙ୍କ ମତରେ, ଇତିହାସ କେବଳ ଅତୀତର ମୃତ ଘଟଣାବଳୀ ନୁହେଁ, ବରଂ ଏହା ମନୁଷ୍ୟ ଜୀବନର ଏକ ଜୀବନ୍ତ ଚିତ୍ର। ଇତିହାସ ଆମକୁ ଅତୀତର ଭୁଲ୍ ରୁ ଶିକ୍ଷା ଦେଇ ବର୍ତ୍ତମାନକୁ ସୁଧାରିବା ଏବଂ ଏକ ଉଜ୍ଜ୍ୱଳ ଭବିଷ୍ୟତ ଗଠନ କରିବା ପାଇଁ ବାଟ ଦେଖାଏ।",
+                eng: "History is not just dead events of the past; it is a living picture of human life. History guides us to learn from past mistakes, improve our present, and build a bright future.",
+                hin: "History sirf beete hue kal ki kahani nahi hai. Ye insaan ki zindagi ka aaina hai jo humein purani galtiyon se seekhna aur apna future acha banana sikhati hai."
+            },
+            {
+                id: 7, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର (Poetry)", marks: 3, prob: "Medium",
+                q: "ପିଙ୍ଗଳାର ମନରେ କିପରି ପରିବର୍ତ୍ତନ ଆସିଲା?",
+                odia: "ପିଙ୍ଗଳା କେବଳ ଧନୀ ବ୍ୟକ୍ତିଙ୍କ ଅପେକ୍ଷାରେ ରାତି ବିତାଉଥିଲା। କିନ୍ତୁ ଗୋଟିଏ ରାତିରେ କେହି ନଆସିବାରୁ ତା' ମନରେ ବୈରାଗ୍ୟ (Detachment) ଜାତ ହେଲା। ସେ ବୁଝିପାରିଲା ଯେ ଦେହର ମୋହ କ୍ଷଣସ୍ଥାୟୀ ଏବଂ ସେ ଭଗବାନଙ୍କ ଶରଣାପନ୍ନ ହୋଇ ଆଧ୍ୟାତ୍ମିକ ଶାନ୍ତି ଖୋଜିଲା।",
+                eng: "Pingala was driven by physical lust. One night, waiting in vain for a client, she had a spiritual awakening. She realized worldly pleasures are temporary and surrendered to God.",
+                hin: "Pingala paise aur physical khushi ke peeche bhagti thi. Ek raat jab koi nahi aaya, toh usko reality samajh aayi ki sab temporary hai aur usne bhagwan ki sharan le li."
+            },
+            {
+                id: 8, chapter: "ତପସ୍ୱିନୀର ପତ୍ର (Poetry)", marks: 2, prob: "High",
+                q: "ଲବ ଓ କୁଶ କିପରି ରାମାୟଣ ଗାନ କରୁଥିଲେ?",
+                odia: "ଲବ ଏବଂ କୁଶ ହାତରେ ବୀଣା ଧରି ଅତ୍ୟନ୍ତ ସୁମଧୁର ତଥା କରୁଣ ସ୍ୱରରେ ମହର୍ଷି ବାଲ୍ମୀକିଙ୍କ ରଚିତ ରାମାୟଣ ଗାନ କରୁଥିଲେ। ସେମାନଙ୍କର ଗାନ ଶୁଣି ସମଗ୍ର ଆଶ୍ରମର ପରିବେଶ ଶାନ୍ତ ଏବଂ ଭାବପ୍ରବଣ ହୋଇଯାଉଥିଲା।",
+                eng: "Holding the Veena, Lava and Kusha sang the Ramayana in an extremely sweet and emotional voice, making the entire ashram atmosphere serene and touching.",
+                hin: "Luv aur Kush hath mein Veena pakad kar bohot hi meethe aawaz mein Ramayana gaate the, jisse ashram mein shanti aur emotion bhar jata tha."
+            },
+            {
+                id: 9, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Prose)", marks: 2, prob: "High",
+                q: "'ବିଜ୍ଞାନ' ଅପେକ୍ଷା କାହାର ପ୍ରଭାବ ଆଜିର ସମାଜରେ ଅଧିକ ବୋଲି ଲେଖକ କହିଛନ୍ତି?",
+                odia: "ଲେଖକଙ୍କ ମତରେ ଆଜିର ସମାଜରେ 'ବିଜ୍ଞାନ' (Science) ଅପେକ୍ଷା 'ବିଜ୍ଞାପନ' (Advertisement / ପ୍ରଚାର) ର ପ୍ରଭାବ ଅଧିକ। ଲୋକେ ଗୁଣ ଅପେକ୍ଷା ଚମକପ୍ରଦ ପ୍ରଚାର ଦ୍ୱାରା ଅଧିକ ପ୍ରଭାବିତ ହେଉଛନ୍ତି।",
+                eng: "In today's society, 'Advertisement' (Bijnyapana) has a greater impact than actual 'Science' (Bijnyana). People fall for flashy publicity rather than true quality.",
+                hin: "Aaj kal log 'Science' ya sachai se zyada 'Advertisement' (dikhawe) par vishwas karte hain."
+            },
+            {
+                id: 10, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Prose)", marks: 2, prob: "Medium",
+                q: "ଲେଖକ କାହାକୁ 'ଦରିଦ୍ର' ବୋଲି କହିଛନ୍ତି ଏବଂ କାହିଁକି?",
+                odia: "ଲେଖକ ଓଡ଼ିଶାର କୃଷକମାନଙ୍କୁ ଦରିଦ୍ର ବୋଲି କହିଛନ୍ତି କାରଣ ସେମାନେ ବର୍ଷସାରା କଠିନ ପରିଶ୍ରମ କଲେ ମଧ୍ୟ ପ୍ରକୃତିର ଲୁଚକାଳି (ବର୍ଷାର ଅଭାବ) ଯୋଗୁଁ ସେମାନଙ୍କୁ ସବୁବେଳେ ଅଭାବ ଓ ଅନାଟନର ସମ୍ମୁଖୀନ ହେବାକୁ ପଡ଼େ।",
+                eng: "The author calls the farmers of Odisha poor because despite working hard all year, unpredictable monsoons leave them in constant poverty and struggle.",
+                hin: "Writer Odisha ke kisaanon ko garib kehta hai kyunki bohot mehnat karne ke baad bhi agar baarish nahi hoti, toh wo bhookhe reh jate hain."
+            },
+            {
+                id: 11, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "Guaranteed",
+                q: "'ଉପକୂଳ' କେଉଁ ସମାସ ଅଟେ?",
+                odia: "ଏହା <strong>ଅବ୍ୟୟୀଭାବ ସମାସ</strong>। (ବିଗ୍ରହ ବାକ୍ୟ: କୂଳର ସମୀପ)।",
+                eng: "It is Avyayibhava Samasa.",
+                hin: "Trick: Upa (ଉପ) se shuru hone wale word Avyayibhava hote hain."
+            },
+            {
+                id: 12, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Guaranteed",
+                q: "'ନିଶ୍ଚୟ' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ନିଃ + ଚୟ</strong> = ନିଶ୍ଚୟ (ବିସର୍ଗ ସନ୍ଧି)।",
+                eng: "Nih + Chaya = Nischaya.",
+                hin: "Trick: Beech ka 'Sh' (ଶ୍) hamesha (:) ban jata hai."
+            },
+            {
+                id: 13, chapter: "ଇତିହାସ (Prose)", marks: 5, prob: "High",
+                q: "ଇତିହାସକୁ ପ୍ରାବନ୍ଧିକ ଏକ 'ଧାରାବାହିକ ସ୍ରୋତ' ବୋଲି କାହିଁକି କହିଛନ୍ତି?",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong> 'ଇତିହାସ' ପ୍ରବନ୍ଧରେ ବିଶ୍ୱନାଥ କର ଇତିହାସର ନିରବଚ୍ଛିନ୍ନତାକୁ ପ୍ରତିପାଦନ କରିଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong> ଲେଖକଙ୍କ ମତରେ ଇତିହାସ କୌଣସି ଏକ ଖଣ୍ଡିତ ଘଟଣା ନୁହେଁ। ନଦୀର ସ୍ରୋତ ଯେପରି ପର୍ବତରୁ ବାହାରି ସମୁଦ୍ର ଆଡକୁ ନିରନ୍ତର ବୋହିଯାଏ, ସେହିପରି ଅତୀତରୁ ମାନବ ସଭ୍ୟତାର କାହାଣୀ ବର୍ତ୍ତମାନ ଦେଇ ଭବିଷ୍ୟତ ଆଡକୁ ଗତି କରୁଛି। ଗୋଟିଏ ଯୁଗର କର୍ମ ପରବର୍ତ୍ତୀ ଯୁଗର ଭିତ୍ତିଭୂମି ସାଜେ। ଇତିହାସର ଏହି ଧାରା କେବେବି ଅଟକେ ନାହିଁ କିମ୍ବା ଶେଷ ହୁଏ ନାହିଁ।<br><br><strong>ଉପସଂହାର:</strong> ତେଣୁ ଏହାର ନିରନ୍ତରତା ଯୋଗୁଁ ଏହାକୁ ଏକ ଧାରାବାହିକ ସ୍ରୋତ କୁହାଯାଇଛି।",
+                eng: "History is not a disconnected set of events. Like a river continuously flowing towards the sea, the story of human civilization flows from the past, through the present, into the future. The actions of one era form the foundation for the next. Because of this endless continuity, the author calls history a continuous stream.",
+                hin: "History ruki hui nahi hai. Jaise nadiyaan lagatar behti hain, waise hi purane zamane ka asar aaj par aur aaj ka asar future par padta hai. Isliye History ek lagatar behne wala (continuous) jharana hai."
+            },
+            {
+                id: 14, chapter: "ପତାକା ଉତ୍ତୋଳନ (Story)", marks: 5, prob: "High",
+                q: "ସୋମନାଥ ମହାପାତ୍ରଙ୍କ ଚରିତ୍ର ଚିତ୍ରଣ କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong> ସୁରେନ୍ଦ୍ର ମହାନ୍ତିଙ୍କ 'ପତାକା ଉତ୍ତୋଳନ' ଗଳ୍ପରେ ରାୟବାହାଦୂର ସୋମନାଥ ମହାପାତ୍ର ଜଣେ କଠୋର ଏବଂ ଇଂରେଜ-ଅନୁଗତ ପୋଲିସ ଅଫିସର ଥିଲେ।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong> ସେ ବ୍ରିଟିଶ ସରକାରଙ୍କର ଜଣେ ବିଶ୍ୱସ୍ତ ସେବକ ଥିଲେ। ଦେଶପ୍ରେମୀ ଆନ୍ଦୋଳନକାରୀଙ୍କୁ ନିର୍ମମ ଭାବେ ଦମନ କରିବାକୁ ସେ କୁଣ୍ଠାବୋଧ କରୁନଥିଲେ। ନିଜର କର୍ତ୍ତବ୍ୟ (ବ୍ରିଟିଶ ପ୍ରତି) ପାଳନ କରିବାକୁ ଯାଇ ସେ ନିଜର ଏକମାତ୍ର ପୁତ୍ର ଅରୁଣ ଉପରକୁ ଗୁଳି ଚଳାଇବାକୁ ମଧ୍ୟ ପଛାଇ ନଥିଲେ। କିନ୍ତୁ ଭାରତ ସ୍ୱାଧୀନ ହେବା ପରେ ତାଙ୍କ ଭିତରେ ଥିବା ଅହଂକାର ଭାଙ୍ଗିଯାଇଥିଲା ଏବଂ ସେ ଜଣେ ନିଃସଙ୍ଗ ଓ ପରାଜିତ ବୃଦ୍ଧରେ ପରିଣତ ହୋଇଥିଲେ।<br><br><strong>ଉପସଂହାର:</strong> ତାଙ୍କ ଚରିତ୍ର ହେଉଛି କ୍ଷମତାର ଅହଂକାରରୁ ଦୁଃଖଦ ପରିଣତିର ଏକ ଶ୍ରେଷ୍ଠ ଉଦାହରଣ।",
+                eng: "Somnath Babu was a strict police officer loyal to the British. He ruthlessly suppressed freedom fighters. In fulfilling his 'duty' to the British, he didn't even hesitate to shoot his own nationalist son, Arun. However, after India's independence, his arrogance shattered, leaving him as a lonely, defeated old man realizing his tragic mistakes.",
+                hin: "Somnath Babu ek strict police wale the jo Angrezo ke wafadar the. Unhone deshbhakton ko bohot maara, yahan tak ki apne khud ke bete (Arun) ko bhi goli maar di duty ke naam pe. Par jab desh azaad hua, unka ghamand toot gaya aur wo akele reh gaye."
+            },
+            {
+                id: 15, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା", marks: 3, prob: "Medium",
+                q: "ଦେଶରେ ପ୍ରକୃତ ଗୁଣୀମାନଙ୍କର କାହିଁକି ଆଦର ନାହିଁ ବୋଲି ଲେଖକ କହିଛନ୍ତି?",
+                odia: "ଲେଖକଙ୍କ ମତରେ ଆମ ଦେଶରେ ଲୋକମାନେ ପ୍ରକୃତ ଜ୍ଞାନ ବା ଗୁଣକୁ ଚିହ୍ନିପାରୁନାହାନ୍ତି। ଏଠାରେ କେବଳ ସାର୍ଟିଫିକେଟ୍, ଡିଗ୍ରୀ ଏବଂ ବାହ୍ୟ ଚମକକୁ (ପ୍ରଚାର) ଗୁରୁତ୍ୱ ଦିଆଯାଉଛି। ତେଣୁ ପ୍ରକୃତ ପ୍ରତିଭା ଏବଂ ଗୁଣୀ ଲୋକେ ନିରାଶ ହୋଇ ବିଦେଶ ଚାଲିଯାଉଛନ୍ତି (Brain Drain)।",
+                eng: "In our country, people fail to recognize true talent and knowledge. Only superficial degrees, certificates, and flashy publicity are valued. Due to this lack of appreciation, genuinely talented individuals get frustrated and migrate abroad.",
+                hin: "Humare desh mein talent ki koi izzat nahi hai. Yahan sirf degree aur dikhawe (publicity) ki value hai. Isliye smart log pareshan hokar foreign countries chale jate hain."
+            },
+            {
+                id: 16, chapter: "ତପସ୍ୱିନୀର ପତ୍ର", marks: 3, prob: "Medium",
+                q: "ସୀତା ନିଜର ଦୁଃଖ କାହାଣୀ ପତ୍ରରେ କାହିଁକି ଲେଖିନଥିଲେ?",
+                odia: "ସୀତା ଜାଣିଥିଲେ ଯେ ରାମଚନ୍ଦ୍ର ଅଶ୍ୱମେଧ ଯଜ୍ଞ ଭଳି ଏକ ମହାନ ଓ ପବିତ୍ର କାର୍ଯ୍ୟରେ ବ୍ୟସ୍ତ ଅଛନ୍ତି। ନିଜର ଦୁଃଖ କାହାଣୀ ଜଣାଇ ସେ ରାମଙ୍କୁ ମାନସିକ କଷ୍ଟ ଦେବାକୁ କିମ୍ବା ଯଜ୍ଞ କାର୍ଯ୍ୟରେ ବାଧା ସୃଷ୍ଟି କରିବାକୁ ଚାହୁଁନଥିଲେ, ଯାହା ତାଙ୍କର ତ୍ୟାଗକୁ ଦର୍ଶାଏ।",
+                eng: "Sita knew Rama was engaged in the holy Ashwamedha Yajna. She did not write about her sorrow because she did not want to cause him mental distress or create any obstacle in his sacred duty.",
+                hin: "Sita ji ko pata tha ki Ram ji 'Ashwamedha Yagya' kar rahe hain. Wo nahi chahti theen ki unka dukh sunkar Ram ji pareshan ho aur yagya mein koi problem aaye."
+            },
+            {
+                id: 17, chapter: "ବଡ଼ପଣ", marks: 2, prob: "High",
+                q: "ବ୍ୟକ୍ତିର ମୃତ୍ୟୁ ପରେ କେଉଁ ଜିନିଷଟି ସାଥିରେ ଯାଏ?",
+                odia: "ବ୍ୟକ୍ତିର ମୃତ୍ୟୁ ପରେ ତାର ସମସ୍ତ ସମ୍ପତ୍ତି ପୃଥିବୀରେ ରହିଯାଏ। କେବଳ ସେ କରିଥିବା <strong>ସୁକର୍ମ ଏବଂ ଧର୍ମ</strong> ତାର ସାଥିରେ ଯାଏ ଏବଂ ତାକୁ ଅମର କରେ।",
+                eng: "After death, all wealth stays on earth. Only the person's good deeds (Sukarma) and Dharma go with them and make them immortal.",
+                hin: "Marne ke baad paisa sath nahi jata, sirf insaan ke 'Ache Karam' aur 'Dharma' sath jate hain."
+            },
+            {
+                id: 18, chapter: "ସଭ୍ୟ ଜମିଦାର", marks: 2, prob: "Medium",
+                q: "ରାଜୀବଲୋଚନ ନିଜ ପୈତୃକ ସମ୍ପତ୍ତି କିପରି ନଷ୍ଟ କଲେ?",
+                odia: "ରାଜୀବଲୋଚନ ନିଜକୁ ଆଧୁନିକ ଏବଂ ସଭ୍ୟ ଦେଖାଇବା ପାଇଁ ମଦ ପିଇଲେ, କୁସଙ୍ଗରେ ପଡ଼ିଲେ ଏବଂ ବେଶ୍ୟାମାନଙ୍କ ପଛରେ ଅଯଥା ଅର୍ଥ ଖର୍ଚ୍ଚ କରି ନିଜର ପୈତୃକ ସମ୍ପତ୍ତି (ଜମିଦାରୀ) ନଷ୍ଟ କରିଦେଲେ।",
+                eng: "To show off as a modern 'civilized' man, Rajiv Lochan wasted his ancestral wealth on alcohol, bad company, and prostitutes.",
+                hin: "Fake modern banne ke chakkar mein Rajib ne daaru, bure doston aur dikhawe mein apni saari zameen aur property uda di."
+            },
+            {
+                id: 19, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Guaranteed",
+                q: "'ଦିଗନ୍ତ' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ଦିକ୍ + ଅନ୍ତ</strong> = ଦିଗନ୍ତ। (କ + ଅ ମିଶି ଗ ହୋଇଛି, ଏହା ବ୍ୟଞ୍ଜନ ସନ୍ଧି)।",
+                eng: "Dik + Anta = Diganta. (Consonant Sandhi).",
+                hin: "Trick: Agar beech mein 'g' (ଗ) ho, toh split karte time wo aadhi 'k' (କ୍) ban jata hai."
+            },
+            {
+                id: 20, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "Fix",
+                q: "'ବୀଣାପାଣି' କେଉଁ ସମାସର ଉଦାହରଣ?",
+                odia: "ଏହା <strong>ବହୁବ୍ରୀହି ସମାସ</strong>। (ବିଗ୍ରହ: ବୀଣା ପାଣିରେ ଯାହାର ସେ - ଅର୍ଥାତ୍ ଦେବୀ ସରସ୍ୱତୀ)।",
+                eng: "Bahuvrihi Samasa. It refers to Goddess Saraswati.",
+                hin: "Trick: Bina Pani ka seedha matlab 'Saraswati mata' hota hai. 3rd person ki baat ho toh Bahuvrihi hota hai."
+            }
+                        // PASTE THIS AFTER Q20 inside the questionsData array
+            ,{
+                id: 21, chapter: "ଇତିହାସ (Prose)", marks: 5, prob: "High",
+                q: "ଇତିହାସ ପଠନର ଆବଶ୍ୟକତା କ'ଣ? ପ୍ରବନ୍ଧ ଅନୁସାରେ ଆଲୋଚନା କର। (ଦୀର୍ଘ ଉତ୍ତରମୂଳକ)",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ପ୍ରାବନ୍ଧିକ ବିଶ୍ୱନାଥ କରଙ୍କ 'ଇତିହାସ' ପ୍ରବନ୍ଧରେ ଇତିହାସକୁ କେବଳ ଅତୀତର ଘଟଣା ନୁହେଁ, ବରଂ ମାନବ ସଭ୍ୟତାର ଏକ ଜୀବନ୍ତ ଦର୍ପଣ ଭାବରେ ଦର୍ଶାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଲେଖକଙ୍କ ମତରେ ଇତିହାସ ପଠନ ଏକ ଜାତି ପାଇଁ ନିହାତି ଆବଶ୍ୟକ। ଯେଉଁ ଜାତି ନିଜର ଅତୀତ ଜାଣେ ନାହିଁ, ସେ ନିଜର ଭବିଷ୍ୟତ ଗଠନ କରିପାରିବ ନାହିଁ। ଇତିହାସ ଆମକୁ ପୂର୍ବପୁରୁଷମାନଙ୍କର ଭୁଲ୍ ଏବଂ ଠିକ୍ କାର୍ଯ୍ୟରୁ ଶିକ୍ଷା ଦେଇଥାଏ। ଏହା ପଢିବା ଦ୍ୱାରା ଆମ ଭିତରେ ଦେଶପ୍ରେମ ଏବଂ ସମାଜ ଗଠନର ଉତ୍ସାହ ସୃଷ୍ଟି ହୁଏ। ସତ୍ୟର ସନ୍ଧାନ ପାଇଁ ଇତିହାସ ଏକମାତ୍ର ବାଟ। ଜଣେ ବ୍ୟକ୍ତିର ଜୀବନ ଯେପରି ଅନୁଭୂତିରୁ ଶିକ୍ଷା ଲାଭ କରେ, ଏକ ଜାତି ତାର ଇତିହାସରୁ ଶିକ୍ଷା ଲାଭ କରେ।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ ଜାତୀୟ ଜୀବନର ବିକାଶ ତଥା ମାନବର ଚରିତ୍ର ଗଠନ ପାଇଁ ଇତିହାସ ପଠନ ଅପରିହାର୍ଯ୍ୟ ଅଟେ।",
+                eng: "<strong>Intro:</strong> Biswanath Kar's essay 'Itihasa' describes history not just as past events, but as a living mirror of human civilization.<br><br><strong>Body:</strong> Reading history is essential because a nation that forgets its past cannot build its future. History teaches us from the successes and failures of our ancestors. It instills patriotism and a desire for social development. Just as an individual learns from personal experience, a nation learns from its history. It is the path to discovering the truth.<br><br><strong>Conclusion:</strong> Therefore, reading history is indispensable for national progress and character building.",
+                hin: "Bhai 5-mark answer hai. <strong>Intro:</strong> History sirf purani kahaniyan nahi, insaan ka aaina hai. <br><strong>Body:</strong> History padhna isliye zaroori hai kyunki jo desh apni history bhool jata hai, wo aage nahi badh sakta. History humein purani galtiyon se seekhna aur acha future banana sikhati hai. Deshbhakti (Patriotism) jagane ke liye History sabse zaroori hai. <br><strong>Conclusion:</strong> Insaan ki life aur desh ka vikas, dono history padhne se hi hota hai."
+            },
+            {
+                id: 22, chapter: "ପତାକା ଉତ୍ତୋଳନ (Story)", marks: 5, prob: "High",
+                q: "ରାୟବାହାଦୂର ସୋମନାଥଙ୍କ ମାନସିକ ଦ୍ୱନ୍ଦ୍ୱକୁ 'ପତାକା ଉତ୍ତୋଳନ' ଗଳ୍ପ ଆଧାରରେ ବୁଝାଅ।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ସୁରେନ୍ଦ୍ର ମହାନ୍ତିଙ୍କ ଦ୍ୱାରା ରଚିତ 'ପତାକା ଉତ୍ତୋଳନ' ଏକ ମନସ୍ତାତ୍ତ୍ୱିକ ଗଳ୍ପ। ଏଥିରେ ଇଂରେଜ ଅନୁଗତ ପୋଲିସ ଅଫିସର ରାୟବାହାଦୂର ସୋମନାଥ ମହାପାତ୍ରଙ୍କ ଅନ୍ତର୍ଦ୍ୱନ୍ଦ୍ୱ ବର୍ଣ୍ଣିତ ହୋଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଦେଶ ସ୍ୱାଧୀନ ହେବାର ଖବର ରାୟବାହାଦୂରଙ୍କ ପାଇଁ ଆନନ୍ଦର ବିଷୟ ନଥିଲା। ସେ ସାରା ଜୀବନ ଇଂରେଜ ସରକାରଙ୍କର ବିଶ୍ୱସ୍ତ ଗୋଲାମ ହୋଇ ରହିଥିଲେ। ନିଜର ଦାୟିତ୍ୱ ପାଳନ କରିବାକୁ ଯାଇ ସେ ଦେଶପ୍ରେମୀ ଆନ୍ଦୋଳନକାରୀଙ୍କ ଉପରେ ଗୁଳି ଚଳାଇଥିଲେ, ଯେଉଁଥିରେ ତାଙ୍କର ନିଜର ଏକମାତ୍ର ପୁତ୍ର 'ଅରୁଣ' ସହିଦ ହୋଇଥିଲା। ଯେତେବେଳେ ସ୍ୱାଧୀନ ଭାରତର ପତାକା (ତ୍ରିରଙ୍ଗା) ଉଡିଲା, ତାଙ୍କ ମନରେ ନିଜ ପୁଅକୁ ମାରିବାର ପାପବୋଧ ଏବଂ ବ୍ରିଟିଶ ସାମ୍ରାଜ୍ୟର ପତନର ଦୁଃଖ, ଉଭୟ ଏକାଠି ମିଶି ଏକ ଭୟଙ୍କର ମାନସିକ ଯନ୍ତ୍ରଣା ସୃଷ୍ଟି କଲା। ସେ ନିଜ ବାକ୍ସରୁ ଇଂରେଜ ସରକାରଙ୍କ ଦେଇଥିବା ମେଡାଲ୍ କାଢି କାନ୍ଦିବାକୁ ଲାଗିଲେ।<br><br><strong>ଉପସଂହାର:</strong><br>ଅହଂକାର ଏବଂ କର୍ତ୍ତବ୍ୟ ନାମରେ ଅନ୍ଧ ହୋଇ ନିଜ ରକ୍ତକୁ ମାରିବାର ପଶ୍ଚାତ୍ତାପ ତାଙ୍କୁ ଜୀବନସାରା ଜାଳିଥିଲା।",
+                eng: "<strong>Intro:</strong> Surendra Mohanty's 'Pataka Uttolana' is a psychological story highlighting the inner conflict of a British-loyal police officer, Raybahadur Somnath.<br><br><strong>Body:</strong> India's independence brought no joy to Raybahadur. He was a loyal servant to the British. In fulfilling his duty, he had ruthlessly suppressed freedom fighters and even ordered the firing that killed his own nationalist son, Arun. When the Indian tricolor was hoisted, the guilt of killing his son clashed with the sorrow of the falling British empire, creating a massive mental agony. He cried holding the medals given by the British.<br><br><strong>Conclusion:</strong> His character portrays the tragic psychological breakdown of a man blinded by false duty and ego.",
+                hin: "Raybahadur ki mental tension (5 Marks). <strong>Intro:</strong> Ye story ek strict police officer ki hai jo Angrezo ka wafadar tha. <br><strong>Body:</strong> Desh azaad hone par usko khushi nahi hui kyunki usne angrezo ke liye apne hi jawan bete (Arun) ko goli marwa di thi jo freedom fighter tha. Jab Tiranga (flag) lehrata hai, toh usko apne bete ki maut ka guilt aur angrezi raaj ke khatam hone ka dukh, dono andar se tod dete hain. <br><strong>Conclusion:</strong> End me wo apne medals pakad ke rota hai, jo dikhata hai ki ego aur galat duty insaan ko barbaad kar deti hai."
+            },
+            {
+                id: 23, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର (Poetry)", marks: 5, prob: "Medium",
+                q: "ପିଙ୍ଗଳା ଚରିତ୍ରରେ ଆସିଥିବା ଆଧ୍ୟାତ୍ମିକ ଜାଗରଣ (Spiritual Awakening) ର ଚିତ୍ର ପ୍ରଦାନ କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ରାଧାମୋହନ ଗଡ଼ନାୟକଙ୍କ କବିତା 'ପିଙ୍ଗଳାର ଅଭିସାର'ରେ ଜଣେ ରୂପଜୀବୀ (ବେଶ୍ୟା) ନାରୀର ଦେହରୁ ଆତ୍ମା ଅଭିମୁଖେ ଯାତ୍ରା ଅତି ସୁନ୍ଦର ଭାବରେ ବର୍ଣ୍ଣନା କରାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ପିଙ୍ଗଳା କେବଳ ଧନ ଓ ଶାରୀରିକ କାମନାର ବଶବର୍ତ୍ତୀ ହୋଇ ଜୀବନ ବିତାଉଥିଲା। ଦିନେ ରାତିରେ ନିଜକୁ ସଜାଇ ସେ ଜଣେ ଧନୀ ବ୍ୟକ୍ତିଙ୍କୁ ଅପେକ୍ଷା କରିଥିଲା, କିନ୍ତୁ କେହି ଆସିଲେ ନାହିଁ। ଏହି ନିରାଶାରୁ ତା' ମନରେ ହଠାତ୍ ଏକ ଦିବ୍ୟ ଚେତନା ଜାଗ୍ରତ ହେଲା। ସେ ବୁଝିପାରିଲା ଯେ ପୁରୁଷର ଶାରୀରିକ ପ୍ରେମ ଏବଂ ସାଂସାରିକ ଧନ ସବୁ ମିଥ୍ୟା ଓ କ୍ଷଣସ୍ଥାୟୀ। ପ୍ରକୃତ ପ୍ରେମିକ ହେଉଛନ୍ତି ପରମାତ୍ମା (ଭଗବାନ)। ଏହାପରେ ସେ ନିଜର ଦାମିକା ଅଳଙ୍କାର ଏବଂ ପାପମୟ ଜୀବନକୁ ତ୍ୟାଗ କରି ସନ୍ନ୍ୟାସିନୀ (ତପସ୍ୱିନୀ) ସାଜିଲା। ତା'ର ଭୋଗ-ଲାଳସା ଶେଷ ହୋଇ ଯୋଗ-ସାଧନାରେ ପରିଣତ ହେଲା।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ, ଏହି କବିତାଟି ଦର୍ଶାଏ ଯେ ନିରାଶା ଭିତରୁ ହିଁ ମଣିଷକୁ ପ୍ରକୃତ ଆଲୋକ ଓ ଶାନ୍ତି ମିଳିଥାଏ।",
+                eng: "<strong>Intro:</strong> Radhamohan Gadanayak's poem beautifully describes a courtesan's (Pingala's) journey from lust and bodily attachment to spiritual awakening.<br><br><strong>Body:</strong> Pingala lived for wealth and physical desires. One night, she dressed up and waited for a rich client, but no one came. This intense disappointment triggered a divine realization (Vairagya). She understood that human lust and worldly wealth are fake and temporary. She realized God is the only true lover. She discarded her expensive ornaments, renounced her sinful life, and became a true ascetic (Sanyasini) seeking eternal peace.<br><br><strong>Conclusion:</strong> The poem proves that true enlightenment often comes from worldly frustration and detachment.",
+                hin: "Pingala ki transformation story (5 marks). <br><strong>Intro:</strong> Ye poem ek aurat ki story hai jo 'Body' (Jism) ke aakarshan se 'Soul' (Aatma) tak pohochti hai. <br><strong>Body:</strong> Pingala sirf paise aur pleasure ke liye jeeti thi. Ek raat jab koi ameer aadmi uske paas nahi aaya, toh usko reality samajh aayi. Usko pata chala ki physical love aur paisa sab temporary (nakli) hai. Asli pyaar toh sirf Bhagwan se hota hai. Usne apne saare gahne (ornaments) phenk diye aur sadhvi ban gayi. <br><strong>Conclusion:</strong> Ye dikhata hai ki jab duniya se umeed toot-ti hai, tabhi insaan ko bhagwan milte hain."
+            },
+            {
+                id: 24, chapter: "ବଡ଼ପଣ (Poetry)", marks: 3, prob: "High",
+                q: "ରାଜାମାନଙ୍କର ଅତ୍ୟାଚାର ଏବଂ ଶୋଷଣ ନୀତିକୁ କବି କିପରି ନିନ୍ଦା କରିଛନ୍ତି? (ସଂକ୍ଷିପ୍ତ ଉତ୍ତର)",
+                odia: "କବି ରାଧାନାଥ ରାୟ ତତ୍କାଳୀନ ରାଜାମାନଙ୍କୁ କଠୋର ସମାଲୋଚନା କରିଛନ୍ତି। ରାଜାମାନେ ପ୍ରଜାମାନଙ୍କର ରକ୍ତ ଶୋଷଣ କରି ନିଜର ବିଳାସବ୍ୟସନ ବଢାଉଥିଲେ। ସେମାନେ ପ୍ରଜାମାନଙ୍କୁ ନିଜର ସନ୍ତାନ ପରି ନଭାବି ଶିକାର ଭଳି ବ୍ୟବହାର କରୁଥିଲେ ଏବଂ ଅହଂକାରରେ ବୁଡି ରହିଥିଲେ, ଯାହାକି ଏକ ପାପ କାର୍ଯ୍ୟ ଅଟେ।",
+                eng: "Poet Radhanath Ray strongly condemned the contemporary kings. Instead of treating subjects like their own children, the kings exploited and drained their blood (wealth) to fund their own luxurious lifestyles. The poet criticized this arrogant and oppressive behavior as deeply sinful.",
+                hin: "Poet ne purane zamane ke rajaon ki burai ki hai. Raja log apni janta (public) ka khoon choos kar (paisa loot kar) apni aish-o-aaram ki life jeete the. Wo janta ko apne bacho ki tarah nahi, balki shikar (prey) ki tarah dekhte the."
+            },
+            {
+                id: 25, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Prose)", marks: 3, prob: "Medium",
+                q: "ଏସିଆର ଅଧିକାଂଶ ଦେଶର ଅବସ୍ଥା କାହିଁକି ଶୋଚନୀୟ ବୋଲି ଲେଖକ ମତ ଦେଇଛନ୍ତି?",
+                odia: "ଲେଖକଙ୍କ ମତରେ ଏସିଆର ଅଧିକାଂଶ ଦେଶମାନଙ୍କରେ 'ଗୁଣ' ବା 'ପ୍ରତିଭା' ର କୌଣସି ଆଦର ନାହିଁ। ସେଠାରେ ପ୍ରକୃତ ଜ୍ଞାନୀ ଲୋକଙ୍କୁ ସମ୍ମାନ ନମିଳି କେବଳ ପ୍ରଚାର (Advertisement) ଏବଂ ବାହ୍ୟ ଚମକକୁ ଗୁରୁତ୍ୱ ଦିଆଯାଉଛି। ଶିକ୍ଷାରେ ଗୁଣାତ୍ମକ ମାନ ନଥିବାରୁ ଏହି ଦେଶଗୁଡିକର ଅବସ୍ଥା ଶୋଚନୀୟ ହୋଇପଡିଛି।",
+                eng: "According to the author, the condition of most Asian countries is miserable because true talent and merit are not respected there. Instead of recognizing genuine knowledge, society values flashy advertisements and superficial degrees, leading to poor quality in education and progress.",
+                hin: "Writer kehta hai ki Asia ke deshon ki halat isliye kharab hai kyunki yahan talent ki value nahi hai. Yahan sirf degree, dikhawe aur advertisement pe zor diya jata hai. Asli knowledge ko koi izzat nahi deta."
+            },
+            {
+                id: 26, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Prose)", marks: 3, prob: "High",
+                q: "କୃଷକ (ହଳିଆ) ର ଜୀବନ ସହ ବର୍ଷାର କି ସମ୍ପର୍କ ଅଛି?",
+                odia: "ଓଡ଼ିଶା ଭଳି ରାଜ୍ୟରେ କୃଷକର ଜୀବନ ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ବର୍ଷା ଉପରେ ନିର୍ଭରଶୀଳ। ଆକାଶରେ କଳାହାଣ୍ଡିଆ ମେଘ ଦେଖିଲେ ଚାଷୀର ମନ ଆନନ୍ଦରେ ନାଚିଉଠେ। ଯଦି ବର୍ଷା ଠିକ୍ ସମୟରେ ହୁଏ ତେବେ ତା'ର କ୍ଷେତ ଶସ୍ୟଶ୍ୟାମଳା ହୁଏ, ଆଉ ଯଦି ନହୁଏ ତେବେ ତାକୁ ଅଭାବ ଓ ଦାରିଦ୍ର୍ୟର ସାମ୍ନା କରିବାକୁ ପଡ଼େ। ବର୍ଷା ହିଁ ତାର ଜୀବନ ଓ ମୃତ୍ୟୁର କାରଣ।",
+                eng: "In an agrarian state like Odisha, a farmer's life depends entirely on the monsoon. Seeing rain clouds fills the farmer with joy. Proper rain guarantees a rich harvest and prosperity, while the lack of it pushes him into poverty and starvation. Rain is his lifeline.",
+                hin: "Odisha ke kisaan ka life baarish pe depend karta hai. Baadal dekh ke wo khush hota hai. Agar baarish achi hui toh fasal achi hogi, aur agar nahi hui toh usko bhookha marna padega. Baarish hi uski zindagi hai."
+            },
+            {
+                id: 27, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "Guaranteed",
+                q: "ନିମ୍ନଲିଖିତ ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ଅରଣ୍ୟ ରୋଦନ'",
+                odia: "<strong>ଅର୍ଥ:</strong> ବୃଥା ପ୍ରାର୍ଥନା (Useless request / Crying in the wilderness)।<br><strong>ବାକ୍ୟ:</strong> ସେହି ନିଷ୍ଠୁର ଜମିଦାର ପାଖରେ ଗରିବ ଲୋକଟିର ଗୁହାରି କେବଳ <strong>ଅରଣ୍ୟ ରୋଦନ</strong> ସାର ହେଲା।",
+                eng: "<strong>Meaning:</strong> A useless or ignored request.<br><strong>Sentence:</strong> Pleading before that cruel officer was like an <strong>Aranya Rodana</strong> (crying in the wilderness).",
+                hin: "Trick: 'Aranya' matlab jangal, 'Rodana' matlab rona. Jangal me rone ka koi fayda nahi kyunki koi sunne wala nahi hota. Meaning: Aisi request jiska koi fayda na ho."
+            },
+            {
+                id: 28, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "High",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ଆକାଶ କଇଁଆ ଚିଲିକା ମାଛ'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଅସମ୍ଭବ କଥା ଆଶା କରିବା (Dreaming of the impossible)।<br><strong>ବାକ୍ୟ:</strong> ପାଠ ନପଢି ପରୀକ୍ଷାରେ ପ୍ରଥମ ସ୍ଥାନ ରଖିବା ବିଷୟରେ ଭାବିବା <strong>ଆକାଶ କଇଁଆ ଚିଲିକା ମାଛ</strong> ସହ ସମାନ।",
+                eng: "<strong>Meaning:</strong> Expecting something highly impossible.<br><strong>Sentence:</strong> Hoping to top the exam without studying is like hoping for <strong>Akasha Kainnya Chilika Machha</strong>.",
+                hin: "Trick: Aakash (sky) mein fal (kainnya) aur Chilika ka machhli ek sath sochna. Meaning: Aisi cheez sochna jo kabhi ho hi nahi sakti (Impossible dream)."
+            },
+            {
+                id: 29, chapter: "ଇତିହାସ (Prose)", marks: 2, prob: "Medium",
+                q: "ସତ୍ୟର ଆବିଷ୍କାର କିପରି ହୋଇଥାଏ ବୋଲି ଲେଖକ କହିଛନ୍ତି?",
+                odia: "ସତ୍ୟ ହେଉଛି ଅନନ୍ତ। କୌଣସି ଗୋଟିଏ କାଳରେ ବା ଯୁଗରେ ଏହାର ସମ୍ପୂର୍ଣ୍ଣ ଆବିଷ୍କାର ସମ୍ଭବ ନୁହେଁ। ଯୁଗ ଯୁଗ ଧରି ମନୁଷ୍ୟର ନିରନ୍ତର ଚେଷ୍ଟା, ଅନୁସନ୍ଧାନ ଏବଂ ଇତିହାସର ଅଧ୍ୟୟନ ଦ୍ୱାରା ଧୀରେ ଧୀରେ ସତ୍ୟର ଆବିଷ୍କାର ହୋଇଥାଏ।",
+                eng: "Truth is infinite. It cannot be completely discovered in a single era. It is through the continuous, relentless search and historical study by humans over ages that truth is gradually uncovered.",
+                hin: "Sachai (Truth) ki koi limit nahi hoti. Ye ek din mein nahi milti. Hazaron saal ki history aur lagatar koshish karne se dheere-dheere sachaai saamne aati hai."
+            },
+            {
+                id: 30, chapter: "ବ୍ୟାକରଣ (ସମାସ & ସନ୍ଧି)", marks: 2, prob: "Guaranteed",
+                q: "୧. 'ବିଦ୍ୟାଳୟ' କେଉଁ ସମାସ ଅଟେ? <br>୨. 'ଯଦ୍ୟପି' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "୧. ବିଦ୍ୟାଳୟ (ବିଦ୍ୟା ନିମନ୍ତେ ଆଳୟ) = <strong>ଚତୁର୍ଥୀ ତତ୍ ପୁରୁଷ ସମାସ</strong>।<br>୨. <strong>ଯଦି + ଅପି</strong> = ଯଦ୍ୟପି (ସ୍ୱର ସନ୍ଧି)।",
+                eng: "1. Bidyalaya (House for education) is Chaturthi Tatpurusha Samasa.<br>2. Yadi + Api = Yadyapi (Swara Sandhi).",
+                hin: "Trick: Jiska bhi meaning 'Ke liye' (For) nikalta ho (Vidya ke liye ghar = Vidyalaya), wo hamesha 'Chaturthi Tatpurusha' hota hai. 'Yadi+Api' mein i aur a mil kar 'ya' ban jate hain."
+            },
+            {
+                id: 31, chapter: "ତପସ୍ୱିନୀର ପତ୍ର (Poetry)", marks: 3, prob: "High",
+                q: "ସୀତା ରାମଙ୍କୁ କେଉଁ ମନ୍ତ୍ର ମାଗିଥିଲେ ଏବଂ କାହିଁକି?",
+                odia: "ସୀତା ଅତି ନିଷ୍ପାପ ଭାବରେ ରାମଙ୍କୁ ସେହି 'ମନ୍ତ୍ର' ମାଗିଥିଲେ ଯାହା ଦ୍ୱାରା ତାଙ୍କର ନୂଆ ପତ୍ନୀ (ଯଦି ସେ ବିବାହ କରିଥାନ୍ତି) ରାମଙ୍କ ମନକୁ କିଣି ନେଇଛନ୍ତି। ସୀତାଙ୍କର ଉଦ୍ଦେଶ୍ୟ ଥିଲା ଯେ ସେ ଆର ଜନ୍ମରେ ସେହି ମନ୍ତ୍ର ଜପ କରି ରାମଙ୍କୁ ପୁଣିଥରେ ନିଜର ସ୍ୱାମୀ ରୂପେ ପାଇପାରିବେ।",
+                eng: "Sita innocently asked Rama for the 'mantra' (magic) that his new wife had used to win his heart. Her intention was to learn that mantra so that in her next birth, she could use it to gain Rama as her husband again.",
+                hin: "Sita ji ne pucha ki aapki nayi patni ne aap pe konsa jadoo (mantra) kiya hai? Mujhe bhi wo jadoo sikha do taaki main agle janam (next birth) mein fir se aapko apna pati bana saku."
+            },
+            {
+                id: 32, chapter: "ବଡ଼ପଣ (Poetry)", marks: 2, prob: "Medium",
+                q: "ପୁରାତନ କାଳର ରାଜାମାନଙ୍କର ରାଜ୍ୟ ଶାସନ କିପରି ଥିଲା?",
+                odia: "ପୁରାତନ କାଳର ରାଜାମାନେ ବହୁତ ଉଦାର ଏବଂ ଧର୍ମପରାୟଣ ଥିଲେ। ସେମାନେ ନିଜର ପ୍ରଜାମାନଙ୍କୁ ନିଜ ସନ୍ତାନ ଭଳି ସ୍ନେହ କରୁଥିଲେ ଏବଂ ରାଜ୍ୟ ପରିବାର ମଧ୍ୟରେ ଏକ ପବିତ୍ର ସମ୍ପର୍କ ରହିଥିଲା।",
+                eng: "Kings in ancient times were noble and righteous. They loved and treated their subjects like their own children, maintaining a pure, family-like relationship with the public.",
+                hin: "Purane zamane ke raja bohot ache the. Wo apni janta (public) ko apni family aur apne bacchon ki tarah pyar karte the, lalach ya ghamand nahi karte the."
+            },
+            {
+                id: 33, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 3, prob: "High",
+                q: "ଗାଁକୁ ଫେରିବା ପରେ ରାଜୀବଲୋଚନଙ୍କ ଆଚରଣରେ କି ପରିବର୍ତ୍ତନ ଦେଖାଦେଲା?",
+                odia: "ସହରରୁ ପାଠ ପଢି ଗାଁକୁ ଫେରିବା ପରେ ରାଜୀବଲୋଚନ ନିଜକୁ ବହୁତ ବଡ଼ 'ସଭ୍ୟ' ମଣିଷ ବୋଲି ଦେଖାଇ ହେଲେ। ସେ ଗାଁର ସରଳ ଲୋକଙ୍କୁ, ସେମାନଙ୍କର ପୋଷାକକୁ ଏବଂ ଓଡ଼ିଆ ପରମ୍ପରାକୁ ଘୃଣା କଲେ। ନିଜର ଗାଉଁଲି ଭାଷାକୁ ଅସଭ୍ୟ ବୋଲି କହି ସବୁବେଳେ ଇଂରେଜୀ କାଇଦାରେ ଚଳିବାକୁ ଲାଗିଲେ।",
+                eng: "After returning to the village from the city, Rajiv Lochan acted superior and 'civilized'. He despised the simple village people, their clothing, and traditional Odia culture. He considered his mother tongue uncivilized and constantly flaunted a fake Western lifestyle.",
+                hin: "City se aane ke baad Rajib Lochan hawa mein udne laga. Usko apne gaon ke log, unke kapde, aur apni language bilkul gawar (uncivilized) lagne lagi. Wo gaon mein bhi angrezo ki tarah attitude dikhane laga."
+            },
+            {
+                id: 34, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି)", marks: 1, prob: "Fix",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖ: 'କପାଳ ଫାଟିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଦୁର୍ଭାଗ୍ୟ ପଡିବା ବା ସର୍ବନାଶ ହେବା (Misfortune/Bad luck)।",
+                eng: "Meaning: To have extreme bad luck or face a disaster.",
+                hin: "Trick: Kapal (forehead) fatna matlab kismat foot jana (Bad luck aana)."
+            },
+            {
+                id: 35, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "Fix",
+                q: "'ଦିନରାତି' ର ବିଗ୍ରହ ବାକ୍ୟ ଓ ସମାସ ନାମ ଲେଖ।",
+                odia: "ବିଗ୍ରହ ବାକ୍ୟ: <strong>ଦିନ ଓ ରାତି</strong>। ସମାସ ନାମ: <strong>ଦ୍ୱନ୍ଦ୍ୱ ସମାସ</strong>।",
+                eng: "Expansion: Dina o Rati (Day and night). Type: Dwandwa Samasa.",
+                hin: "Trick: Beech me 'O' (aur) lagta hai, isliye ye Dwandwa samasa hai."
+            },
+            {
+                id: 36, chapter: "ପତାକା ଉତ୍ତୋଳନ (Story)", marks: 3, prob: "Medium",
+                q: "ଅରୁଣ କାହିଁକି ପୋଲିସ ଗୁଳିର ଶିକାର ହୋଇଥିଲା?",
+                odia: "ଅରୁଣ ଥିଲା ଜଣେ ଦେଶପ୍ରେମୀ ଯୁବକ ଯିଏ ବ୍ରିଟିଶ ବିରୋଧୀ ଆନ୍ଦୋଳନରେ ସାମିଲ ଥିଲା। ସେ ସ୍ୱାଧୀନତାର ପତାକା ଧରି ଶୋଭାଯାତ୍ରା କରୁଥିବା ବେଳେ ତା'ର ବାପା (ରାୟବାହାଦୂର) ତାକୁ ଅଟକାଇବାକୁ ଚେଷ୍ଟା କରିଥିଲେ। ଅରୁଣ ନମାନିବାରୁ ବ୍ରିଟିଶ ପ୍ରତି କର୍ତ୍ତବ୍ୟ ଦେଖାଇବାକୁ ଯାଇ ବାପାଙ୍କ ନିର୍ଦ୍ଦେଶରେ ତା' ଉପରକୁ ଗୁଳି ଚଳାଯାଇଥିଲା।",
+                eng: "Arun was a patriotic youth leading an anti-British independence rally carrying the national flag. His father, a British-loyal police officer, tried to stop him. When Arun refused, his father ordered the police to open fire to prove his loyalty to the British, killing his own son.",
+                hin: "Arun ek freedom fighter tha jo desh azaad karne ke liye rally nikal raha tha. Uska baap (police officer) angrezo ka gulam tha. Jab Arun nahi ruka, toh uske baap ne duty ke naam par apne hi bete ko goli marwa di."
+            },
+            {
+                id: 37, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ", marks: 2, prob: "High",
+                q: "ବର୍ଷା ଅଭାବରୁ ଚାଷୀର କି ଅବସ୍ଥା ହୁଏ?",
+                odia: "ବର୍ଷା ଅଭାବରୁ ଚାଷୀର ସବୁ ଆଶା ଭାଙ୍ଗିଯାଏ। ତା'ର କ୍ଷେତ ଶୁଖି ଫାଟିଯାଏ ଏବଂ ତାକୁ ସାରା ବର୍ଷ ଦାରିଦ୍ର୍ୟ ଓ ଉପବାସ (ଭୋକ) ର ସାମ୍ନା କରିବାକୁ ପଡ଼େ।",
+                eng: "Without rain, all hopes of the farmer are shattered. His agricultural fields dry up and crack, forcing him to face severe poverty and starvation throughout the year.",
+                hin: "Baarish nahi hone se kisaan ka khet sookh jata hai aur uski saari mehnat waste ho jati hai. Usko bhookha marna padta hai."
+            },
+            
+            {
+                id: 38, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା", marks: 2, prob: "Medium",
+                q: "ପୁସ୍ତକ ପ୍ରକାଶନରେ ବର୍ତ୍ତମାନ କି ସମସ୍ୟା ଦେଖାଦେଇଛି?",
+                odia: "ପୁସ୍ତକ ପ୍ରକାଶନରେ ମୌଳିକ ପୁସ୍ତକ ଅପେକ୍ଷା 'ନୋଟ୍ ବହି' ବା 'ପାସ୍ ବୁକ୍' ର ପ୍ରଚଳନ ଅଧିକ ବଢିଯାଇଛି। ଲୋକେ ଗୁଣାତ୍ମକ ବହି କିଣିବା ଛାଡି ସର୍ଟକଟ୍ ପାଇଁ ଶସ୍ତା ବହି କିଣୁଛନ୍ତି।",
+                eng: "In book publishing, there is a huge surge in cheap 'Note Books' and 'Pass Books' rather than original, qualitative textbooks. Students prefer these shortcuts over gaining real knowledge.",
+                hin: "Aaj kal original aur achi books koi nahi khareedta. Market mein sirf sasti 'Guide books' aur 'Note books' bik rahi hain jisse bacchon ka dimaag kharab ho raha hai."
+            },
+            {
+                id: 39, chapter: "ଇତିହାସ", marks: 2, prob: "Medium",
+                q: "ପ୍ରକୃତ ଇତିହାସ କେଉଁଠାରେ ଲିପିବଦ୍ଧ ଥାଏ?",
+                odia: "ପ୍ରକୃତ ଇତିହାସ କେବଳ ରାଜାମହାରାଜାଙ୍କର ଯୁଦ୍ଧ କାହାଣୀରେ ନୁହେଁ, ବରଂ ମନୁଷ୍ୟ ସମାଜର ଦୈନନ୍ଦିନ ଜୀବନ, ସାଧାରଣ ଲୋକଙ୍କ ସଂଘର୍ଷ ଏବଂ ସେମାନଙ୍କର କର୍ମରେ ଲିପିବଦ୍ଧ ଥାଏ।",
+                eng: "True history is not just recorded in the war stories of kings, but it is deeply embedded in the daily lives, struggles, and actions of common people and human society.",
+                hin: "Asli history sirf rajaon ki ladai mein nahi hoti. Asli history aam logon (common people) ki zindagi aur unke struggle se banti hai."
+            },
+            {
+                id: 40, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ଦେବର୍ଷି' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ଦେବ + ଋଷି</strong> = ଦେବର୍ଷି (ସ୍ୱର ସନ୍ଧି)। ଅ ଏବଂ ଋ ମିଶି 'ଅର୍' ରେ ପରିଣତ ହୋଇଛି।",
+                eng: "Deva + Rushi = Devarshi. (Swara/Vowel Sandhi).",
+                hin: "Trick: Agar upar 'r' ki matra (ର୍) lage aur Rushi wala 'R' sound ho, toh Deva + Rushi karna."
+            }
+                        // PASTE THIS AFTER Q40 inside the questionsData array
+            ,{
+                id: 41, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 5, prob: "High",
+                q: "ରାଜୀବଲୋଚନଙ୍କର ପତନର ମୁଖ୍ୟ କାରଣଗୁଡ଼ିକ କ'ଣ ଥିଲା? ଆଲୋଚନା କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ଫକୀର ମୋହନ ସେନାପତିଙ୍କ 'ସଭ୍ୟ ଜମିଦାର' ଗଳ୍ପରେ ରାଜୀବଲୋଚନଙ୍କ ଚରିତ୍ର ମାଧ୍ୟମରେ ନକଲି ଆଧୁନିକତାର ଭୟଙ୍କର ପରିଣତି ଦର୍ଶାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ତାଙ୍କ ପତନର ମୁଖ୍ୟ କାରଣ ଥିଲା ଅହଂକାର ଏବଂ ପାଶ୍ଚାତ୍ୟ ସଂସ୍କୃତିର ଅନ୍ଧାନୁକରଣ। ପ୍ରଥମତଃ, ସେ ନିଜର ଗାଉଁଲି ବେପାର ଏବଂ ସମ୍ପତ୍ତି ଉପରେ ଧ୍ୟାନ ନଦେଇ କେବଳ ସହରୀ ବାବୁ ହେବାରେ ବ୍ୟସ୍ତ ରହିଲେ। ଦ୍ୱିତୀୟତଃ, ଖରାପ ସାଙ୍ଗମାନଙ୍କ କଥାରେ ପଡ଼ି ମଦ, ବେଶ୍ୟାବୃତ୍ତି ଏବଂ ବୃଥା ଖର୍ଚ୍ଚରେ ଲିପ୍ତ ରହିଲେ। ତୃତୀୟତଃ, ସେ ନିଜର ବିଶ୍ୱସ୍ତ ଏବଂ ପୁରୁଣା ଗୁମାସ୍ତାମାନଙ୍କୁ ଅସଭ୍ୟ କହି ବିଦା କରିଦେଲେ ଏବଂ ଠକ ଲୋକଙ୍କ ଉପରେ ବିଶ୍ୱାସ କଲେ, ଯେଉଁମାନେ ତାଙ୍କର ସବୁ ସମ୍ପତ୍ତି ଲୁଟି ନେଲେ।<br><br><strong>ଉପସଂହାର:</strong><br>ଏହିପରି ଭାବରେ ସଂସ୍କୃତିହୀନ ଆଚରଣ ଏବଂ ବିଳାସବ୍ୟସନ ତାଙ୍କୁ ସମ୍ପୂର୍ଣ୍ଣ ରୂପେ ତଳକୁ ଖସାଇ ଦେଲା।",
+                eng: "<strong>Intro:</strong> The story highlights the tragic downfall of Rajiv Lochan due to fake modernity.<br><br><strong>Body:</strong> His downfall had three main causes. First, he ignored his ancestral business and focused only on showing off. Second, influenced by bad company, he wasted huge amounts of money on alcohol and prostitutes. Third, he fired his loyal, traditional workers calling them 'uncivilized' and trusted fraudsters who ultimately looted all his wealth.<br><br><strong>Conclusion:</strong> His rejection of traditional values and reckless lifestyle led to his complete ruin.",
+                hin: "Bhai 5-mark answer hai. <strong>Intro:</strong> Rajib Lochan ki barbaadi ka karan uski fake modernity thi. <br><strong>Body:</strong> 3 reason the: 1. Usne business pe dhyan nahi diya. 2. Bure doston ke chakkar mein daaru aur aish-o-aaram mein paise udaye. 3. Apne purane wafadar naukron ko nikal diya aur dhokhebaaz doston pe bharosa kiya jinhone usko poora loot liya. <br><strong>Conclusion:</strong> Apne culture ko chhodne ka yahi anjaam hota hai."
+            },
+            {
+                id: 42, chapter: "ବଡ଼ପଣ (Poetry)", marks: 5, prob: "High",
+                q: "ଆଧୁନିକ ଶାସକ ଓ ରାଜାମାନଙ୍କୁ କବି ରାଧାନାଥ ରାୟ କି ପରାମର୍ଶ ଦେଇଛନ୍ତି?",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>'ବଡ଼ପଣ' କବିତାରେ କବି ରାଧାନାଥ ରାୟ ରାଜା ଓ ଜମିଦାରମାନଙ୍କର ଅତ୍ୟାଚାରୀ ନୀତିକୁ ନିନ୍ଦା କରିବା ସହ ସେମାନଙ୍କୁ ଏକ ମହତ୍ତ୍ୱପୂର୍ଣ୍ଣ ଉପଦେଶ ଦେଇଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>କବି ପରାମର୍ଶ ଦେଇଛନ୍ତି ଯେ ଧନ, ଯୌବନ ଏବଂ କ୍ଷମତା କେବେବି ଚିରସ୍ଥାୟୀ ନୁହେଁ। ତେଣୁ ଏହି ମିଥ୍ୟା ଅହଂକାର ତ୍ୟାଗ କର। ପ୍ରଜାମାନଙ୍କୁ ଶୋଷଣ କରି ନିଜର ଧନଭଣ୍ଡାର ବଢାଇବା ଏକ ମହାପାପ। ଏହା ବଦଳରେ ପ୍ରଜାମାନଙ୍କୁ ନିଜ ସନ୍ତାନ ଭଳି ସ୍ନେହ କର। କାରଣ ମୃତ୍ୟୁ ବେଳେ ଏହି ଅମାପ ସମ୍ପତ୍ତି କେହି ସାଥିରେ ନେଇଯିବେ ନାହିଁ। କେବଳ ସମାଜ ପାଇଁ କରିଥିବା ତ୍ୟାଗ ଏବଂ ସୁକର୍ମ ହିଁ ସେମାନଙ୍କୁ ଅମର କରି ରଖିବ।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ ରାଜାମାନେ ଅହଂକାର ତ୍ୟାଗ କରି ପରୋପକାର ଓ ଧର୍ମ ପଥରେ ଚାଲିବା ଉଚିତ୍।",
+                eng: "<strong>Intro:</strong> Poet Radhanath Ray criticizes oppressive rulers and gives them vital advice.<br><br><strong>Body:</strong> He advises the rulers to drop their arrogance because wealth, youth, and power are temporary. Exploiting the public to fill their own treasuries is a sin. Instead, they should treat the public like their own children. When death arrives, no one takes their wealth with them. Only sacrifices and good deeds make a person immortal.<br><br><strong>Conclusion:</strong> Rulers must abandon greed and walk the path of Dharma and selfless service.",
+                hin: "Poet Radhanath Ray ka message (5 marks). <strong>Intro:</strong> Poet aaj ke rajaon ko ghamand chhodne ko kehte hain. <br><strong>Body:</strong> Wo kehte hain ki paisa aur power temporary hai. Janta ko loot kar ameer banna paap hai. Janta ko apne bachhon ki tarah pyar karo. Marne ke baad koi paisa sath nahi jayega, sirf tumhare ache kaam duniya yaad rakhegi. <br><strong>Conclusion:</strong> Rajaon ko logo ki bhalai ke liye kaam karna chahiye."
+            },
+            {
+                id: 43, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Prose)", marks: 5, prob: "High",
+                q: "ଉତ୍କଳର କଳା ଓ ସ୍ଥାପତ୍ୟର କି ଚିତ୍ର ଏହି ପ୍ରବନ୍ଧରେ ଦିଆଯାଇଛି? ଆଲୋଚନା କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ପ୍ରାବନ୍ଧିକ କୃଷ୍ଣଚନ୍ଦ୍ର ପାଣିଗ୍ରାହୀ ନିଜ ପ୍ରବନ୍ଧରେ ଓଡ଼ିଶାର ପ୍ରାକୃତିକ ସୌନ୍ଦର୍ଯ୍ୟ ସହିତ ଏହାର ଅତୁଳନୀୟ କଳା ଓ ଭାସ୍କର୍ଯ୍ୟର ମଧ୍ୟ ବର୍ଣ୍ଣନା କରିଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ବାରିଦକୁ ବାଟ କଢେଇ ନେଲା ବେଳେ ଲେଖକ ଓଡ଼ିଶାର ଗର୍ବ ଓ ଗୌରବ ସମ୍ପର୍କରେ କହିଛନ୍ତି। କୋଣାର୍କ ମନ୍ଦିରର ପଥର ଗାତ୍ରରେ ଯେଉଁ ଜୀବନ୍ତ କଳାକୃତି ରହିଛି, ତାହା ପୃଥିବୀରେ ବିରଳ। ସେହିପରି ଖଣ୍ଡଗିରି ଏବଂ ଉଦୟଗିରି ଗୁମ୍ଫାରେ ଥିବା ଖୋଦିତ କଳା ଓଡ଼ିଆ ଜାତିର ଐତିହାସିକ ବୀରତ୍ୱ ଏବଂ ଧର୍ମଭାବନାର ପ୍ରତୀକ ଅଟେ। ଭୁବନେଶ୍ୱରର ଏକାମ୍ର କାନନ ଏବଂ ତାର ମନ୍ଦିରଗୁଡ଼ିକ ମଧ୍ୟ ଓଡ଼ିଶାର ଶିଳ୍ପୀମାନଙ୍କର ଯାଦୁଗରୀ ସ୍ପର୍ଶକୁ ପ୍ରମାଣିତ କରେ। ବର୍ଷା ଜଳ ପଡିଲେ ଏହି ପଥର ମୂର୍ତ୍ତିଗୁଡ଼ିକ ଯେପରି ଜୀବନ୍ୟାସ ପାଆନ୍ତି।<br><br><strong>ଉପସଂହାର:</strong><br>ଓଡ଼ିଶାର କଳା ଯେ କେବଳ ପଥର ନୁହେଁ, ବରଂ ଏକ ଜୀବନ୍ତ ଇତିହାସ, ତାହା ଲେଖକ ପ୍ରମାଣ କରିଛନ୍ତି।",
+                eng: "<strong>Intro:</strong> The author brilliantly describes the unparalleled art and architecture of Odisha alongside its natural beauty.<br><br><strong>Body:</strong> While guiding the cloud, the author highlights Odisha's pride. The intricate carvings on the stones of the Konark Sun Temple are world-class. The caves of Khandagiri and Udayagiri symbolize the historical bravery and religious devotion of the Odia race. The temples of Bhubaneswar showcase the magical touch of Odia sculptors. When rain falls on them, these stone figures seem to come alive.<br><br><strong>Conclusion:</strong> The essay proves that Odisha's architecture is not just stone, but a living history.",
+                hin: "Odisha ki Art aur Architecture (5 Marks). <strong>Intro:</strong> Writer ne Odisha ke mandiron ki khubsurti ka varnan kiya hai. <br><strong>Body:</strong> Konark mandir ke patharon pe jo art hai wo poori duniya mein famous hai. Khandagiri aur Udayagiri ki gufayein Odisha ke itihaas aur bravery ko dikhati hain. Bhubaneswar ke mandir wahan ke kalakaron ka jadoo hain. Jab baarish ki boondein in patharon pe girti hain, toh lagta hai jaise murtiyon mein jaan aa gayi ho. <br><strong>Conclusion:</strong> Odisha ka art sach mein mahan hai."
+            },
+            {
+                id: 44, chapter: "ବ୍ୟାକରଣ (ଅଳଙ୍କାର)", marks: 3, prob: "Fix",
+                q: "ଅନୁପ୍ରାସ ଅଳଙ୍କାର କାହାକୁ କୁହାଯାଏ? ଗୋଟିଏ ଉଦାହରଣ ଦେଇ ବୁଝାଅ।",
+                odia: "ଯେତେବେଳେ କବିତାର ଗୋଟିଏ ପାଦରେ (ଧାଡିରେ) ଗୋଟିଏ ବା ଏକାଧିକ ବ୍ୟଞ୍ଜନ ବର୍ଣ୍ଣ ବାରମ୍ବାର ଉଚ୍ଚାରିତ ହୁଏ, ତାହାକୁ 'ଅନୁପ୍ରାସ' ଅଳଙ୍କାର କୁହାଯାଏ। ଏହା ଶୁଣିବାକୁ ବହୁତ ମଧୁର ଲାଗେ।<br><strong>ଉଦାହରଣ:</strong> \"ଉତ୍କଳ କମଳା ବିଳାସ ଦୀର୍ଘିକା...\"<br><strong>ବୁଝାମଣା:</strong> ଏହି ଧାଡିରେ 'କ' ଏବଂ 'ଳ' ବ୍ୟଞ୍ଜନ ବର୍ଣ୍ଣର ବାରମ୍ବାର ପ୍ରୟୋଗ ହୋଇଥିବାରୁ ଏହା ଅନୁପ୍ରାସ ଅଟେ।",
+                eng: "When one or more consonant letters or sounds are repeated consecutively in a line of poetry, it is called 'Anuprasa' (Alliteration). <br><strong>Example:</strong> 'Utkala Kamala Bilasa Dirghika'. Here the consonants 'K' and 'L' are repeated.",
+                hin: "Trick: Jab kisi line mein ek hi akshar (alphabet) bar bar aaye, usko Anuprasa kehte hain. Jaise 'Utkala Kamala...' isme 'Ka' aur 'La' baar-baar aaya hai."
+            },
+            {
+                id: 45, chapter: "ତପସ୍ୱିନୀର ପତ୍ର", marks: 3, prob: "Medium",
+                q: "ସୀତା କାହିଁକି ନିଜକୁ 'ହତଭାଗିନୀ' ବୋଲି କହିଛନ୍ତି?",
+                odia: "ସୀତା ନିଜକୁ 'ହତଭାଗିନୀ' (ଖରାପ ଭାଗ୍ୟ ଥିବା ନାରୀ) ବୋଲି କହିଛନ୍ତି କାରଣ ସେ ଶ୍ରୀରାମଙ୍କ ଭଳି ମହାନ୍ ଏବଂ ଗୁଣବାନ୍ ସ୍ୱାମୀ ପାଇ ମଧ୍ୟ ତାଙ୍କ ସାଥିରେ ଅଯୋଧ୍ୟାରେ ରହିବାର ସୁଯୋଗ ପାଇନାହାନ୍ତି। ବିନା ଦୋଷରେ ତାଙ୍କୁ ବଣରେ ଏକାକୀ ନିର୍ବାସିତ ଜୀବନ ବିତାଇବାକୁ ପଡୁଛି।",
+                eng: "Sita calls herself 'Hata-bhagini' (unfortunate) because despite having a great and virtuous husband like Rama, she is deprived of living with him in the palace. She has to live a lonely, exiled life in the forest without having committed any fault.",
+                hin: "Sita ji apne aap ko 'Badkismat' isliye kehti hain kyunki Ram ji jaise mahan pati hone ke baad bhi wo unke sath mahal mein nahi reh saktin, aur bina galti ke jungle mein akele reh rahi hain."
+            },
+            {
+                id: 46, chapter: "ଇତିହାସ", marks: 3, prob: "Medium",
+                q: "ଯେଉଁମାନେ ଇତିହାସକୁ ଉପେକ୍ଷା କରନ୍ତି, ସେମାନଙ୍କର କି ଅବସ୍ଥା ହୁଏ?",
+                odia: "ଯେଉଁ ବ୍ୟକ୍ତି ବା ଜାତି ନିଜର ଅତୀତ ତଥା ଇତିହାସକୁ ଉପେକ୍ଷା କରନ୍ତି, ସେମାନେ ନିଜର ପରିଚୟ ହରାଇ ବସନ୍ତି। ସେମାନେ ଅତୀତର ଭୁଲ୍ ରୁ ଶିକ୍ଷା ନପାଇ ବାରମ୍ବାର ସେହି ଭୁଲ୍ କରନ୍ତି ଏବଂ ସମାଜରେ କେବେବି ଉନ୍ନତି ବା ପ୍ରଗତି କରିପାରନ୍ତି ନାହିଁ।",
+                eng: "Those who ignore their history lose their identity. They fail to learn from past mistakes and tend to repeat them, ensuring that they can never achieve true progress or development in society.",
+                hin: "Jo log apni history bhool jate hain, unka future kharab ho jata hai. Wo purani galtiyon se nahi seekhte aur life mein aage nahi badh paate."
+            },
+            {
+                id: 47, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "High",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'କୁହୁଡି ପହଁରିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ବୃଥା ପରିଶ୍ରମ କରିବା (Vain effort)।<br><strong>ବାକ୍ୟ:</strong> ବିନା ଯୋଜନାରେ ବ୍ୟବସାୟରେ ଟଙ୍କା ଲଗାଇବା <strong>କୁହୁଡି ପହଁରିବା</strong> ସହ ସମାନ।",
+                eng: "<strong>Meaning:</strong> Wasting effort on something useless.<br><strong>Sentence:</strong> Investing money without a proper plan is like <strong>Kuhudi Pahanriba</strong> (swimming in fog).",
+                hin: "Trick: Kuhudi matlab fog (kohra), usme tairna (swim karna) impossible aur bekar mehnat hai. Meaning: Useless effort (bekar mehnat karna)."
+            },
+            {
+                id: 48, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "High",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ଖଣ୍ଡା ଧାରରେ ଚାଲିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ବହୁତ ସାବଧାନ ଓ ସତର୍କ ହୋଇ ନିୟମରେ ଚଳିବା (Walking on a sword's edge / Being extremely careful)।<br><strong>ବାକ୍ୟ:</strong> ଜଣେ ସଚ୍ଚୋଟ ଅଫିସର ହୋଇ ଦୁର୍ନୀତିଗ୍ରସ୍ତ ବିଭାଗରେ କାମ କରିବା <strong>ଖଣ୍ଡା ଧାରରେ ଚାଲିବା</strong> ଭଳି କଷ୍ଟକର।",
+                eng: "<strong>Meaning:</strong> To follow strict rules carefully / Walk on a tightrope.<br><strong>Sentence:</strong> Working honestly in a corrupt office is like <strong>Khanda Dharare Chaliba</strong>.",
+                hin: "Trick: Khanda (talwar) ki dhaar par chalna. Matlab life mein bohot strict rules aur savdhani (carefulness) se chalna."
+            },
+            {
+                id: 49, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା", marks: 2, prob: "High",
+                q: "ଶିକ୍ଷା କମିଶନ୍ ଙ୍କ ରିପୋର୍ଟର ଅବସ୍ଥା କ'ଣ ହେଉଛି?",
+                odia: "ସରକାରଙ୍କ ଦ୍ୱାରା ବସାଯାଉଥିବା ଶିକ୍ଷା କମିଶନ୍ ଙ୍କ ମୂଲ୍ୟବାନ ରିପୋର୍ଟଗୁଡିକ କାର୍ଯ୍ୟକାରୀ ନହୋଇ କେବଳ ସରକାରୀ ଫାଇଲ୍ ତଳେ ଚାପି ହୋଇ ରହିଯାଉଛି।",
+                eng: "The valuable reports prepared by the education commissions are never implemented; they just gather dust while buried under government files.",
+                hin: "Sarkar education theek karne ke liye jo committee banati hai, unki report bas filon (files) mein band reh jati hai, ground pe koi kaam nahi hota."
+            },
+            {
+                id: 50, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର", marks: 2, prob: "Medium",
+                q: "ପିଙ୍ଗଳା କାହାକୁ ନିଜର ପ୍ରକୃତ ପ୍ରେମିକ ବୋଲି ମାନିନେଇଛି?",
+                odia: "ସାଂସାରିକ ନିରାଶା ପରେ ପିଙ୍ଗଳା ବୁଝିପାରିଛି ଯେ ନିଜ ହୃଦୟ ମଧ୍ୟରେ ଥିବା <strong>'ପରମାତ୍ମା' (ଭଗବାନ)</strong> ହିଁ ହେଉଛନ୍ତି ତାର ଏକମାତ୍ର ଶାଶ୍ୱତ ଏବଂ ପ୍ରକୃତ ପ୍ରେମିକ।",
+                eng: "After experiencing worldly disappointment, Pingala realizes that the Supreme Soul (God) residing within her heart is her only true and eternal lover.",
+                hin: "Duniya se dhokha khane ke baad Pingala samajh jati hai ki asli pyaar sirf Bhagwan (God) se ho sakta hai."
+            },
+            {
+                id: 51, chapter: "ବ୍ୟାକରଣ (ଅଳଙ୍କାର)", marks: 2, prob: "Guaranteed",
+                q: "ଉପମା ଅଳଙ୍କାର କିପରି ଚିହ୍ନିବ?",
+                odia: "ଯେଉଁଠାରେ ଦୁଇଟି ଭିନ୍ନ ବସ୍ତୁ ମଧ୍ୟରେ ସାଦୃଶ୍ୟ (ତୁଳନା) କରାଯାଇଥାଏ, ତାହା ଉପମା ଅଳଙ୍କାର। ଏଥିରେ ସାଧାରଣତଃ 'ପରି', 'ସଦୃଶ', 'ତୁଲ୍ୟ', କିମ୍ବା 'ପ୍ରାୟ' ଭଳି ଶବ୍ଦ ଥାଏ।",
+                eng: "Upama (Simile) involves comparing two different objects. It can be easily identified by the presence of comparison words like 'Pari', 'Sadrusha', or 'Tulya' (meaning 'like' or 'as').",
+                hin: "Pehchanne ki Ninja Trick: Agar sentence mein tumhein 'ପରି' (Pari) ya 'ସଦୃଶ' (Sadrusha) likha dikhe, toh aankh band karke 'Upama' likh dena. Ye tulna (comparison) ke liye use hota hai."
+            },
+            {
+                id: 52, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "Fix",
+                q: "'ସପ୍ତାହ' କେଉଁ ସମାସର ଅନ୍ତର୍ଗତ?",
+                odia: "ଏହା <strong>ଦ୍ୱିଗୁ ସମାସ</strong> ଅଟେ। (ବିଗ୍ରହ: ସପ୍ତ ଅହଃ ର ସମାହାର)। ଏଥିରେ ସଂଖ୍ୟା ଅଛି।",
+                eng: "It is Dwigu Samasa. (A collection of seven days).",
+                hin: "Trick: Word ke aage 'Sapta' (7 - Number) laga hai, isliye ye Dwigu samasa hai."
+            },
+            {
+                id: 53, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ସଜ୍ଜନ' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ସତ୍ + ଜନ</strong> = ସଜ୍ଜନ। (ବ୍ୟଞ୍ଜନ ସନ୍ଧି)। ତ୍ ଏବଂ ଜ ମିଶି ଜ୍ଜ ହୋଇଛି।",
+                eng: "Sat + Jana = Sajjana. (Consonant Sandhi).",
+                hin: "Trick: Double 'j' (ଜ୍ଜ) ko todte time pehla wala aadhi 't' (ତ୍) ban jata hai."
+            },
+            {
+                id: 54, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "High",
+                q: "'ରାଜପୁତ୍ର' କେଉଁ ସମାସ ଅଟେ?",
+                odia: "<strong>ଷଷ୍ଠୀ ତତ୍ ପୁରୁଷ</strong>। (ବିଗ୍ରହ ବାକ୍ୟ: ରାଜାଙ୍କର ପୁତ୍ର)। 'ଙ୍କର' ବିଭକ୍ତି ଲୋପ ପାଇଛି।",
+                eng: "Shasthi Tatpurusha Samasa. (Son of the King).",
+                hin: "Trick: Jiska meaning 'Ka, Ke, Ki' nikle (Raja KA putra) wo 6th (Shasthi) Tatpurusha hota hai."
+            },
+            {
+                id: 55, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 3, prob: "High",
+                q: "ରାଜୀବଲୋଚନଙ୍କର ବେଶଭୂଷା ଏବଂ କଥାବାର୍ତ୍ତା କିପରି ଥିଲା?",
+                odia: "ରାଜୀବଲୋଚନ ସବୁବେଳେ ସାହେବୀ କାଇଦାରେ ଚଳୁଥିଲେ। ସେ ପେଣ୍ଟ, ସାର୍ଟ, କୋଟ୍ ଏବଂ ଟାଇ ପିନ୍ଧୁଥିଲେ। ସେ ଓଡ଼ିଆରେ କଥା ହେବାକୁ ଘୃଣା କରୁଥିଲେ ଏବଂ ଅଧା ଓଡ଼ିଆ ଓ ଅଧା ଇଂରାଜୀ ମିଶାଇ କଥାବାର୍ତ୍ତା କରୁଥିଲେ। ଗାଁ ଲୋକଙ୍କୁ ସେ ଗାଉଁଲି ବୋଲି ଭାବୁଥିଲେ।",
+                eng: "Rajiv Lochan always flaunted a Western lifestyle. He wore pants, shirts, coats, and ties. He hated speaking in pure Odia and always mixed half English words to show off, treating the villagers as uneducated and backward.",
+                hin: "Rajib Lochan angrezo wale kapde (suit-boot) pehanta tha. Usko Odia bolne mein sharam aati thi isliye wo beech beech mein English jhaadta tha show off karne ke liye."
+            },
+            {
+                id: 56, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ", marks: 3, prob: "Medium",
+                q: "ମେଘ ବର୍ଷିଲେ ମୟୂରଭଞ୍ଜର ପ୍ରକୃତି କିପରି ଦେଖାଯାଏ?",
+                odia: "ମେଘ ବର୍ଷିଲେ ମୟୂରଭଞ୍ଜର ଘଞ୍ଚ ଶାଳ ଓ ପିଆଶାଳ ବନାନୀ (ଜଙ୍ଗଲ) ସବୁଜିମାରେ ଭରିଯାଏ। ପାହାଡିଆ ଅଞ୍ଚଳରେ ନୂତନ ଜୀବନର ସଞ୍ଚାର ହୁଏ ଏବଂ ପ୍ରକୃତି ଏକ ଅପୂର୍ବ ସୌନ୍ଦର୍ଯ୍ୟ ଧାରଣ କରେ ବୋଲି ଲେଖକ ବର୍ଣ୍ଣନା କରିଛନ୍ତି।",
+                eng: "When it rains, the dense Sal forests of Mayurbhanj turn vibrantly green. The hilly terrain receives new life, and nature assumes a breathtaking, unparalleled beauty.",
+                hin: "Baarish hote hi Mayurbhanj ke jungle ekdum hare-bhare (green) aur fresh ho jate hain. Pahaadon pe nayi jaan aa jati hai."
+            },
+            {
+                id: 57, chapter: "ବଡ଼ପଣ", marks: 3, prob: "High",
+                q: "ମଣିଷର ଜୀବନ କାହିଁକି ବହୁମୂଲ୍ୟ ବୋଲି କବି କହିଛନ୍ତି?",
+                odia: "କବିଙ୍କ ମତରେ ମଣିଷ ଜୀବନ ଅତ୍ୟନ୍ତ ବହୁମୂଲ୍ୟ କାରଣ ଏହା ବାରମ୍ବାର ମିଳେନାହିଁ। ଏହି ଜୀବନ କେବଳ ଭୋଗବିଳାସ ପାଇଁ ନୁହେଁ, ବରଂ ପରୋପକାର, ଧର୍ମ ପାଳନ ଏବଂ ସମାଜର ମଙ୍ଗଳ ପାଇଁ ଉଦ୍ଦିଷ୍ଟ। ସତ୍କର୍ମ କରିବା ପାଇଁ ହିଁ ଏହି ଜୀବନ ମିଳିଛି।",
+                eng: "Human life is incredibly precious because it is not granted repeatedly. The poet emphasizes that life is not meant for mere luxurious consumption but for performing good deeds, following Dharma, and serving society.",
+                hin: "Insaan ka janam baar baar nahi milta. Ye aish karne ke liye nahi, balki dusron ki madad aur ache kaam karne ke liye mila hai. Isliye ye bohot precious hai."
+            },
+            {
+                id: 58, chapter: "ପତାକା ଉତ୍ତୋଳନ (Story)", marks: 2, prob: "Medium",
+                q: "ହେମମାଳା କିଏ ଥିଲେ ଏବଂ ତାଙ୍କର ଅବସ୍ଥା କିପରି ଥିଲା?",
+                odia: "ହେମମାଳା ଥିଲେ ରାୟବାହାଦୂର ସୋମନାଥଙ୍କ ପତ୍ନୀ ତଥା ସହିଦ ଅରୁଣର ମା'। ପୁଅର ମୃତ୍ୟୁ ପରେ ସେ ମାନସିକ ସ୍ତରରେ ସମ୍ପୂର୍ଣ୍ଣ ଭାଙ୍ଗି ପଡିଥିଲେ ଏବଂ ସର୍ବଦା ଦୁଃଖ ଓ କାନ୍ଦଣାରେ କାଳାତିପାତ କରୁଥିଲେ।",
+                eng: "Hemamala was Raybahadur Somnath's wife and the martyr Arun's mother. After her son's tragic death, she was mentally completely broken and spent her life in endless grief and tears.",
+                hin: "Hemamala Raybahadur ki patni aur Arun ki maa thi. Apne bete ki maut ke baad wo dukh mein paagal jaisi ho gayi thi aur hamesha roti rehti thi."
+            },
+            {
+                id: 59, chapter: "ଇତିହାସ", marks: 2, prob: "Medium",
+                q: "ପ୍ରାବନ୍ଧିକଙ୍କ ମତରେ 'ସାମାଜିକ ଜୀବନ' କିପରି ଉନ୍ନତି କରେ?",
+                odia: "ଅତୀତର ଇତିହାସ ଅଧ୍ୟୟନ କରି, ସେଥିରୁ ଶିକ୍ଷା ଲାଭ କରି ଏବଂ ବର୍ତ୍ତମାନର ଦୋଷ ଦୁର୍ବଳତାକୁ ସୁଧାରିବା ଦ୍ୱାରା ହିଁ ସାମାଜିକ ଜୀବନ କ୍ରମାଗତ ଭାବରେ ଉନ୍ନତି କରେ।",
+                eng: "Social life progresses continuously when people study past history, learn from historical mistakes, and correct their present flaws.",
+                hin: "Society tabhi aage badhti hai jab hum apne past (history) se seekhte hain aur apni aaj ki galtiyon ko theek karte hain."
+            },
+            {
+                id: 60, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ନିରାକାର' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ନିଃ + ଆକାର</strong> = ନିରାକାର (ବିସର୍ଗ ସନ୍ଧି)। ବିସର୍ଗ (:) ଏବଂ ଆ ମିଶି 'ରା' ହୋଇଛି।",
+                eng: "Nih + Akara = Nirakara. (Visarga Sandhi).",
+                hin: "Trick: Jab 'r' ka sound (ରା) aaye aur usko todna ho, toh wo 'Nih:' (ନିଃ) ban jata hai."
+            }
+                        // PASTE THIS AFTER Q60 inside the questionsData array
+            ,{
+                id: 61, chapter: "ପତାକା ଉତ୍ତୋଳନ (Story)", marks: 5, prob: "High",
+                q: "'ପତାକା ଉତ୍ତୋଳନ' ଗଳ୍ପର ନାମକରଣର ସାର୍ଥକତା ବିଚାର କର। (Long Answer)",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ସୁରେନ୍ଦ୍ର ମହାନ୍ତିଙ୍କ ରଚିତ 'ପତାକା ଉତ୍ତୋଳନ' ଏକ ସ୍ୱାଧୀନତା ଭିତ୍ତିକ ମନସ୍ତାତ୍ତ୍ୱିକ ଗଳ୍ପ। ଏହାର ନାମକରଣ ଗଳ୍ପର ମୁଖ୍ୟ ଘଟଣା ସହ ଅତ୍ୟନ୍ତ ନିବିଡ଼ ଭାବରେ ଜଡିତ।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଗଳ୍ପର କାହାଣୀ ୧୯୪୭ ମସିହା ଅଗଷ୍ଟ ୧୪ ତାରିଖ ମଧ୍ୟରାତ୍ରିରୁ ଆରମ୍ଭ ହୋଇଛି, ଯେତେବେଳେ ଦେଶ ସ୍ୱାଧୀନ ହେଉଛି ଏବଂ ୟୁନିୟନ୍ ଜ୍ୟାକ୍ (ବ୍ରିଟିଶ୍ ପତାକା) ଓହ୍ଲାଇ ଭାରତର ଜାତୀୟ ପତାକା ଉତ୍ତୋଳନ କରାଯାଉଛି। ଏହି ପତାକା ଉତ୍ତୋଳନ କେବଳ ଏକ ଦେଶର ସ୍ୱାଧୀନତାର ପ୍ରତୀକ ନୁହେଁ, ବରଂ ଏହା ରାୟବାହାଦୂର ସୋମନାଥଙ୍କ ପରି ବ୍ରିଟିଶ ଅନୁଗତମାନଙ୍କର ଅହଂକାର ଏବଂ ପରାଜୟର ପ୍ରତୀକ ଅଟେ। ଯେଉଁ ତ୍ରିରଙ୍ଗା ପତାକାକୁ ଧରି ତାଙ୍କ ପୁଅ ଅରୁଣ ସହିଦ ହୋଇଥିଲା, ଆଜି ସେହି ପତାକା ସ୍ୱାଧୀନ ଆକାଶରେ ଉଡୁଛି ଏବଂ ରାୟବାହାଦୂରଙ୍କର ବ୍ରିଟିଶ ମେଡାଲ୍ ମୂଲ୍ୟହୀନ ହୋଇଯାଇଛି।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ, ଗଳ୍ପର ସମସ୍ତ ଭାବନା ଏବଂ ଘଟଣାବଳୀ 'ପତାକା ଉତ୍ତୋଳନ' କୁ କେନ୍ଦ୍ର କରି ଗତିଶୀଳ ହୋଇଥିବାରୁ ନାମକରଣଟି ସମ୍ପୂର୍ଣ୍ଣ ସାର୍ଥକ ଅଟେ।",
+                eng: "<strong>Intro:</strong> Surendra Mohanty's story revolves entirely around the historical event of hoisting the Indian national flag.<br><br><strong>Body:</strong> The story takes place on the midnight of August 14, 1947. The hoisting of the tricolor signifies not just India's independence, but the ultimate defeat of British loyalists like Raybahadur Somnath. His son Arun was martyred holding this very flag. Now, as the flag is hoisted, Raybahadur's British medals become worthless pieces of metal, bringing back his immense guilt and grief.<br><br><strong>Conclusion:</strong> Since the entire emotional and physical conflict of the story centers around the hoisting of the flag, the title is highly appropriate.",
+                hin: "Bhai Title Justification (5 Marks). <strong>Intro:</strong> Kahani ka naam 'Pataka Uttolana' (Flag Hoisting) bilkul sahi hai. <br><strong>Body:</strong> Story 14 Aug 1947 ki raat ki hai jab Tiranga lehraya ja raha hai. Ye flag sirf azaadi nahi, balki Somnath jaise angrezo ke gulamo ki haar ka symbol hai. Somnath ne apne bete ko is flag ke liye marwa diya tha. Aaj jab wahi flag lehra raha hai, toh uski sari British power zero ban gayi hai. <br><strong>Conclusion:</strong> Poori kahani is flag ke aage-peeche ghoomti hai, isliye naam perfect hai."
+            },
+            {
+                id: 62, chapter: "ଇତିହାସ (Prose)", marks: 5, prob: "High",
+                q: "ଇତିହାସ କିପରି ଭବିଷ୍ୟତର ଭିତ୍ତିଭୂମି ଅଟେ? ବୁଝାଇ ଲେଖ।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ପ୍ରାବନ୍ଧିକ ବିଶ୍ୱନାଥ କର 'ଇତିହାସ' ପ୍ରବନ୍ଧରେ ବର୍ଣ୍ଣନା କରିଛନ୍ତି ଯେ ବର୍ତ୍ତମାନ ଏବଂ ଭବିଷ୍ୟତ କେବେବି ଅତୀତ ଠାରୁ ଅଲଗା ନୁହେଁ।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଯେକୌଣସି ଜାତି ନିଜର ଭବିଷ୍ୟତ ଗଢିବାକୁ ଚାହେଁ, ତାକୁ ପ୍ରଥମେ ନିଜର ଇତିହାସ ପଢିବାକୁ ପଡିବ। ଅତୀତର ମହାପୁରୁଷମାନେ ଯେଉଁ ତ୍ୟାଗ, ସାଧନା, ଏବଂ କାର୍ଯ୍ୟ କରିଯାଇଛନ୍ତି, ତାହା ଉପରେ ହିଁ ବର୍ତ୍ତମାନର ସମାଜ ଠିଆ ହୋଇଛି। ଅତୀତର ଭୁଲ୍ ରୁ ଶିକ୍ଷା ନେଇ ମଣିଷ ବର୍ତ୍ତମାନକୁ ସୁଧାରେ ଏବଂ ଏକ ସୁନ୍ଦର ଭବିଷ୍ୟତର ଯୋଜନା କରେ। ଇତିହାସକୁ ବାଦ୍ ଦେଲେ ଭବିଷ୍ୟତ ଅନ୍ଧକାରମୟ ହୋଇଯିବ, କାରଣ ଚେର ବିନା ଗଛ ବଞ୍ଚିପାରିବ ନାହିଁ।<br><br><strong>ଉପସଂହାର:</strong><br>ତେଣୁ ଲେଖକ ଯଥାର୍ଥରେ କହିଛନ୍ତି ଯେ ଇତିହାସ ହିଁ ମାନବ ସଭ୍ୟତା ତଥା ଉଜ୍ଜ୍ୱଳ ଭବିଷ୍ୟତର ଏକମାତ୍ର ମୂଳଦୁଆ ବା ଭିତ୍ତିଭୂମି ଅଟେ।",
+                eng: "<strong>Intro:</strong> Essayist Biswanath Kar argues that the present and future are inseparable from the past (History).<br><br><strong>Body:</strong> For a nation to build its future, it must study its history. Modern society stands on the sacrifices and achievements of past generations. By learning from the mistakes and successes of the past, humans correct their present and plan a better future. A future without history is like a tree without roots; it cannot survive.<br><br><strong>Conclusion:</strong> Therefore, history is accurately described as the ultimate foundation for building a bright future.",
+                hin: "History as Foundation (5 Marks). <strong>Intro:</strong> Writer kehta hai ki History sirf past nahi, balki future ka base (foundation) hai. <br><strong>Body:</strong> Bina apni purani kahani (history) jane, koi desh aage nahi badh sakta. Purane logo ki mehnat aur galtiyon se hi humaara aaj bana hai. Agar hum history se nahi seekhenge, toh future me bhi wahi galtiyan karenge. Bina roots ke ped (tree) nahi hota, waise hi bina history ke future nahi hota. <br><strong>Conclusion:</strong> Isliye History humare aane wale kal ka base hai."
+            },
+            {
+                id: 63, chapter: "ବଡ଼ପଣ (Poetry)", marks: 5, prob: "Medium",
+                q: "କବି ରାଧାନାଥ ରାୟଙ୍କ ମତରେ 'ପ୍ରକୃତ ବଡ଼ପଣ' କ'ଣ? ଆଲୋଚନା କର।",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>'ବଡ଼ପଣ' କବିତାରେ କବି ରାଧାନାଥ ରାୟ ଦରବାରରେ ଏକତ୍ରିତ ହୋଇଥିବା ଅହଂକାରୀ ରାଜାମାନଙ୍କୁ ପ୍ରକୃତ ବଡ଼ପଣର ଅର୍ଥ ବୁଝାଇଛନ୍ତି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>କବିଙ୍କ ମତରେ ଧନସମ୍ପତ୍ତି ବଢାଇବା, ବଡ଼ ବଡ଼ କୋଠାବାଡି ତିଆରି କରିବା, କିମ୍ବା କ୍ଷମତାର ଅହଂକାର ଦେଖାଇବା ପ୍ରକୃତ ବଡ଼ପଣ ନୁହେଁ। ପ୍ରକୃତ ବଡ଼ପଣ ହେଉଛି ନିଜର ମିଥ୍ୟା ଅହଂକାରକୁ ତ୍ୟାଗ କରିବା, ଗରିବ ଓ ପ୍ରଜାମାନଙ୍କୁ ଦୟା କରିବା ଏବଂ ଧର୍ମ ପଥରେ ଚାଲିବା। ଯେଉଁ ବ୍ୟକ୍ତି ସମାଜ ପାଇଁ ନିଜ ସ୍ୱାର୍ଥକୁ ତ୍ୟାଗ କରେ ଏବଂ ସୁକର୍ମ କରେ, ତାକୁ ହିଁ ପ୍ରକୃତ ବଡ଼ ମଣିଷ କୁହାଯାଏ। କାରଣ ମୃତ୍ୟୁ ପରେ ଧନ ନୁହେଁ, କେବଳ ତାହାର ସୁଗୁଣ ହିଁ ମନେ ରହେ।<br><br><strong>ଉପସଂହାର:</strong><br>ତେଣୁ ପରୋପକାର ଏବଂ ଉଦାରତା ହିଁ ମନୁଷ୍ୟକୁ ପ୍ରକୃତରେ ବଡ଼ କରିଥାଏ ବୋଲି କବି ପ୍ରତିପାଦନ କରିଛନ୍ତି।",
+                eng: "<strong>Intro:</strong> In 'Bada Pana', poet Radhanath Ray explains the true meaning of greatness to the arrogant kings gathered at the Durbar.<br><br><strong>Body:</strong> The poet asserts that accumulating immense wealth, building giant palaces, or showing off political power is not true greatness. True greatness lies in sacrificing one's ego, showing kindness to the poor, and living a righteous life (Dharma). A person who sacrifices their own selfish desires for the welfare of society is truly great. After death, money is left behind; only good deeds remain immortal.<br><br><strong>Conclusion:</strong> Thus, selfless service, compassion, and Dharma are the core elements of true greatness.",
+                hin: "True Greatness (5 Marks). <strong>Intro:</strong> Poet ghamandi rajaon ko 'Asli Badapan' (Greatness) ka matlab sikhate hain. <br><strong>Body:</strong> Bada ghar, bohot sara paisa aur power hona badapan nahi hai. Asli badapan tab hai jab insaan apna ego chhod kar garibon ki madad kare aur ache kaam (dharma) kare. Kyunki marne ke baad bank balance sath nahi jata, sirf tumhari aachai aur tumhare kaam sath jate hain. <br><strong>Conclusion:</strong> Dusron ka bhala karna hi asli badapan hai."
+            },
+            {
+                id: 64, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ (Prose)", marks: 3, prob: "High",
+                q: "ପ୍ରାବନ୍ଧିକ ମେଘକୁ ପୁଷ୍ପପୁରରେ ଅଟକି ନଯାଇ ଉତ୍କଳକୁ ଯିବାକୁ କାହିଁକି କହିଛନ୍ତି?",
+                odia: "ପୁଷ୍ପପୁର (ପାଟଣା) ହେଉଛି ଏକ ବିଳାସବ୍ୟସନର ସହର, ଯେଉଁଠାରେ ଲୋକଙ୍କର ବର୍ଷା ପାଇଁ କୌଣସି ଆଗ୍ରହ ନାହିଁ। କିନ୍ତୁ ଉତ୍କଳ (ଓଡ଼ିଶା) ହେଉଛି କୃଷିପ୍ରଧାନ। ସେଠାରେ ଦରିଦ୍ର କୃଷକ ବର୍ଷାକୁ ଚାତକ ପରି ଅପେକ୍ଷା କରିଛି। ତେଣୁ ଲେଖକ ମେଘକୁ ଧନୀ ସହରରେ ବୃଥା ନବର୍ଷି ଗରିବ କୃଷକର କ୍ଷେତରେ ବର୍ଷିବାକୁ ଅନୁରୋଧ କରିଛନ୍ତି।",
+                eng: "Pushpapura (Patna) is a city of luxury where people do not eagerly wait for rain. However, Odisha is an agrarian land where poor farmers wait for rain like thirsty birds. Therefore, the author requests the cloud not to waste its water on the rich city, but to shower it where the needy farmers eagerly await it.",
+                hin: "Writer baadal ko kehta hai ki tu Patna jaise ameer shehar mein mat ruk, kyunki yahan logo ko baarish ki zarurat nahi hai. Tu Odisha ja, jahan garib kisaan fasal ke liye tera intezaar kar rahe hain."
+            },
+            {
+                id: 65, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା (Prose)", marks: 3, prob: "Medium",
+                q: "ଶିକ୍ଷା ବ୍ୟବସ୍ଥାରେ ଇଂରାଜୀ ଭାଷାକୁ ଅଧିକ ଗୁରୁତ୍ୱ ଦେବାର ପରିଣାମ କ'ଣ ହେଉଛି?",
+                odia: "ଲେଖକଙ୍କ ମତରେ, ଇଂରାଜୀ ଭାଷାକୁ ଅଧିକ ଗୁରୁତ୍ୱ ଦେବା ଫଳରେ ଛାତ୍ରମାନେ ନିଜ ମାତୃଭାଷା (ଓଡ଼ିଆ) ଠାରୁ ଦୂରେଇ ଯାଉଛନ୍ତି। ମାତୃଭାଷା ବିନା ମୌଳିକ ଚିନ୍ତାଧାରା ଏବଂ ସୃଜନଶୀଳତାର ବିକାଶ ଅସମ୍ଭବ। ଫଳରେ ଛାତ୍ରମାନେ କେବଳ ଘୋଷା ବିଦ୍ୟା ଉପରେ ନିର୍ଭର କରୁଛନ୍ତି।",
+                eng: "According to the author, giving excessive importance to English disconnects students from their mother tongue. Without the mother tongue, developing original thinking and creativity is impossible, turning students into machines that only memorize without understanding.",
+                hin: "Writer kehte hain ki English ko zyada value dene se bacche apni mother tongue bhool gaye hain. Apni language ke bina bacchon ka asli dimaag (original thinking) develop nahi ho pata aur wo bas ratta maarne lagte hain."
+            },
+            {
+                id: 66, chapter: "ତପସ୍ୱିନୀର ପତ୍ର (Poetry)", marks: 3, prob: "Medium",
+                q: "ସୀତା କେଉଁ କଥା ଭାବି ନିଜକୁ ଆଶ୍ୱାସନା ଦେଇଛନ୍ତି?",
+                odia: "ରାମ ଯଦି ନୂଆ ବିବାହ କରିଥାନ୍ତି, ତେବେ ସେହି ନୂଆ ପତ୍ନୀ ସହିତ ରାମ ସୁଖରେ ଅଛନ୍ତି ଏବଂ ଯଜ୍ଞ କାର୍ଯ୍ୟ ସୁରୁଖୁରୁରେ ସମ୍ପନ୍ନ ହେଉଛି ବୋଲି ଭାବି ସୀତା ନିଜ ମନକୁ ଆଶ୍ୱାସନା (ସାନ୍ତ୍ୱନା) ଦେଇଛନ୍ତି। ନିଜ କଷ୍ଟଠାରୁ ରାମଙ୍କ ସୁଖ ତାଙ୍କ ପାଇଁ ବଡ଼ ଥିଲା।",
+                eng: "Sita consoles herself by thinking that even if Rama has married a new queen, he must be happy with her, and the holy Yajna is being completed successfully. She prioritizes Rama's happiness over her own suffering.",
+                hin: "Sita ji khud ko ye soch kar shanti deti hain ki agar Ram ji ne nayi shadi kar bhi li hai, toh kam se kam wo khush toh hain aur unka Yagya bina kisi problem ke pura ho raha hai."
+            },
+            {
+                id: 67, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 3, prob: "High",
+                q: "ରାଜୀବଲୋଚନ କିପରି ଠକାମିର ଶିକାର ହେଲେ?",
+                odia: "ରାଜୀବଲୋଚନ ନିଜର ବିଶ୍ୱସ୍ତ ପୁରୁଣା ଗୁମାସ୍ତାମାନଙ୍କୁ ଗାଉଁଲି ଏବଂ ଅସଭ୍ୟ କହି ବିଦା କରିଦେଇଥିଲେ। ସେ ସହରର କିଛି ଧୂର୍ତ୍ତ ଏବଂ ଠକ ସାଙ୍ଗମାନଙ୍କ ଉପରେ ଅନ୍ଧ ବିଶ୍ୱାସ କରିଥିଲେ। ସେହି ଠକମାନେ ବ୍ୟବସାୟ ନାମରେ ତାଙ୍କର ସମସ୍ତ ଟଙ୍କା ଲୁଟି ନେଇ ତାଙ୍କୁ ରାସ୍ତାକୁ ଆଣିଦେଲେ।",
+                eng: "Rajiv Lochan fired his old, loyal accountants calling them 'uncivilized' and completely trusted his cunning city friends. These fraudsters manipulated him under the pretext of business and drained all his ancestral wealth, leaving him bankrupt.",
+                hin: "Rajib Lochan ne apne wafadar purane naukron ko nikal diya aur city ke chalak (cunning) doston par bharosa kiya. Unhi doston ne business ke bahane uski poori property loot li."
+            },
+            {
+                id: 68, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "Guaranteed",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ବିରାଡ଼ି ବୈଷ୍ଣବ'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଭଣ୍ଡ ତପସ୍ୱୀ ବା ଠକ (Hypocrite)।<br><strong>ବାକ୍ୟ:</strong> ସାଧୁ ବେଶରେ ଆସିଥିବା ସେହି ଲୋକଟି ପ୍ରକୃତରେ ଜଣେ <strong>ବିରାଡ଼ି ବୈଷ୍ଣବ</strong>, ସେ ଗାଁ ଲୋକଙ୍କୁ ଠକି ଦେଲା।",
+                eng: "<strong>Meaning:</strong> A hypocrite (Someone who fakes saintliness to cheat others).<br><strong>Sentence:</strong> The man posing as a holy saint was actually a <strong>Biradi Baishnaba</strong> who looted the villagers.",
+                hin: "Trick: Biradi (Billi/Cat) aur Baishnab (Sadhu). Ek billi sadhu ka roop lekar choohe ka shikar karti hai. Meaning: Dhokhebaaz ya pakhandi aadmi (Hypocrite)."
+            },
+            {
+                id: 69, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି - Idioms)", marks: 2, prob: "High",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ହାତ କରିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ନିଜ ଆୟତ୍ତକୁ ଆଣିବା ବା ଲାଞ୍ଚ ଦେବା (To bring under control / To bribe)।<br><strong>ବାକ୍ୟ:</strong> ରାଜନେତା ଜଣକ ଟଙ୍କା ଦେଇ ସମସ୍ତ ଭୋଟରଙ୍କୁ <strong>ହାତ କରିଦେଲେ</strong>।",
+                eng: "<strong>Meaning:</strong> To bring under control (often by bribing).<br><strong>Sentence:</strong> The corrupt politician used money to <strong>Hata Kariba</strong> (control) all the local officials.",
+                hin: "Trick: Haath karna matlab apni mutthi mein karlena ya bribe (rishwat) dekar apna bana lena."
+            },
+            {
+                id: 70, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର (Poetry)", marks: 2, prob: "Medium",
+                q: "ପିଙ୍ଗଳା କାହିଁକି ନିଜର ଅଳଙ୍କାର କାଢି ଫିଙ୍ଗିଦେଲା?",
+                odia: "ପିଙ୍ଗଳା ଅନୁଭବ କଲା ଯେ ଏହି ଅଳଙ୍କାର ଏବଂ ବାହ୍ୟ ସୌନ୍ଦର୍ଯ୍ୟ କେବଳ ମିଥ୍ୟା ଶାରୀରିକ ସୁଖ ପାଇଁ ଉଦ୍ଦିଷ୍ଟ। ପରମାତ୍ମାଙ୍କୁ ପାଇବା ପାଇଁ ଏସବୁର କୌଣସି ଆବଶ୍ୟକତା ନାହିଁ, ତେଣୁ ସେ ବୈରାଗ୍ୟ ଭାବରେ ସବୁ ଅଳଙ୍କାର ଫିଙ୍ଗିଦେଲା।",
+                eng: "Pingala realized that ornaments and external beauty were only meant to attract fake physical lust. Since she now sought the Supreme Soul (God), these material items were useless, so she threw them away in detachment.",
+                hin: "Pingala samajh gayi thi ki ye gahne (jewelry) sirf jism ke dikhawe ke liye hain. Bhagwan ko paane ke liye sache dil ki zaroorat hoti hai, isliye usne sab phenk diya."
+            },
+            {
+                id: 71, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ପରୋପକାର' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ପର + ଉପକାର</strong> = ପରୋପକାର (ସ୍ୱର ସନ୍ଧି)। ଅ ଏବଂ ଉ ମିଶି 'ଓ' ହୋଇଛି।",
+                eng: "Para + Upakara = Paropakara. (Swara Sandhi).",
+                hin: "Trick: Beech me 'O' (ଓ) ki matra aati hai, jo 'Para' aur 'Upakara' ke milne se banti hai."
+            },
+            {
+                id: 72, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "High",
+                q: "'ମହର୍ଷି' କେଉଁ ସମାସ ଅଟେ?",
+                odia: "<strong>କର୍ମଧାରୟ ସମାସ</strong> (ବିଗ୍ରହ: ମହାନ ଅଟେ ଋଷି)।",
+                eng: "Karmadharaya Samasa. (A sage who is great).",
+                hin: "Trick: Jab kisi ki khasiyat batayi jaye (Mahan Rushi), wo Karmadharaya hota hai."
+            },
+            {
+                id: 73, chapter: "ପତାକା ଉତ୍ତୋଳନ", marks: 2, prob: "High",
+                q: "ଅରୁଣ କେଉଁ ସ୍ୱପ୍ନ ଦେଖୁଥିଲା?",
+                odia: "ଅରୁଣ ଭାରତ ମାତାକୁ ବ୍ରିଟିଶ୍ ଶାସନରୁ ମୁକ୍ତ କରିବା ଏବଂ ଏକ ସ୍ୱାଧୀନ ଦେଶର ଖୋଲା ଆକାଶରେ ତ୍ରିରଙ୍ଗା ପତାକା ଉଡାଇବାର ସ୍ୱପ୍ନ ଦେଖୁଥିଲା। ସେଥିପାଇଁ ସେ ନିଜ ଜୀବନ ଦେବାକୁ ପଛାଇ ନଥିଲା।",
+                eng: "Arun dreamt of freeing Mother India from the chains of British rule and hoisting the tricolor flag under a free, independent sky. He willingly sacrificed his life for this dream.",
+                hin: "Arun ka sapna tha ki India azaad ho aur wo khule aasmaan ke neeche Tiranga lehraye."
+            },
+            {
+                id: 74, chapter: "ଇତିହାସ", marks: 2, prob: "Medium",
+                q: "ଅତୀତ ଏବଂ ବର୍ତ୍ତମାନ ମଧ୍ୟରେ କି ସମ୍ପର୍କ ଅଛି?",
+                odia: "ଅତୀତ ହେଉଛି ବର୍ତ୍ତମାନର ମୂଳଦୁଆ। ଅତୀତର ଘଟଣା, ତ୍ୟାଗ ଏବଂ କର୍ମ ଉପରେ ହିଁ ବର୍ତ୍ତମାନର ସ୍ଥିତି ନିର୍ଭର କରେ। ଅତୀତ ବିନା ବର୍ତ୍ତମାନର କୌଣସି ଅସ୍ତିତ୍ୱ ନାହିଁ।",
+                eng: "The past is the foundation of the present. The current state of society is entirely built upon the events, sacrifices, and actions of the past. Without the past, the present has no existence.",
+                hin: "Past aur Present aapas mein jude hue hain. Past ki mehnat par hi hamara aaj (present) khada hai."
+            },
+            {
+                id: 75, chapter: "ବଡ଼ପଣ", marks: 2, prob: "High",
+                q: "ରାଜାମାନେ ପ୍ରଜାମାନଙ୍କୁ କିପରି ଭୟଭୀତ କରୁଥିଲେ?",
+                odia: "କବିଙ୍କ ମତରେ ଅହଂକାରୀ ରାଜାମାନେ ବିଦେଶୀମାନଙ୍କର (ଇଂରେଜମାନଙ୍କର) ଭୟ ଦେଖାଇ ନିଜ ଦେଶର ନିରୀହ ପ୍ରଜାମାନଙ୍କୁ ଶୋଷଣ ଏବଂ ଭୟଭୀତ କରୁଥିଲେ।",
+                eng: "According to the poet, the arrogant kings used the fear of foreigners (the British) to intimidate, oppress, and exploit their own innocent subjects.",
+                hin: "Raja log aam janta ko Angrezo (foreigners) ka darr dikha kar unhe darate the aur loot te the."
+            },
+            {
+                id: 76, chapter: "ତପସ୍ୱିନୀର ପତ୍ର", marks: 2, prob: "Medium",
+                q: "ଲବ-କୁଶ କେଉଁଠାରେ ବଢିଥିଲେ ଏବଂ କାହାଠାରୁ ଶିକ୍ଷା ଲାଭ କରିଥିଲେ?",
+                odia: "ଯମଜ ଭାଇ ଲବ ଏବଂ କୁଶ ମହର୍ଷି ବାଲ୍ମୀକିଙ୍କର ପବିତ୍ର ଆଶ୍ରମରେ ବଢିଥିଲେ ଏବଂ ସେଠାରେ ସେହି ଋଷିଙ୍କ ଠାରୁ ହିଁ ଶସ୍ତ୍ର ଏବଂ ଶାସ୍ତ୍ର (ରାମାୟଣ) ଶିକ୍ଷା ଲାଭ କରିଥିଲେ।",
+                eng: "The twin brothers Lava and Kusha grew up in the holy ashram of Sage Valmiki, where they received their education in weapons and scriptures (the Ramayana) directly from him.",
+                hin: "Luv aur Kush Valmiki ashram mein pale-badhe the aur unhone Valmiki ji se hi padhai aur hathiyar chalana seekha tha."
+            },
+            {
+                id: 77, chapter: "ସଭ୍ୟ ଜମିଦାର", marks: 2, prob: "Medium",
+                q: "ରାଜୀବଲୋଚନ ନିଜ ମାତୃଭାଷା ପ୍ରତି କିପରି ମନୋଭାବ ରଖିଥିଲେ?",
+                odia: "ରାଜୀବଲୋଚନ ନିଜ ମାତୃଭାଷା (ଓଡ଼ିଆ) କୁ ଘୃଣା କରୁଥିଲେ। ସେ ଓଡ଼ିଆ ଭାଷାକୁ ଅସଭ୍ୟ ଓ ଗାଉଁଲି ମଣୁଥିଲେ ଏବଂ କଥାବାର୍ତ୍ତାରେ ସବୁବେଳେ ଇଂରାଜୀ ଶବ୍ଦ ବ୍ୟବହାର କରି ନିଜକୁ ଆଧୁନିକ ପ୍ରମାଣିତ କରୁଥିଲେ।",
+                eng: "Rajiv Lochan despised his mother tongue (Odia), considering it uncivilized and backward. He constantly used English words in his conversations to prove his modernity.",
+                hin: "Rajib Lochan ko apni khud ki language (Odia) se nafrat thi. Wo usko gawar language manta tha aur show-off ke liye english bolta tha."
+            },
+            {
+                id: 78, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା", marks: 2, prob: "High",
+                q: "ଶିକ୍ଷାକୁ କାହିଁକି ଏକ ଯନ୍ତ୍ର ସହ ତୁଳନା କରାଯାଇଛି?",
+                odia: "ଆଜିକାଲିର ଶିକ୍ଷା ବ୍ୟବସ୍ଥାରେ କୌଣସି ଜୀବନଶକ୍ତି ବା ମୂଲ୍ୟବୋଧ ନାହିଁ। ଏହା ଏକ ଯନ୍ତ୍ର ଭଳି କେବଳ ଡିଗ୍ରୀଧାରୀ ଛାତ୍ର ଏବଂ କିରାଣି ତିଆରି କରୁଛି, ତେଣୁ ଏହାକୁ ଯନ୍ତ୍ର ସହ ତୁଳନା କରାଯାଇଛି।",
+                eng: "Modern education lacks life and moral values. It is compared to a machine because it mechanically produces degree-holders and clerks without building their character.",
+                hin: "Aaj ka education system ek machine ban gaya hai jisme bacche dalo aur clerk nikal lo. Isme koi character ya sachai nahi bachi."
+            },
+            {
+                id: 79, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ତନ୍ମଧ୍ୟ' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ତତ୍ + ମଧ୍ୟ</strong> = ତନ୍ମଧ୍ୟ। (ବ୍ୟଞ୍ଜନ ସନ୍ଧି)। ତ୍ ପରେ ମ୍ ଆସିବାରୁ ତ୍ ଟି 'ନ୍' ରେ ପରିଣତ ହୋଇଛି।",
+                eng: "Tat + Madhya = Tanmadhya. (Consonant Sandhi).",
+                hin: "Trick: Jab aadhi 'n' aur 'm' (ନ୍ମ) saath ho, toh tootne par pehla wala 'Tat' (ତତ୍) ban jata hai."
+            },
+            {
+                id: 80, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି)", marks: 1, prob: "Fix",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖ: 'କଳାକାଠ ପଡିଯିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଅତ୍ୟଧିକ ଭୟଭୀତ ହେବା ବା ମଳିନ ପଡିଯିବା (To turn pale due to extreme fear or sadness)।",
+                eng: "Meaning: To turn extremely pale due to severe fear, shock, or sorrow.",
+                hin: "Trick: Dar ke maare chehre ka rang ud jana (Kala pad jana)."
+            }
+                        // PASTE THIS AFTER Q80 inside the questionsData array
+            ,{
+                id: 81, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର (Poetry)", marks: 5, prob: "High",
+                q: "'ପିଙ୍ଗଳାର ଅଭିସାର' କବିତାର ମୁଖ୍ୟ ବାର୍ତ୍ତା ବା ଶିକ୍ଷା କ'ଣ? (Long Answer)",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>କବି ରାଧାମୋହନ ଗଡ଼ନାୟକଙ୍କ 'ପିଙ୍ଗଳାର ଅଭିସାର' କବିତାଟି ବୈରାଗ୍ୟ ଏବଂ ଆଧ୍ୟାତ୍ମିକ ଚେତନାର ଏକ ଅପୂର୍ବ ନିଦର୍ଶନ।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଏହି କବିତାର ମୁଖ୍ୟ ବାର୍ତ୍ତା ହେଉଛି ଯେ ପାର୍ଥିବ ବା ଶାରୀରିକ ସୁଖ କେବେବି ଚିରସ୍ଥାୟୀ ନୁହେଁ। ପିଙ୍ଗଳା ନାମକ ଜଣେ ବେଶ୍ୟା ନିଜର ବାହ୍ୟ ସୌନ୍ଦର୍ଯ୍ୟ ଓ ଧନକୁ ନେଇ ଗର୍ବ କରୁଥିଲା। କିନ୍ତୁ ଏକ ନିରାଶାଜନକ ରାତିରେ ସେ ଉପଲବ୍ଧି କଲା ଯେ ମନୁଷ୍ୟର ପ୍ରକୃତ ସୌନ୍ଦର୍ଯ୍ୟ ତାର ଆତ୍ମାରେ ଅଛି। ଧନ ଓ ଯୌବନ ଦିନେ ନା ଦିନେ ନଷ୍ଟ ହୋଇଯିବ, କିନ୍ତୁ ପରମାତ୍ମାଙ୍କ ପ୍ରେମ ହେଉଛି ଶାଶ୍ୱତ। ଏହି ଜ୍ଞାନ ପାଇବା ପରେ ସେ ନିଜର ପାପମୟ ଜୀବନ ଛାଡି ଜଣେ ସନ୍ନ୍ୟାସିନୀରେ ପରିଣତ ହେଲା।<br><br><strong>ଉପସଂହାର:</strong><br>ଅତଏବ, ଦେହରୁ ଆତ୍ମା ଆଡକୁ ଏବଂ ଅନ୍ଧକାରରୁ ଦିବ୍ୟାଲୋକ ଆଡକୁ ଯିବାର ମାର୍ଗ ହିଁ ଏହି କବିତାର ଶ୍ରେଷ୍ଠ ଶିକ୍ଷା ଅଟେ।",
+                eng: "<strong>Intro:</strong> The poem provides a profound message of spiritual awakening and detachment (Vairagya).<br><br><strong>Body:</strong> The core message is that worldly and physical pleasures are temporary. Pingala, a courtesan, was proud of her physical beauty and wealth. However, a night of deep disappointment made her realize that true beauty lies within the soul. Youth and wealth will eventually perish, but the love of the Supreme Soul (God) is eternal. Realizing this, she renounced her sinful life to become an ascetic.<br><br><strong>Conclusion:</strong> The poem teaches that the ultimate journey of human life is from physical lust to spiritual liberation.",
+                hin: "Poem ka Main Message (5 Marks). <strong>Intro:</strong> Ye poem batati hai ki duniya ka lalach bekar hai. <br><strong>Body:</strong> Pingala soochti thi ki paisa aur jism (body) hi sab kuch hai. Par usko samajh aagaya ki ye sab temporary hai. Ek din insaan boodha hoga aur paisa chala jayega. Asli pyaar aur khushi sirf Bhagwan (God) ki bhakti mein hai. Ye jaan kar usne apne saare bure kaam chhod diye. <br><strong>Conclusion:</strong> Poem sikhata hai ki 'Physical Beauty' se bada 'Soul' (Aatma) ka connection hota hai."
+            },
+            {
+                id: 82, chapter: "ଇତିହାସ (Prose)", marks: 5, prob: "Medium",
+                q: "ଏକ ଜାତିର ଉତ୍ଥାନ ଓ ପତନରେ ଇତିହାସର ଭୂମିକା କ'ଣ?",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା:</strong><br>ବିଶ୍ୱନାଥ କରଙ୍କ 'ଇତିହାସ' ପ୍ରବନ୍ଧରେ ଏକ ଜାତିର ଉନ୍ନତି ଓ ଅବନତି (ଉତ୍ଥାନ-ପତନ) ପାଇଁ ଇତିହାସର ଗୁରୁତ୍ୱକୁ ସ୍ପଷ୍ଟ କରାଯାଇଛି।<br><br><strong>ବିଷୟବସ୍ତୁ:</strong><br>ଯେଉଁ ଜାତି ନିଜର ଅତୀତ ଇତିହାସକୁ ସମ୍ମାନ କରେ, ତା'ର ସଫଳତାର କାହାଣୀରୁ ପ୍ରେରଣା ପାଏ ଏବଂ ତ୍ରୁଟିଗୁଡିକରୁ ଶିକ୍ଷା ଗ୍ରହଣ କରେ, ସେହି ଜାତି ସର୍ବଦା ଉନ୍ନତି ପଥରେ ଆଗେଇଯାଏ। କିନ୍ତୁ ଯେଉଁ ଜାତି ନିଜର ଇତିହାସକୁ ଭୁଲିଯାଏ, ସେ ନିଜର ପରିଚୟ ହରାଇ ବସେ ଏବଂ ବାରମ୍ବାର ସମାନ ଭୁଲ୍ କରି ପତନ ଆଡକୁ ଗତି କରେ। ଇତିହାସ ହେଉଛି ଏକ ଦିଗଦର୍ଶକ ଯାହା ଆଗକୁ ବଢିବାକୁ ବାଟ ଦେଖାଏ।<br><br><strong>ଉପସଂହାର:</strong><br>ତେଣୁ ଏକ ସମୃଦ୍ଧ ଜାତି ଗଠନ କରିବାକୁ ହେଲେ ଇତିହାସର ଅଧ୍ୟୟନ ଅପରିହାର୍ଯ୍ୟ।",
+                eng: "<strong>Intro:</strong> The essay highlights the critical role history plays in the rise and fall of any nation.<br><br><strong>Body:</strong> A nation that respects its past, draws inspiration from its historical successes, and learns from its mistakes always progresses on the path of development. Conversely, a nation that forgets its history loses its identity, repeats past errors, and inevitably faces a downfall. History acts as a guiding light for future generations.<br><br><strong>Conclusion:</strong> Thus, studying history is non-negotiable for the continuous upliftment of a society.",
+                hin: "Rise and Fall of a Nation (5 Marks). <strong>Intro:</strong> History se hi kisi desh ka future banta ya bigadta hai. <br><strong>Body:</strong> Jo desh apni history yaad rakhta hai, wo apne mahan logo se inspire hota hai aur unki galtiyon se seekhta hai. Isse desh aage (Rise) badhta hai. Par jo desh apni history bhool jata hai, wo dubara wahi galtiyan karta hai aur barbaad (Fall) ho jata hai. <br><strong>Conclusion:</strong> Isliye history padhna desh ke vikas ke liye sabse zaroori hai."
+            },
+            {
+                id: 83, chapter: "ସଭ୍ୟ ଜମିଦାର (Story)", marks: 3, prob: "High",
+                q: "ସହରୀ ସାଙ୍ଗମାନେ ରାଜୀବଲୋଚନଙ୍କୁ କିପରି ପ୍ରଭାବିତ କଲେ?",
+                odia: "ସହରୀ ସାଙ୍ଗମାନେ ରାଜୀବଲୋଚନଙ୍କ ମନରେ ନକଲି ଆଧୁନିକତାର ବିଷ ମଞ୍ଜି ବୁଣିଦେଲେ। ସେମାନଙ୍କ ପ୍ରରୋଚନାରେ ପଡ଼ି ସେ ମଦ୍ୟପାନ କଲେ, ବେଶ୍ୟାଳୟକୁ ଗଲେ ଏବଂ ନିଜର ସରଳ ଗାଉଁଲି ପରମ୍ପରାକୁ ଘୃଣା କରିବାକୁ ଲାଗିଲେ। ସେମାନେ ତାଙ୍କୁ ଠକି ତାଙ୍କର ସମସ୍ତ ସମ୍ପତ୍ତି ଲୁଟି ନେଇଥିଲେ।",
+                eng: "The cunning city friends poisoned Rajiv Lochan's mind with the idea of fake modernity. Influenced by them, he started drinking, visiting brothels, and hating his simple village traditions. Ultimately, they manipulated him and looted all his ancestral wealth.",
+                hin: "City ke doston ne Rajib ka brainwash kar diya. Unhone usko daaru aur bure kaamo ki lat laga di, aur dikhawe (show off) ke chakkar mein fasakar uski saari property khud hadap li (loot li)."
+            },
+            {
+                id: 84, chapter: "ତପସ୍ୱିନୀର ପତ୍ର", marks: 3, prob: "High",
+                q: "ସୀତାଙ୍କ ହୃଦୟ କାହିଁକି ଆନ୍ଦୋଳିତ ହେଉଥିଲା?",
+                odia: "ଯେତେବେଳେ ଲବ ଓ କୁଶ ବୀଣା ଧରି କରୁଣ ସ୍ୱରରେ ରାମାୟଣ ଗାନ କରୁଥିଲେ, ସେତେବେଳେ ରାମଙ୍କ ସହିତ ବିତାଇଥିବା ସେହି ପୁରୁଣା ଦିନର ସ୍ମୃତିଗୁଡ଼ିକ ସୀତାଙ୍କ ମନରେ ଜାଗ୍ରତ ହେଉଥିଲା। ଅତୀତର ସୁଖ ଏବଂ ବର୍ତ୍ତମାନର ନିର୍ବାସନ ଦୁଃଖ କଥା ଭାବି ତାଙ୍କ ହୃଦୟ ଭାବପ୍ରବଣ ବା ଆନ୍ଦୋଳିତ ହୋଇଉଠୁଥିଲା।",
+                eng: "Whenever Lava and Kusha sang the Ramayana in their emotional voices, it awakened the sweet memories of the past days Sita had spent with Rama. The contrast between her past happiness and her present lonely exile made her heart deeply restless and emotional.",
+                hin: "Jab Luv aur Kush Ramayan gaate the, toh Sita ji ko Ram ji ke sath bitaye purane ache din yaad aa jate the. Purani khushi aur aaj ka akelapan soch kar unka dil rone lagta tha."
+            },
+            {
+                id: 85, chapter: "ପୁଷ୍ପପୁରରେ ବର୍ଷାବରଣ", marks: 3, prob: "Medium",
+                q: "ଉତ୍କଳର ନଦୀମାନଙ୍କୁ ଲେଖକ କିପରି ବର୍ଣ୍ଣନା କରିଛନ୍ତି?",
+                odia: "ଲେଖକ ଉତ୍କଳର ନଦୀ ଯଥା ମହାନଦୀ, କାଠଯୋଡି ଏବଂ ବ୍ରାହ୍ମଣୀକୁ ଅତ୍ୟନ୍ତ ସୁନ୍ଦର ଭାବରେ ବର୍ଣ୍ଣନା କରିଛନ୍ତି। ବର୍ଷା ଜଳ ପାଇ ଏହି ନଦୀଗୁଡ଼ିକ ନୂତନ ଯୌବନ ଲାଭ କରନ୍ତି ଏବଂ ଦୁଇ କୂଳ ଖାଇ ପ୍ରବଳ ବେଗରେ ବୋହିଯାଆନ୍ତି। ଏହା ପ୍ରକୃତିର ଏକ ଅପୂର୍ବ ଦୃଶ୍ୟ।",
+                eng: "The author beautifully describes the rivers of Odisha like Mahanadi, Kathajodi, and Brahmani. Upon receiving rainwater, these rivers gain new youth and vitality, flowing with tremendous force and touching both banks, creating a spectacular natural scene.",
+                hin: "Writer ne Odisha ki nadiyon (Mahanadi) ki tareef ki hai. Baarish ka paani milte hi ye nadiyaan fresh aur full ho jati hain, aur poore force ke sath behti hain jo dekhne mein bohot sundar lagta hai."
+            },
+            {
+                id: 86, chapter: "ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା", marks: 3, prob: "Medium",
+                q: "ଛାତ୍ରମାନେ ଆଜିକାଲି କାହିଁକି ପୁସ୍ତକ ପଢିବାକୁ ଇଚ୍ଛା କରୁନାହାନ୍ତି?",
+                odia: "ଆଜିକାଲି ପରୀକ୍ଷାରେ କେବଳ ପାସ୍ କରିବା ହିଁ ଛାତ୍ରମାନଙ୍କର ଏକମାତ୍ର ଲକ୍ଷ୍ୟ ହୋଇଯାଇଛି। ବଜାରରେ ସହଜରେ 'ନୋଟ୍ ବହି' ମିଳିଯାଉଥିବାରୁ, ସେମାନେ କଷ୍ଟ କରି ମୂଳ ପୁସ୍ତକ ପଢି ଜ୍ଞାନ ଅର୍ଜନ କରିବା ପରିବର୍ତ୍ତେ ସର୍ଟକଟ୍ ରାସ୍ତା ଆପଣାଉଛନ୍ତି।",
+                eng: "Nowadays, the sole aim of students is just to pass the exams. Since cheap 'Note Books' with direct answers are easily available in the market, students prefer these shortcuts over taking the effort to read original textbooks and gain real knowledge.",
+                hin: "Baccho ka aim sirf exam pass karna reh gaya hai. Jab market mein easily 'Note book' (guide) mil jati hai, toh koi moti kitaab (textbook) padh kar dimaag kyun lagayega? Isliye wo shortcut maarte hain."
+            },
+            {
+                id: 87, chapter: "ପତାକା ଉତ୍ତୋଳନ", marks: 2, prob: "High",
+                q: "ରାୟବାହାଦୂର ନିଜ ବାକ୍ସରୁ କ'ଣ ବାହାର କରିଥିଲେ?",
+                odia: "ରାୟବାହାଦୂର ନିଜର ପୁରୁଣା ମଖମଲ ବାକ୍ସରୁ ଇଂରେଜ ସରକାରଙ୍କ ଦ୍ୱାରା ତାଙ୍କୁ ଦିଆଯାଇଥିବା 'ସନନ୍ଦ' ଏବଂ 'ସ୍ୱର୍ଣ୍ଣ ପଦକ' (Medals) ବାହାର କରିଥିଲେ।",
+                eng: "Raybahadur took out the 'Sananda' (certificate of honor) and the gold medals awarded to him by the British government from his old velvet box.",
+                hin: "Raybahadur ne apne purane box se wo 'Gold Medals' nikale jo Angrezo (British) ne usko wafadari ke liye diye the."
+            },
+            {
+                id: 88, chapter: "ବଡ଼ପଣ", marks: 2, prob: "High",
+                q: "ସଂସାରକୁ କବି କେଉଁଥି ସହିତ ତୁଳନା କରିଛନ୍ତି?",
+                odia: "କବି ରାଧାନାଥ ରାୟ ଏହି ସଂସାରକୁ ଏକ 'ମାୟାମୟ' ଜାଲ ବା ମରୁମରୀଚିକା (Mirage) ସହିତ ତୁଳନା କରିଛନ୍ତି, ଯେଉଁଥିରେ ପାର୍ଥିବ ସୁଖ କ୍ଷଣସ୍ଥାୟୀ ଅଟେ।",
+                eng: "Poet Radhanath Ray has compared this world to a web of illusion (Maya) and a mirage, emphasizing that worldly pleasures are completely temporary.",
+                hin: "Poet ne is duniya ko ek 'Illusion' (Dhokha / Maya) bola hai, jahan paisa aur khushi temporary hai."
+            },
+            {
+                id: 89, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି)", marks: 2, prob: "Guaranteed",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ଆଖିରେ ଧୂଳି ଦେବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଠକିଦେବା ବା ପ୍ରତାରଣା କରିବା (To cheat / deceive)।<br><strong>ବାକ୍ୟ:</strong> ଚୋରଟି ପୋଲିସ <strong>ଆଖିରେ ଧୂଳି ଦେଇ</strong> ଖସି ପଳାଇଲା।",
+                eng: "<strong>Meaning:</strong> To cheat or deceive someone easily.<br><strong>Sentence:</strong> The clever thief threw dust in the eyes of the police (deceived them) and escaped.",
+                hin: "Trick: Aankh me dhool jhonkna. Meaning: Saamne wale ko aasani se dhokha dekar nikal jana."
+            },
+            {
+                id: 90, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି)", marks: 2, prob: "High",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖି ବାକ୍ୟରେ ପ୍ରୟୋଗ କର: 'ଉଠା କାନ୍ଥରେ ଚିତ୍ର ଆଙ୍କିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ଅସମ୍ଭବ କଥା କହିବା ବା ବୃଥା କଳ୍ପନା କରିବା (Building castles in the air)।<br><strong>ବାକ୍ୟ:</strong> ବିନା ପରିଶ୍ରମରେ ବଡ଼ ଲୋକ ହେବା କଥା ଭାବିବା <strong>ଉଠା କାନ୍ଥରେ ଚିତ୍ର ଆଙ୍କିବା</strong> ସହ ସମାନ।",
+                eng: "<strong>Meaning:</strong> Making impossible plans or building castles in the air.<br><strong>Sentence:</strong> Dreaming of success without working hard is like drawing pictures on a non-existent wall.",
+                hin: "Trick: Aisi deewar (wall) pe painting banana jo abhi tak bani hi nahi. Meaning: Khayali pulao pakana ya bina mehnat sapne dekhna."
+            },
+            {
+                id: 91, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "Fix",
+                q: "'ପଞ୍ଚବଟୀ' କେଉଁ ସମାସ ଅଟେ?",
+                odia: "ଏହା <strong>ଦ୍ୱିଗୁ ସମାସ</strong>। (ବିଗ୍ରହ ବାକ୍ୟ: ପଞ୍ଚ ବଟର ସମାହାର)।",
+                eng: "Dwigu Samasa. (A collection of five Banyan trees).",
+                hin: "Trick: Start mein 'Panch' (5 - number) hai, isliye ye fix Dwigu Samasa hai."
+            },
+            {
+                id: 92, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "Fix",
+                q: "'ମହୋଦଧି' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ମହା + ଉଦଧି</strong> = ମହୋଦଧି (ସ୍ୱର ସନ୍ଧି)।",
+                eng: "Maha + Udadhi = Mahodadhi. (Swara Sandhi).",
+                hin: "Trick: 'Maha' ke badle agar upar 'O' (ଓ) ki matra dikhe, toh 'A' + 'U' split karna."
+            },
+            {
+                id: 93, chapter: "ଇତିହାସ", marks: 2, prob: "Medium",
+                q: "ପ୍ରାବନ୍ଧିକ ଇତିହାସକୁ କାହା ସହ ତୁଳନା କରିଛନ୍ତି?",
+                odia: "ପ୍ରାବନ୍ଧିକ ଇତିହାସକୁ ଏକ 'ଜୀବନ୍ତ ଦର୍ପଣ' ଏବଂ 'ଧାରାବାହିକ ସ୍ରୋତ' ସହ ତୁଳନା କରିଛନ୍ତି ଯେଉଁଥିରେ ମନୁଷ୍ୟ ନିଜର ଅତୀତକୁ ଦେଖିପାରେ।",
+                eng: "The author compares history to a 'living mirror' and a 'continuous stream' where humanity can view its own past.",
+                hin: "Writer ne History ko ek 'Aaina' (Mirror) aur lagatar behne wali nadi ke sath compare kiya hai."
+            },
+            {
+                id: 94, chapter: "ପିଙ୍ଗଳାର ଅଭିସାର", marks: 2, prob: "High",
+                q: "ପିଙ୍ଗଳାର ଆଖିରୁ କାହିଁକି ଲୁହ ଝରିପଡିଲା?",
+                odia: "ରାତିସାରା ଧନୀ ବ୍ୟକ୍ତିକୁ ଅପେକ୍ଷା କରି କେହି ନଆସିବାରୁ ତାର ଅଭିମାନ ଭାଙ୍ଗିଗଲା ଏବଂ ଅନ୍ତରରେ ଜାଗ୍ରତ ହୋଇଥିବା ଆଧ୍ୟାତ୍ମିକ ଦୁଃଖ ଓ ପଶ୍ଚାତ୍ତାପ ଯୋଗୁଁ ତା' ଆଖିରୁ ଲୁହ ଝରିପଡିଲା।",
+                eng: "After waiting all night in vain, her false pride was shattered. The tears fell from her eyes due to deep spiritual repentance and the realization of her sinful past.",
+                hin: "Puri raat wait karne ke baad jab koi nahi aaya, toh uska ghamand toot gaya. Apne pichle bure kaamo ka pachhtawa (regret) hone ki wajah se uske aansu nikal aaye."
+            },
+            {
+                id: 95, chapter: "ସଭ୍ୟ ଜମିଦାର", marks: 2, prob: "Medium",
+                q: "ଜମିଦାରୀ କିପରି ହାତଛଡା ହେଲା?",
+                odia: "ରାଜୀବଲୋଚନଙ୍କର ବିଳାସବ୍ୟସନ, ବୃଥା ଖର୍ଚ୍ଚ ଏବଂ ଠକ ସାଙ୍ଗମାନଙ୍କ ଉପରେ ଅନ୍ଧବିଶ୍ୱାସ ଯୋଗୁଁ ସେ କରଜରେ ବୁଡିଗଲେ ଏବଂ ଶେଷରେ ଜମିଦାରୀ ନିଲାମ ହୋଇ ହାତଛଡା ହେଲା।",
+                eng: "Due to Rajiv Lochan's luxurious lifestyle, massive unnecessary expenses, and blind trust in fraud friends, he fell into massive debt, resulting in his Jamindari being auctioned off.",
+                hin: "Rajib ki aish-o-aaram ki life aur dhokhebaaz doston ke chakkar mein uspar bohot udhaari (debt) ho gayi aur uski zameen neelaam (auction) ho gayi."
+            },
+            {
+                id: 96, chapter: "ତପସ୍ୱିନୀର ପତ୍ର", marks: 2, prob: "High",
+                q: "ରାମାୟଣ ଗାନର ପ୍ରଭାବ ଆଶ୍ରମବାସୀଙ୍କ ଉପରେ କିପରି ପଡିଲା?",
+                odia: "ଲବ ଏବଂ କୁଶଙ୍କ ମଧୁର ରାମାୟଣ ଗାନ ଶୁଣି ଆଶ୍ରମର ସମସ୍ତ ମୁନିଋଷି ଏବଂ ପ୍ରାଣୀ ମନ୍ତ୍ରମୁଗ୍ଧ ହୋଇଗଲେ ଏବଂ ସମଗ୍ର ପରିବେଶ ପବିତ୍ର ଓ ନୀରବ ହୋଇଗଲା।",
+                eng: "Hearing the sweet Ramayana sung by Lava and Kusha, all the sages and creatures in the ashram were spellbound, making the atmosphere extremely pure and silent.",
+                hin: "Luv-Kush ka gaana sunkar ashram ke saare sadhu aur janwar ekdum shant (spellbound) ho gaye aur poora environment pavitra ho gaya."
+            },
+            {
+                id: 97, chapter: "ବ୍ୟାକରଣ (ରୂଢ଼ି)", marks: 1, prob: "Fix",
+                q: "ରୂଢ଼ିର ଅର୍ଥ ଲେଖ: 'ଗୋଡ଼ ଟେକି ବସିବା'",
+                odia: "<strong>ଅର୍ଥ:</strong> ସବୁବେଳେ ପ୍ରସ୍ତୁତ ରହିବା (To be absolutely ready for action)।",
+                eng: "Meaning: To be always fully prepared for an action.",
+                hin: "Trick: Pao utha kar baithna. Meaning: Hamesha ready (alert) rehna kisi bhi kaam ke liye."
+            },
+            {
+                id: 98, chapter: "ବ୍ୟାକରଣ (ସନ୍ଧି)", marks: 1, prob: "High",
+                q: "'ପୁନରପି' ର ସନ୍ଧି ବିଚ୍ଛେଦ କର।",
+                odia: "<strong>ପୁନଃ + ଅପି</strong> = ପୁନରପି (ବିସର୍ଗ ସନ୍ଧି)।",
+                eng: "Punah + Api = Punarapi. (Visarga Sandhi).",
+                hin: "Trick: Beech me 'r' (ର) ho, toh wo toot kar (:) Visarga ban jata hai."
+            },
+            {
+                id: 99, chapter: "ବ୍ୟାକରଣ (ସମାସ)", marks: 1, prob: "High",
+                q: "'ନୀଳକଇଁ' କେଉଁ ସମାସ ଅଟେ?",
+                odia: "ଏହା <strong>କର୍ମଧାରୟ ସମାସ</strong>। (ବିଗ୍ରହ: ନୀଳ ଅଟେ କଇଁ)।",
+                eng: "Karmadharaya Samasa. (A lotus which is blue).",
+                hin: "Trick: Jab kisi cheez ka rang ya quality batayi jaye (Neela hai jo lotus), toh wo Karmadharaya hota hai."
+            },
+            {
+                id: 100, chapter: "ମାଷ୍ଟର କ୍ୱେଶ୍ଚନ (Master Question)", marks: 5, prob: "Guaranteed",
+                q: "ବୋର୍ଡ ପରୀକ୍ଷା ପାଇଁ ଗୋଟିଏ ପ୍ରଭାବଶାଳୀ ଦୀର୍ଘ ଉତ୍ତର କିପରି ଲେଖିବେ?",
+                odia: "<strong>ପ୍ରାରମ୍ଭିକ ସୂଚନା (Intro):</strong> ପ୍ରଥମେ ଲେଖକ ବା କବିଙ୍କ ନାମ ଏବଂ ବିଷୟର ନାମ କଳା କଲମରେ ଲେଖି ଅଣ୍ଡରଲାଇନ୍ କରିବେ।<br><br><strong>ବିଷୟବସ୍ତୁ (Body):</strong> ତା'ପରେ ପାରାଗ୍ରାଫ୍ ପରିବର୍ତ୍ତନ କରି ପ୍ରଶ୍ନର ମୁଖ୍ୟ ଉତ୍ତରକୁ ୩ ରୁ ୪ ଟି ପଏଣ୍ଟରେ ସଜାଇ ଲେଖିବେ। ଯେପରିକି, ସ୍ୱାଧୀନ ଦେଶର ଶିକ୍ଷା ଚିନ୍ତା ଆସିଲେ 'ନୋଟ୍ ବହି' ଏବଂ 'କପି' କଥା ନିଶ୍ଚୟ ଲେଖିବେ।<br><br><strong>ଉପସଂହାର (Conclusion):</strong> ଶେଷରେ ବିଷୟର ମୂଳ ଶିକ୍ଷା ବା ମୋରାଲ୍ ଲେଖି ଉତ୍ତର ସମାପ୍ତ କରିବେ। ଏହି ଫର୍ମାଟ୍ ରେ ୫ ରୁ ୫ ମାର୍କ ନିଶ୍ଚୟ ମିଳିବ।",
+                eng: "<strong>Intro:</strong> Always start by writing the author's name and chapter name in black pen and underline it.<br><br><strong>Body:</strong> Change the paragraph and write the core answer in 3-4 bullet points or structured paragraphs highlighting key words.<br><br><strong>Conclusion:</strong> End with a moral or the ultimate message of the chapter. This 3-step format guarantees full 5 marks in the CBSE board.",
+                hin: "Bhai 5 Mark laney ki Ninja Trick: <br>1. <strong>Intro:</strong> Chapter aur Writer ka naam Black pen se underline karke likho.<br>2. <strong>Body:</strong> Para change karo aur answer ki main baatein likho (hamesha keywords use karo).<br>3. <strong>Conclusion:</strong> End me likho ki is chapter se hume kya seekh milti hai. Koi examiner ek mark bhi nahi kaat payega!"
+            }
+        ];
+
+        // =========================================
+        // 5. RENDER THE ENGINE (With Smart Filter)
+        // =========================================
+        const qnaContainer = document.getElementById('qna-container');
+        
+        if (qnaContainer) {
+            questionsData.forEach(q => {
+                const badgeClass = q.prob === 'High' || q.prob === 'Guaranteed' || q.prob === 'Fix' ? 'bg-high' : 'bg-med';
+                let markLabel = q.marks === 5 ? "5 Marks (Long)" : `${q.marks} Marks`;
+                
+                const item = document.createElement('div');
+                item.className = 'qa-item';
+                item.setAttribute('data-mark', q.marks); // Yeh naya filter tag hai
+                
+                item.innerHTML = `
+                    <div class="qa-header" onclick="toggleQA(this)" style="padding: 20px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; background: var(--card-bg); border-radius: 8px;">
+                        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                            <span class="badge" style="background:#8b5cf6;">Q${q.id}</span>
+                            <span class="badge" style="background:#10b981;">${markLabel}</span>
+                            <span class="badge ${badgeClass}">${q.prob}</span>
+                        </div>
+                        <div style="font-weight: 700; color: var(--secondary-blue); font-size: 1.25rem;" class="odia-text">${q.q}</div>
+                        <div style="font-size:0.9rem; color:var(--text-muted); font-weight: 500;"><i class="fas fa-book"></i> Chapter: ${q.chapter}</div>
+                    </div>
+                    <div class="qa-content" style="display: none; padding: 20px; border-top: 1px solid var(--border); background: var(--bg-color);">
+                        <div class="ans-text ans-odia active">
+                            <div style="font-weight: 700; margin-bottom: 10px; font-size: 1.1rem; color:var(--primary-blue);"><i class="fas fa-pen-alt"></i> ଓଡ଼ିଆ ଉତ୍ତର (Full Standard):</div>
+                            <p class="odia-text">${q.odia}</p>
+                        </div>
+                        <div class="ans-text ans-eng">
+                            <div style="font-weight: 700; margin-bottom: 10px; font-size: 1.1rem; color:#059669;"><i class="fas fa-language"></i> English Meaning:</div>
+                            <p>${q.eng}</p>
+                        </div>
+                        <div class="ans-text ans-hin">
+                            <div style="font-weight: 700; margin-bottom: 10px; font-size: 1.1rem; color:#ea580c;"><i class="fas fa-lightbulb"></i> Hinglish Class Logic:</div>
+                            <p>${q.hin}</p>
+                        </div>
+                    </div>
+                `;
+                qnaContainer.appendChild(item);
+            });
+        }
+
+        // =========================================
+        // 6. SMART MARK FILTER LOGIC
+        // =========================================
+        function filterMarks(mark, element) {
+            // Button color update
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            // Hide or Show questions based on Marks
+            const allItems = document.querySelectorAll('.qa-item');
+            allItems.forEach(item => {
+                const itemMark = parseInt(item.getAttribute('data-mark'));
+                if (mark === 'all' || itemMark === mark) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // =========================================
+        // 7. ACCORDION LOGIC
+        // =========================================
+        function toggleQA(el) {
+            const item = el.parentElement;
+            document.querySelectorAll('.qa-item').forEach(i => {
+                if(i !== item && i.querySelector('.qa-content')) {
+                    i.querySelector('.qa-content').style.display = 'none';
+                }
+            });
+            const content = item.querySelector('.qa-content');
+            if(content) {
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        // =========================================
+        // 8. GLOBAL QnA LANGUAGE TOGGLE
+        // =========================================
+        function setGlobalLang(lang) {
+            document.querySelectorAll('#globalOdia, #globalEng, #globalHin').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('global' + lang.charAt(0).toUpperCase() + lang.slice(1));
+            if(activeBtn) activeBtn.classList.add('active');
+            
+            document.querySelectorAll('.ans-text').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.ans-' + lang).forEach(el => el.classList.add('active'));
+            
+            document.querySelectorAll('.ans-text').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.ans-' + lang).forEach(el => el.style.display = 'block');
+        }
+        
+        // App start hote hi Odia set karega
+        setGlobalLang('odia');
+    </script>
+</body>
+</html>
+
+
+            
+    </main>
+
+    <footer>
+        <p>Developed & Created by Baddal Meher</p>
+        <p class="branding">CBSE Class 12 Odia Preparation Portal</p>
+    </footer>
+
+    <script>
+        // 1. Dark Mode
+        if(localStorage.getItem('theme') === 'dark') { 
+            document.body.classList.add('dark-mode'); 
+            document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>'; 
+        }
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            let isDark = document.body.classList.contains('dark-mode');
+            this.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // 2. Dashboard Navigation Logic
+        function showSection(sectionId, element) {
+            // Remove active class from all cards
+            document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
+            // Add active class to clicked card
+            element.classList.add('active');
+
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            // Show targeted section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 3. Language Switcher Logic
+        function switchLang(evt, targetId) {
+            let container = evt.currentTarget.closest('.section-card'); 
+            container.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+
+            container.querySelectorAll('.lang-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

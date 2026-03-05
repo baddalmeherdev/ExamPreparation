@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Formats & Tricks | Board Prep Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header { text-align: center; padding: 2rem 1rem; }
+        .back-btn { display: inline-block; margin: 1rem 0 1rem 5%; text-decoration: none; color: var(--primary); font-weight: 600; }
+        .controls-bar { display: flex; justify-content: center; margin-bottom: 2rem; }
+        .toggle-container { background: var(--card-bg); padding: 10px 20px; border-radius: 30px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
+        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #8b5cf6; } /* Purple for English */
+        input:checked + .slider:before { transform: translateX(24px); }
+        .weak-label { color: #6d28d9; font-weight: bold; }
+
+        .qa-container { max-width: 900px; margin: 0 auto; padding: 0 1rem 3rem 1rem; }
+        .accordion-item { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 15px; margin-bottom: 1.5rem; overflow: hidden; box-shadow: var(--shadow); }
+        .accordion-header { width: 100%; text-align: left; padding: 1.5rem; background: transparent; border: none; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .badges { margin-bottom: 10px; display: flex; gap: 8px; }
+        .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; text-transform: uppercase; letter-spacing: 0.5px;}
+        .chance-high { background: #ef4444; } 
+        .chance-medium { background: #f59e0b; } 
+        .chance-low { background: #3b82f6; } 
+        
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.5rem; }
+        .accordion-item.active .accordion-content { max-height: 2500px; padding-bottom: 1.5rem; border-top: 1px solid var(--glass-border); }
+        
+        .tabs { display: flex; gap: 10px; margin: 15px 0; border-bottom: 2px solid var(--glass-border); padding-bottom: 10px; }
+        .tab-btn { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+        .tab-content { display: none; line-height: 1.6; font-size: 0.95rem; color: var(--text-dark); }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        
+        /* Format Box for English */
+        .format-box { font-family: monospace; background: rgba(0,0,0,0.05); padding: 15px; border: 1px dashed var(--text-dark); margin: 10px 0; border-radius: 5px; white-space: pre-wrap;}
+        .dark-mode .format-box { background: rgba(255,255,255,0.05); }
+
+        .beginner-box { display: none; margin-top: 20px; background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; padding: 15px; border-radius: 0 10px 10px 0; }
+        body.weak-mode-on .beginner-box { display: block; animation: fadeIn 0.5s; }
+        .beginner-box h4 { color: #6d28d9; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-pen-nib"></i> BoardPrep | English Core</div>
+    </nav>
+
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <div class="page-header">
+        <h1 style="color: #8b5cf6;">Class 12th English</h1>
+        <p style="color: var(--text-dark); opacity: 0.8;">Writing Formats & Literature Hacks</p>
+    </div>
+
+    <div class="controls-bar">
+        <div class="toggle-container">
+            <span>Standard View</span>
+            <label class="switch">
+                <input type="checkbox" id="weakToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="weak-label">"Explain Like I'm Weak" Mode</span>
+        </div>
+    </div>
+
+    <div class="qa-container" id="qa-container"></div>
+
+    <footer>
+        <p class="branding">Developed & Created by Baddal Meher</p>
+    </footer>
+
+    <script>
+        // Theme Check
+        if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // BADDAL'S ENGLISH DATABASE ENGINE
+        const engQuestions = [
+            {
+                id: 1, chance: "High",
+                question: "Formal Letter (Letter to the Editor) - Exact Format for 5 Marks",
+                en: "Format must be strictly left-aligned. <br><div class='format-box'>Sender's Address\n\nDate (e.g., 26 February 2026)\n\nThe Editor\nName of Newspaper\nCity\n\nSubject: ...\n\nSir/Madam,\n[Body: Para 1 (Intro), Para 2 (Details), Para 3 (Conclusion)]\n\nYours sincerely,\n[Signature/Name]</div>",
+                hi: "Format ko hamesha left side ki margin se chipka kar likhna hai. Subject chhota hona chahiye. Body ko hamesha 3 parts me likho: Pehle batao problem kya hai, fir uske asar, aur end me request karo ki isko paper me chhapein.",
+                od: "ଫର୍ମାଟ୍ ସବୁବେଳେ ବାମ ପାର୍ଶ୍ୱରୁ ଆରମ୍ଭ ହେବ। ପ୍ରେରକଙ୍କ ଠିକଣା, ତାରିଖ, The Editor ଏବଂ ବିଷୟ (Subject) ସଠିକ୍ ଭାବରେ ଲେଖନ୍ତୁ। ଶରୀରକୁ (Body) ୩ଟି ପାରାଗ୍ରାଫରେ ବିଭକ୍ତ କରନ୍ତୁ।",
+                beginner: "Hack for Weak Students: <br>Grammar nahi aati? Tension mat lo!<br>1. Sender/Receiver Address <b>Question Paper se uthao</b>.<br>2. Subject 'Regarding...' lagakar question se chhap do.<br>3. <b>Body ki First Line Ratt Lo:</b> <i>'Through the columns of your esteemed newspaper, I would like to draw the attention of the concerned authorities towards...'</i> Is line pe sidha 1.5 marks mil jayenge!"
+            },
+            {
+                id: 2, chance: "High",
+                question: "Notice Writing Format - How to score full 4 Marks?",
+                en: "Notice MUST be enclosed in a BOX.<br><div class='format-box'>NAME OF INSTITUTION / SCHOOL\nNOTICE\n\nDate\n\nHEADING/TITLE\n\nThis is to inform all students that... [Target audience, Date, Time, Venue, Agenda]...\n\nName\nDesignation</div>",
+                hi: "Sabse bada rule: Notice ke chaaron taraf Box zaroor banana pencil se! Upar school ka naam (Capital letters me), fir NOTICE (Capital me), uske baad Date. Heading chhoti aur catchy honi chahiye.",
+                od: "ସବୁଠାରୁ ବଡ ନିୟମ: ନୋଟିସ୍ କୁ ଏକ ବାକ୍ସ (Box) ଭିତରେ ଲେଖିବା ବାଧ୍ୟତାମୂଳକ! ଉପରେ ସ୍କୁଲର ନାମ ବଡ଼ ଅକ୍ଷରରେ (Capital), ତା'ତଳେ NOTICE, ତାପରେ ତାରିଖ ଏବଂ ଶୀର୍ଷକ।",
+                beginner: "Sirf Box aur Format banane ke 2 marks fix hain. <br>Starting line humesha ye likhna: <i>'All the students are hereby informed that our school is organizing...'</i> <br>End me ye chipka dena: <i>'For further details, contact the undersigned.'</i>"
+            },
+            {
+                id: 3, chance: "Medium",
+                question: "Article / Report Writing Format",
+                en: "<b>Report:</b> Past tense is mandatory. Format: Title, Byline (By: Name).<br><b>Article:</b> Present/Mixed tense. Format: Title, Byline. Divide into 3-4 paragraphs. Use statistics or rhetorical questions.",
+                hi: "Report hamesha 'Past Tense' (kya hua tha) mein likhi jati hai. Article mein apni rai (opinion) de sakte ho. Dono mein Title aur likhne wale ka naam (By: Name) upar likhna zaroori hai.",
+                od: "ରିପୋର୍ଟ ସବୁବେଳେ ଅତୀତ କାଳରେ (Past Tense) ଲେଖାଯାଏ। ଆର୍ଟିକିଲ୍ ବର୍ତ୍ତମାନ କାଳରେ ଲେଖାଯାଇପାରିବ। ଦୁଇଟିରେ ଶୀର୍ଷକ ଏବଂ ଲେଖକଙ୍କ ନାମ ରହିବା ଜରୁରୀ।",
+                beginner: "Agar Report aur Article dono option mein aayein, toh <b>hamesha Report choose karna!</b> Kyunki report mein facts aur past tense lagana aasan hota hai. Sentence banate time bas 'was/were' aur verb ki 2nd form laga dena."
+            },
+            {
+                id: 4, chance: "Medium",
+                question: "Literature Theme: My Mother at Sixty-Six (Kamala Das)",
+                en: "The poem revolves around the theme of advancing age, fear of loss, and the pain of separation. Key poetic devices used: <br>- Simile: 'as a late winter's moon', 'face ashen like that of a corpse'.<br>- Personification: 'Trees sprinting'.",
+                hi: "Ye poem apni maa ke budhaape aur unhe khone ke darr ke baare mein hai. Kavi apni maa ki tulna sardiyon ke chaand (late winter's moon) se karti hai kyunki uski chamak kam ho gayi hai.",
+                od: "ଏହି କବିତା ମାଆଙ୍କ ବାର୍ଦ୍ଧକ୍ୟ ଏବଂ ତାଙ୍କୁ ହରାଇବାର ଭୟ ଉପରେ ଆଧାରିତ। କବି ନିଜ ମାଆଙ୍କୁ ଶୀତଦିନର ଜହ୍ନ (late winter's moon) ସହ ତୁଳନା କରିଛନ୍ତି କାରଣ ତାଙ୍କ ମୁହଁର ଉଜ୍ଜ୍ୱଳତା କମିଯାଇଛି।",
+                beginner: "Examiner keywords dhundhta hai. Answer me ye 3 words daal dena: <b>'Fear of separation', 'Advancing age', aur 'Late winter's moon'</b>. Marks automatically mil jayenge!"
+            }
+        ];
+
+        // ENGINE LOGIC
+        const orderMap = { "High": 1, "Medium": 2, "Low": 3 };
+        engQuestions.sort((a, b) => orderMap[a.chance] - orderMap[b.chance]);
+
+        const container = document.getElementById('qa-container');
+        
+        engQuestions.forEach(q => {
+            let badgeClass = '';
+            if(q.chance === 'High') badgeClass = 'chance-high';
+            else if(q.chance === 'Medium') badgeClass = 'chance-medium';
+            else badgeClass = 'chance-low';
+
+            const html = `
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleQ(this)">
+                    <div>
+                        <div class="badges">
+                            <span class="badge ${badgeClass}">${q.chance} Chance</span>
+                        </div>
+                        Q: ${q.question}
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="showLang(this, 'en', ${q.id})">English</button>
+                        <button class="tab-btn" onclick="showLang(this, 'hi', ${q.id})">Hinglish</button>
+                        <button class="tab-btn" onclick="showLang(this, 'od', ${q.id})">Odia</button>
+                    </div>
+                    
+                    <div id="ans-en-${q.id}" class="tab-content active">${q.en}</div>
+                    <div id="ans-hi-${q.id}" class="tab-content">${q.hi}</div>
+                    <div id="ans-od-${q.id}" class="tab-content">${q.od}</div>
+
+                    <div class="beginner-box">
+                        <h4><i class="fas fa-lightbulb"></i> Baddal's Weak Student Logic:</h4>
+                        ${q.beginner}
+                    </div>
+                </div>
+            </div>`;
+            
+            container.innerHTML += html;
+        });
+
+        // UI LOGIC
+        function toggleQ(btn) {
+            const item = btn.parentElement;
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                if(i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        function showLang(btn, lang, id) {
+            const tabs = btn.parentElement.querySelectorAll('.tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            
+            ['en', 'hi', 'od'].forEach(l => {
+                document.getElementById(`ans-${l}-${id}`).classList.remove('active');
+            });
+            document.getElementById(`ans-${lang}-${id}`).classList.add('active');
+        }
+
+        const weakToggle = document.getElementById('weakToggle');
+        weakToggle.addEventListener('change', (e) => {
+            e.target.checked ? document.body.classList.add('weak-mode-on') : document.body.classList.remove('weak-mode-on');
+        });
+    </script>
+</body>
+</html>

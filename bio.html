@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Notes & Diagrams | Board Prep Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header { text-align: center; padding: 2rem 1rem; }
+        .back-btn { display: inline-block; margin: 1rem 0 1rem 5%; text-decoration: none; color: var(--primary); font-weight: 600; }
+        .controls-bar { display: flex; justify-content: center; margin-bottom: 2rem; }
+        .toggle-container { background: var(--card-bg); padding: 10px 20px; border-radius: 30px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
+        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #10b981; }
+        input:checked + .slider:before { transform: translateX(24px); }
+        .weak-label { color: #059669; font-weight: bold; }
+
+        .qa-container { max-width: 900px; margin: 0 auto; padding: 0 1rem 3rem 1rem; }
+        .accordion-item { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 15px; margin-bottom: 1.5rem; overflow: hidden; box-shadow: var(--shadow); }
+        .accordion-header { width: 100%; text-align: left; padding: 1.5rem; background: transparent; border: none; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .badges { margin-bottom: 10px; display: flex; gap: 8px; }
+        .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; text-transform: uppercase; letter-spacing: 0.5px;}
+        .chance-high { background: #ef4444; } 
+        .chance-medium { background: #f59e0b; } 
+        .chance-low { background: #3b82f6; } 
+        
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.5rem; }
+        .accordion-item.active .accordion-content { max-height: 2500px; padding-bottom: 1.5rem; border-top: 1px solid var(--glass-border); }
+        
+        .tabs { display: flex; gap: 10px; margin: 15px 0; border-bottom: 2px solid var(--glass-border); padding-bottom: 10px; }
+        .tab-btn { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+        .tab-content { display: none; line-height: 1.6; font-size: 0.95rem; color: var(--text-dark); }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        
+        /* Biology specific elements */
+        .svg-container { text-align: center; margin: 15px 0; padding: 10px; background: rgba(0,0,0,0.02); border-radius: 10px; }
+        .beginner-box { display: none; margin-top: 20px; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 15px; border-radius: 0 10px 10px 0; }
+        body.weak-mode-on .beginner-box { display: block; animation: fadeIn 0.5s; }
+        .beginner-box h4 { color: #059669; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-dna"></i> BoardPrep | Biology</div>
+    </nav>
+
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <div class="page-header">
+        <h1 style="color: var(--secondary);">Class 12th Biology</h1>
+        <p style="color: var(--text-dark); opacity: 0.8;">High-Scoring Diagrams & 5-Mark Questions</p>
+    </div>
+
+    <div class="controls-bar">
+        <div class="toggle-container">
+            <span>Standard View</span>
+            <label class="switch">
+                <input type="checkbox" id="weakToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="weak-label">"Explain Like I'm Weak" Mode</span>
+        </div>
+    </div>
+
+    <div class="qa-container" id="qa-container"></div>
+
+    <footer>
+        <p class="branding">Developed & Created by Baddal Meher</p>
+    </footer>
+
+    <script>
+        // Theme Check
+        if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // BADDAL'S BIOLOGY DATABASE ENGINE
+        const bioQuestions = [
+            {
+                id: 1, chance: "High",
+                question: "Explain the structure of DNA Double Helix with a suitable diagram. (5 Marks)",
+                en: "DNA is composed of two polynucleotide chains coiled in a right-handed fashion. <br>1. The backbone is formed by sugar and phosphate.<br>2. Nitrogenous bases project inward. Adenine pairs with Thymine (2 hydrogen bonds), and Guanine pairs with Cytosine (3 hydrogen bonds).<br>3. The two chains have anti-parallel polarity (5'->3' and 3'->5').",
+                hi: "DNA do polynucleotide chains se banta hai jo seedhi (ladder) ki tarah lipti hoti hain. Iski backbone Sugar aur Phosphate ki bani hoti hai. Andar ki taraf bases hote hain: A hamesha T ke sath judta hai (double bond), aur G hamesha C ke sath judta hai (triple bond).",
+                od: "ଡିଏନଏ (DNA) ଦୁଇଟି ପଲିନ୍ୟୁକ୍ଲିଓଟାଇଡ୍ ଶୃଙ୍ଖଳାରେ ଗଠିତ। ଏହାର ବ୍ୟାକବୋନ୍ ଚିନି ଏବଂ ଫସଫେଟ୍ ଦ୍ୱାରା ଗଠିତ। ଏଡେନାଇନ୍ ଥାଇମିନ୍ ସହିତ (୨ଟି ବଣ୍ଡ) ଏବଂ ଗୁଆନାଇନ୍ ସାଇଟୋସିନ୍ ସହିତ (୩ଟି ବଣ୍ଡ) ଯୋଡି ହୋଇଥାଏ।",
+                diagram: `<div class='svg-container'>
+                    <svg width="80" height="200" viewBox="0 0 100 200">
+                        <path d="M20,20 Q50,100 20,180 M80,20 Q50,100 80,180" stroke="var(--primary)" stroke-width="4" fill="transparent"/>
+                        <line x1="30" y1="40" x2="70" y2="40" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="50" y="38" font-size="10" text-anchor="middle" fill="var(--text-dark)">A=T</text>
+                        <line x1="45" y1="100" x2="55" y2="100" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="30" y1="160" x2="70" y2="160" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="50" y="158" font-size="10" text-anchor="middle" fill="var(--text-dark)">G≡C</text>
+                    </svg>
+                    <p style="font-size: 0.8rem; margin-top: 5px;"><i>(Coded Diagram: DNA Helix)</i></p>
+                </div>`,
+                beginner: "Biology Hack: Exam mein diagram banana bohot zaruri hai. Sirf 2 leherein (waves) draw karo aur unke beech mein lines (A=T, G≡C) likh do. 5 mein se 3 marks sirf diagram aur in 2 points (A-T, G-C) ke hote hain."
+            },
+            {
+                id: 2, chance: "High",
+                question: "What is Double Fertilization in Angiosperms? Explain Syngamy and Triple Fusion.",
+                en: "It involves two fusions in the embryo sac: <br><b>1. Syngamy:</b> One male gamete fuses with the egg cell to form a diploid zygote (2n), which develops into an embryo.<br><b>2. Triple Fusion:</b> The other male gamete fuses with two polar nuclei to form a triploid Primary Endosperm Nucleus (PEN, 3n), which provides nutrition.",
+                hi: "Isme pollen tube se 2 male gametes nikalte hain. <br>Pehla male gamete Egg ke sath jud kar Zygote (2n) banata hai. <br>Dusra male gamete 2 polar nuclei ke sath jud kar PEN (3n) banata hai. Isliye isko Double Fertilization kehte hain.",
+                od: "ଏଥିରେ ଦୁଇଟି ମିଳନ ହୁଏ: <br>୧. ଗୋଟିଏ ପୁଂ-ଯୁଗ୍ମକ ଅଣ୍ଡକୋଷ ସହ ମିଶି ଯୁଗ୍ମଜ (2n) ଗଠନ କରେ। <br>୨. ଅନ୍ୟ ପୁଂ-ଯୁଗ୍ମକଟି ୨ଟି ପୋଲାର ନ୍ୟୁକ୍ଲିୟସ୍ ସହ ମିଶି ପ୍ରାଥମିକ ଏଣ୍ଡୋସ୍ପର୍ମ (3n) ଗଠନ କରେ।",
+                diagram: "",
+                beginner: "Sabse aasan sawal! Bas ye equation yaad rakho: <br>Ladka 1 + Egg = Bacha (Zygote) <br>Ladka 2 + 2 Polar = Khana (Endosperm). <br>Kyunki 2 baar judai hui, isliye 'Double' fertilization."
+            },
+            {
+                id: 3, chance: "Medium",
+                question: "Differentiate between Spermatogenesis and Oogenesis.",
+                en: "<b>Spermatogenesis:</b> Occurs in testis, continuous after puberty, produces 4 equal sperms from one primary spermatocyte. <br><b>Oogenesis:</b> Occurs in ovary, discontinuous (starts before birth, arrests, completes at fertilization), produces 1 large ovum and 2-3 tiny polar bodies from one primary oocyte.",
+                hi: "<b>Spermatogenesis</b> ladko mein hota hai, ek cell se 4 sperm bante hain, aur ye puberty ke baad lagatar chalta hai. <br><b>Oogenesis</b> ladkiyon mein hota hai, ek cell se sirf 1 bada ovum (egg) banta hai baki polar bodies bekar ho jati hain. Ye process paida hone se pehle hi shuru ho jata hai.",
+                od: "<b>ସ୍ପର୍ମାଟୋଜେନେସିସ୍:</b> ପୁରୁଷଙ୍କଠାରେ ହୁଏ, ଗୋଟିଏ କୋଷରୁ ୪ଟି ଶୁକ୍ରାଣୁ ସୃଷ୍ଟି ହୁଏ। <br><b>ଓଜେନେସିସ୍:</b> ମହିଳାଙ୍କଠାରେ ହୁଏ, ଗୋଟିଏ କୋଷରୁ କେବଳ ୧ଟି ଡିମ୍ବାଣୁ ସୃଷ୍ଟି ହୁଏ ଏବଂ ଏହା ଜନ୍ମ ପୂର୍ବରୁ ଆରମ୍ଭ ହୋଇଥାଏ।",
+                diagram: "",
+                beginner: "Table format mein answer likhna! Examiner difference wale question mein paragraphs nahi padhta. Left mein Sperm, Right mein Ovum. 1 cell se 4 sperm vs 1 cell se 1 egg likh doge toh bhi half marks mil jayenge."
+            },
+            {
+                id: 4, chance: "Low",
+                question: "Explain the process of Transcription in Prokaryotes.",
+                en: "Transcription has 3 steps using RNA Polymerase: <br>1. <b>Initiation:</b> RNA polymerase binds to promoter with Sigma factor. <br>2. <b>Elongation:</b> Polymerase adds RNA nucleotides. <br>3. <b>Termination:</b> Reaches terminator region, Rho factor binds, and RNA falls off.",
+                hi: "DNA se RNA banne ko transcription kehte hain. 3 steps hote hain: <br>1. Shuruwat (Initiation) - Sigma factor start karta hai. <br>2. Lamba hona (Elongation) - RNA chain banti hai. <br>3. Khatam hona (Termination) - Rho factor usko rok deta hai.",
+                od: "ଡିଏନଏରୁ ଆରଏନଏ ପ୍ରସ୍ତୁତିକୁ ଟ୍ରାନ୍ସକ୍ରିପସନ୍ କୁହାଯାଏ। ଏହାର ୩ଟି ସୋପାନ ଅଛି: <br>୧. ଇନିସିଏସନ୍ (Sigma factor ଦ୍ୱାରା) <br>୨. ଇଲୋଙ୍ଗେସନ୍ <br>୩. ଟର୍ମିନେସନ୍ (Rho factor ଦ୍ୱାରା)।",
+                diagram: "",
+                beginner: "Naam ajeeb hain, trick se yaad karo: <br>Start karne wali gaadi ki chabi = <b>Sigma factor</b>. <br>Break lagane wali chabi = <b>Rho factor</b>. <br>Bas in do characters ka naam likh aana, marks mil jayenge."
+            }
+        ];
+
+        // ENGINE LOGIC
+        const orderMap = { "High": 1, "Medium": 2, "Low": 3 };
+        bioQuestions.sort((a, b) => orderMap[a.chance] - orderMap[b.chance]);
+
+        const container = document.getElementById('qa-container');
+        
+        bioQuestions.forEach(q => {
+            let badgeClass = '';
+            if(q.chance === 'High') badgeClass = 'chance-high';
+            else if(q.chance === 'Medium') badgeClass = 'chance-medium';
+            else badgeClass = 'chance-low';
+
+            const html = `
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleQ(this)">
+                    <div>
+                        <div class="badges">
+                            <span class="badge ${badgeClass}">${q.chance} Chance</span>
+                        </div>
+                        Q: ${q.question}
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    ${q.diagram}
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="showLang(this, 'en', ${q.id})">English</button>
+                        <button class="tab-btn" onclick="showLang(this, 'hi', ${q.id})">Hinglish</button>
+                        <button class="tab-btn" onclick="showLang(this, 'od', ${q.id})">Odia</button>
+                    </div>
+                    
+                    <div id="ans-en-${q.id}" class="tab-content active">${q.en}</div>
+                    <div id="ans-hi-${q.id}" class="tab-content">${q.hi}</div>
+                    <div id="ans-od-${q.id}" class="tab-content">${q.od}</div>
+
+                    <div class="beginner-box">
+                        <h4><i class="fas fa-lightbulb"></i> Baddal's Weak Student Logic:</h4>
+                        ${q.beginner}
+                    </div>
+                </div>
+            </div>`;
+            
+            container.innerHTML += html;
+        });
+
+        // UI LOGIC
+        function toggleQ(btn) {
+            const item = btn.parentElement;
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                if(i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        function showLang(btn, lang, id) {
+            const tabs = btn.parentElement.querySelectorAll('.tab-btn');
+            tabs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            
+            ['en', 'hi', 'od'].forEach(l => {
+                document.getElementById(`ans-${l}-${id}`).classList.remove('active');
+            });
+            document.getElementById(`ans-${lang}-${id}`).classList.add('active');
+        }
+
+        const weakToggle = document.getElementById('weakToggle');
+        weakToggle.addEventListener('change', (e) => {
+            e.target.checked ? document.body.classList.add('weak-mode-on') : document.body.classList.remove('weak-mode-on');
+        });
+    </script>
+</body>
+</html>
